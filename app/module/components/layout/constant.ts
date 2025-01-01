@@ -17,7 +17,7 @@ const HEADER_MENU_LIST = [
   {
     id: 3,
     name: "선교",
-    url: "mission-notice",
+    url: "/mission",
   },
 ];
 

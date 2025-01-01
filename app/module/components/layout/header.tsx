@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="w-full max-w-[1024px] mx-auto h-[60px] flex justify-between items-center">
+    <header className="lg:px-0 px-[60px] w-full max-w-[1024px] mx-auto h-[60px] flex justify-between items-center">
       <p className="w-[100px]">
         <Link href={"/"}>
           <Image src={Logo} alt="로고 이미지" />
@@ -21,11 +21,15 @@ export default function Header() {
           );
         })}
       </ul>
-      <div className="flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]">
-        <button>로그인</button>
+      <ul className="flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]">
+        <li>
+          <Link href={"/sign-in"}>로그인</Link>
+        </li>
         <p className="w-[2px] h-[18px] bg-white rounded-full" />
-        <button>회원가입</button>
-      </div>
+        <li>
+          <Link href={"/sign-up"}>회원가입</Link>
+        </li>
+      </ul>
     </header>
   );
 }
