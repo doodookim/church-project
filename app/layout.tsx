@@ -2,12 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { pretendard } from "./fonts";
 import ReactQueryProvider from "./ReactQueryProvider";
-import {
-  dehydrate,
-  HydrationBoundary,
-  QueryClient,
-} from "@tanstack/react-query";
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import getQueryClient from "./getQueryClient";
+import Header from "./module/components/layout/header";
+import Footer from "./module/components/layout/footer";
 
 export const metadata: Metadata = {
   title: "생명의 빛 교회",
@@ -28,7 +26,9 @@ export default function RootLayout({
       >
         <ReactQueryProvider>
           <HydrationBoundary state={dehydratedState}>
-            {children}
+            <Header />
+            <main className="w-full max-w-[1024px] mx-auto">{children}</main>
+            <Footer />
           </HydrationBoundary>
         </ReactQueryProvider>
       </body>
