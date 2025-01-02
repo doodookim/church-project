@@ -1,15 +1,16 @@
-import { GetServerSidePropsContext } from "next";
-import ContentLayout from "../module/components/layout/content-layout";
+import ContentBanner from "../module/components/layout/content-banner";
 
-export default function RootLayout({
+export default function ContentLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <>
-      <ContentLayout />
-      {children}
+      <ContentBanner />
+      <section className="w-full max-w-[1024px] flex justify-between items-start mx-auto my-[100px]">
+        {children}
+      </section>
     </>
   );
 }
