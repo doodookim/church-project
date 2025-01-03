@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ChurchMissionField from "@/app/module/components/mission-field/ChurchMissionField"
 
 export const metadata: Metadata = {
   title: "선교지 안내 | 생명의 빛 교회",
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function MissionPage() {
-  return <div>선교지 안내</div>;
+  return (
+  <div>
+    <ChurchMissionField/>
+  </div>
+  );
 }
