@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import NewsList from "./list/NewsList";
 import Pagination from "./list/Pagination";
 import { useRouter } from "next/navigation";
+import { INewsList } from "@/utils/types/newsData";
 
 export default function NewsPagination() {
   const router = useRouter();
@@ -21,10 +22,16 @@ export default function NewsPagination() {
   useEffect(() => {
     router.push(`/news?page=${currentPage}`);
   }, [currentPage, router]);
-  if (isLoading) return <div>로딩 중입니다.</div>;
+  if (isLoading) return <div className="h-screen">로딩 중입니다.</div>;
+
+  // 게시글 누르면 해당 게시글 id로 detail 페이지로 이동
+  const moveToDetail = (newsid: number) => {
+    router.push(`/news/${newsid}`);
+  };
+
   return (
     <div>
-      <NewsList data={data} />
+      <NewsList data={data} moveToDetail={moveToDetail} />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

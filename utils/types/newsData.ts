@@ -5,7 +5,7 @@ export interface INewsListItem {
   notification: boolean;
 }
 
-export interface INewsListResponse {
+export interface INewsList {
   count: number;
   next: string | null;
   previous: string | null;

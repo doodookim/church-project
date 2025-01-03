@@ -1,4 +1,4 @@
-import { INewsListResponse } from "@/utils/types/newsData";
+import { INewsList } from "@/utils/types/newsData";
 import { useQuery } from "@tanstack/react-query";
 
 const getNewsData = async (page: number) => {
@@ -10,7 +10,7 @@ const getNewsData = async (page: number) => {
 };
 
 const useFetchNews = (page: number) => {
-  const { data, isLoading } = useQuery<INewsListResponse>({
+  const { data, isLoading } = useQuery<INewsList>({
     queryKey: ["newsList", page],
     queryFn: () => getNewsData(page),
   });

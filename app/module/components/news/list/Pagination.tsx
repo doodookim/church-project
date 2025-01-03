@@ -24,11 +24,11 @@ export default function Pagination({
     (_, i) => currentPageGroupFirst + i
   );
   return (
-    <div className="flex items-center justify-center gap-2 mt-8">
+    <div className="flex items-center justify-center gap-2 mt-8 h-[100px]">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="w-2 h-2"
+        className="w-[50px] h-[50px]"
       >
         이전
       </button>
@@ -40,7 +40,7 @@ export default function Pagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="w-2 h-2"
+        className="w-[50px] h-[50px]"
       >
         다음
       </button>
