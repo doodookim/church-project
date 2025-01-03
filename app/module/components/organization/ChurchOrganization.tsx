@@ -16,8 +16,8 @@ export default function ChurchOrganization() {
   <div>
     {data?.map((organization)=>(
       <div key={organization.id}>
-
-        <img className="text-center mt-[30px]" src={organization.image_files} alt="교회 조직" />
+          <h2 className="text-[#578FCC] text-2xl">교회 조직</h2>
+        <img className="text-center mt-10 w-[94.4%]" src={organization.image_files} alt="교회 조직" />
       </div>
     ))}
   </div>

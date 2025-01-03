@@ -11,7 +11,6 @@ export const metadata: Metadata = {
 
 export default function OrganizationPage() {
   return(<div>
-  <div>교회 조직</div>
   <ChurchOrganization/>
   </div>
   );
