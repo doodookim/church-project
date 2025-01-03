@@ -2,7 +2,7 @@ import { IchurchNotice, IimageData } from "@/utils/types/churchData";
 import { useQuery } from "@tanstack/react-query";
 
 const getNoticeData = async () => {
-    const res = await fetch("https://api.llch.co.kr/notice-board/church-organization/");
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/church-organization/`);
     const data = await res.json();
     return data;
   };
