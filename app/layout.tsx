@@ -27,7 +27,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           <HydrationBoundary state={dehydratedState}>
             <Header />
-            <main className="w-full max-w-[1024px] mx-auto">{children}</main>
+            <main>{children}</main>
             <Footer />
           </HydrationBoundary>
         </ReactQueryProvider>
