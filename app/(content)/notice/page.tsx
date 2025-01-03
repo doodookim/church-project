@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 
 export default function NoticePage() {
   return(<div>
-  <div>교회 안내</div>
   <ChurchNotice/>
   </div>);
 }

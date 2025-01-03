@@ -15,11 +15,11 @@ export default function ChurchNotice() {
   return (
     <div>
       {data?.map((info,index) => (
-         <div key={index}>
+        <div key={index}>
           
-          <section className="max-w-[1024px] mx-auto md:ml-[350px]">
+          <section className="max-w-[1024px]">
             {/* 교회소개 */}
-            <div className="border-b-2 border-[#D9D9D9] pb-[150px] w-[97%] m-auto mt-[100px]">
+            <div className="border-b-2 border-[#D9D9D9] pb-[150px] w-[97%] m-auto">
               <h2 className="text-[#578FCC] text-2xl">교회소개</h2>
               <p className="mt-10 text-lg leading-7">{info.church_info_content}</p>
               <img className="text-center mt-[30px]" src={info.church_info_img.image_files} alt="교회 전경" />
