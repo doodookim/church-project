@@ -1,3 +1,4 @@
+import NewsDetail from "@/app/module/components/news/NewsDetail";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,5 +8,9 @@ export const metadata: Metadata = {
 
 export default function NewsDetailPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  return <div></div>;
+  return (
+    <div>
+      <NewsDetail />
+    </div>
+  );
 }
