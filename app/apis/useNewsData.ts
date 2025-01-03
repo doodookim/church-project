@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const getNewsData = async (page: number) => {
   const res = await fetch(
-    `https://api.llch.co.kr/notice-board/church-news/?page=${page}`
+    `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/church-news/?page=${page}`
   );
   const data = await res.json();
   return data;
