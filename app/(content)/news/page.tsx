@@ -1,3 +1,4 @@
+import NewsPagination from "@/app/module/components/news/NewsPagination";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function NewsPage() {
-  return <div>교회 소식</div>;
+  return (
+    <div>
+      <div>교회 소식</div>
+      <NewsPagination />
+    </div>
+  );
 }

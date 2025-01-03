@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 
 export default function NewsDetailPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  return <div>교회 소식 상세 {id}</div>;
+  return <div></div>;
 }
