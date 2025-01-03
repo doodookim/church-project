@@ -1,3 +1,4 @@
+import ChurchNotice from "@/app/module/components/notice/ChurchNotice";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,8 @@ export const metadata: Metadata = {
 };
 
 export default function NoticePage() {
-  return <div>교회 안내</div>;
+  return(<div>
+  <div>교회 안내</div>
+  <ChurchNotice/>
+  </div>);
 }
