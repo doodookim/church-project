@@ -1,4 +1,6 @@
 import { Metadata } from "next";
+import ChurchMissionGallery from "@/app/module/components/mission-gallery/ChurchMissionGallery"
+
 
 export const metadata: Metadata = {
   title: "선교 갤러리 | 생명의 빛 교회",
@@ -6,5 +8,9 @@ export const metadata: Metadata = {
 };
 
 export default function MissionGalleryPage() {
-  return <div>선교 갤러리</div>;
+  return (
+  <div>
+    <ChurchMissionGallery/>
+  </div>
+  );
 }
