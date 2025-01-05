@@ -27,7 +27,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           <HydrationBoundary state={dehydratedState}>
             <Header />
-            <main>{children}</main>
+            <main className="min-h-[calc(100vh-60px)]">{children}</main>
             <Footer />
           </HydrationBoundary>
         </ReactQueryProvider>
