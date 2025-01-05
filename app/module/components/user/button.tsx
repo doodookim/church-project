@@ -22,7 +22,7 @@ export default function UserButton({
     <button
       type={type}
       className={clsx(
-        className ? className : "w-[150px] text-[16px] py-[10px] rounded-full",
+        className ? className : "w-[150px] h-[42px] text-[16px] rounded-full",
         classNamePuls,
         style === "confirm"
           ? "bg-[#578FCC] text-white"
