@@ -19,7 +19,7 @@ export default function NewsGalleryPagination() {
   };
 
   return (
-    <div className="w-full relative">
+    <div className="max-w-6xl mx-auto px-4">
       <div className="flex justify-between ">
         <NewsGalleryList data={data} moveToDetail={moveToDetail} />
       </div>
@@ -31,6 +31,3 @@ export default function NewsGalleryPagination() {
     </div>
   );
 }
-
-// 갤러리 데이터
-// 페이지네이션

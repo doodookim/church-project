@@ -1,15 +1,16 @@
 "use client";
 
-import useFetchNewsDetail from "@/app/apis/useNewsDetail";
+import useFetchGalleryDetail from "@/app/apis/useGalleryDetail";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 
-export default function NewsDetail() {
+export default function NewsGalleryDetail() {
   const params = useParams();
   const id = Number(params.id);
-  const { data, isLoading } = useFetchNewsDetail(id);
+  const { data, isLoading } = useFetchGalleryDetail(id);
   if (isLoading) return <div>로딩 중입니다!</div>;
   if (!data) return <div>데이터를 찾을 수 없어요!</div>;
+  console.log(data);
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="mb-8">
@@ -20,28 +21,28 @@ export default function NewsDetail() {
       <p className="text-gray-600">{data.date}</p>
       <div>{data.content}</div>
       <div>
-        {data.file_set.map((file) => (
-          <div key={file.id} className="relative w-[300px] h-[300px]">
+        {data.gallery_img_set.map((gallerydetail) => (
+          <div key={gallerydetail.id} className="relative w-full h-[300px] ">
             <Image
-              src={file.file}
-              alt="뉴스파일"
+              src={gallerydetail.image_files}
+              alt="갤러리 소식 디테일"
               layout="fill"
-              className="priority object-cover rounded-lg"
+              className="priority object-cover rounded-lg p-[20px]"
             />
           </div>
         ))}
       </div>
       <div>
-        {data.church_news_img_set.map((img) => (
-          <div key={img.id} className="relative w-[300px] h-[300px]">
-            <Image
-              src={img.image_files}
-              alt="뉴스이미지"
-              layout="fill"
-              className="object-cover rounded-lg "
-            />
+        {data.gallery_video_set.length > 0 && (
+          <div className="mb-4">
+            {data.gallery_video_set.map((video) => (
+              <video key={video.id} controls className="w-full rounded-lg">
+                <source src={video.video_files} type="vide/mp4" />
+                해당 영상 실행을 지원하지 않는 브라우저입니다.
+              </video>
+            ))}
           </div>
-        ))}
+        )}
       </div>
       <button
         className="w-[100px] h-[100px] bg-sky-600"
