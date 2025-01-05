@@ -17,6 +17,7 @@ export interface INewsListItem {
   file_set: INewsFile[];
   church_news_img_set: INewsImg[];
   weekly_img_set: INewsImg[];
+  gallery_thumb_img: INewsImg;
 }
 
 export interface INewsList {

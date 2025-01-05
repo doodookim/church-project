@@ -1,23 +1,23 @@
 import { INewsList } from "@/utils/types/newsData";
 import { useQuery } from "@tanstack/react-query";
 
-const getNewsWeekly = async (page: number) => {
+const getGalleryData = async (page: number) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/weekly/?page=${page}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/gallery/?page=${page}`
     );
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("weekly news fetching 에러", error);
+    console.error("news gallery fetching 에러", error);
     throw error;
   }
 };
 
-export default function useFetchNewsWeekly(page: number) {
+export default function useFetchGallery(page: number) {
   const { data, isLoading } = useQuery<INewsList>({
-    queryKey: ["newsWeekly", page],
-    queryFn: () => getNewsWeekly(page),
+    queryKey: ["newsGallery", page],
+    queryFn: () => getGalleryData(page),
   });
   return { data, isLoading };
 }

@@ -5,7 +5,7 @@ import React from "react";
 
 interface INewsListProps {
   data: INewsList | undefined;
-  moveToDetail: (newsid: number) => void;
+  moveToDetail: (newsId: number) => void;
 }
 export default function NewsList({ data, moveToDetail }: INewsListProps) {
   if (!data?.results.length) {

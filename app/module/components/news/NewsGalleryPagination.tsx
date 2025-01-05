@@ -1,28 +1,27 @@
 "use client";
 
 import Pagination from "../common/Pagination";
-import React, { useState } from "react";
-import useFetchNewsWeekly from "@/app/apis/useNewsWeekly";
-import WeeklyNewsList from "./list/WeeklyNewsList";
+import NewsGalleryList from "./list/NewsGalleryList";
 import { useRouter } from "next/navigation";
-import WeeklyRecentNews from "./list/WeeklyRecentNews";
+import { useState } from "react";
+import useFetchGallery from "@/app/apis/useNewsGalleryData";
 
-export default function NewsWeeklyPagination() {
+export default function NewsGalleryPagination() {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
-  const itemPerPage = 10;
-  const { data, isLoading } = useFetchNewsWeekly(currentPage);
+  const itemPerPage = 6;
+  const { data, isLoading } = useFetchGallery(currentPage);
   const totalPages = Math.ceil((data?.count || 0) / itemPerPage);
   if (isLoading) return <div>로딩 중입니다!</div>;
 
-  const moveToDetail = (weeklyId: number) => {
-    router.push(`/news/weekly/${weeklyId}`);
+  const moveToDetail = (galleryId: number) => {
+    router.push(`/news/gallery/${galleryId}`);
   };
+
   return (
     <div className="w-full relative">
       <div className="flex justify-between ">
-        <WeeklyRecentNews moveToDetail={moveToDetail} />
-        <WeeklyNewsList data={data} moveToDetail={moveToDetail} />
+        <NewsGalleryList data={data} moveToDetail={moveToDetail} />
       </div>
       <Pagination
         currentPage={currentPage}
@@ -32,3 +31,6 @@ export default function NewsWeeklyPagination() {
     </div>
   );
 }
+
+// 갤러리 데이터
+// 페이지네이션

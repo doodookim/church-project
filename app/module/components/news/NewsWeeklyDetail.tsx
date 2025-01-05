@@ -19,12 +19,15 @@ export default function NewsWeeklyDetail() {
       </div>
       <div>
         {data?.weekly_img_set.map((img) => (
-          <div key={img.id} className="relative w-[300px] h-[300px]">
+          <div
+            key={img.id}
+            className="flex flext-col relative w-full h-[300px]"
+          >
             <Image
               src={img.image_files}
               alt="최신 뉴스이미지"
               fill={true}
-              className="priority object-cover rounded-lg"
+              className=" priority object-cover rounded-lg"
             />
           </div>
         ))}
