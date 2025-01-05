@@ -9,12 +9,11 @@ const getNewsData = async (page: number) => {
   return data;
 };
 
-const useFetchNews = (page: number) => {
+export default function useFetchNews(page: number) {
   const { data, isLoading } = useQuery<INewsList>({
     queryKey: ["newsList", page],
     queryFn: () => getNewsData(page),
   });
 
   return { data, isLoading };
-};
-export default useFetchNews;
+}

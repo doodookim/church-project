@@ -3,12 +3,11 @@
 import { INewsList } from "@/utils/types/newsData";
 import React from "react";
 
-interface NewsListProps {
+interface INewsListProps {
   data: INewsList | undefined;
   moveToDetail: (newsid: number) => void;
 }
-export default function NewsList({ data, moveToDetail }: NewsListProps) {
-  console.log(data);
+export default function NewsList({ data, moveToDetail }: INewsListProps) {
   if (!data?.results.length) {
     return <div>아직 작성된 소식이 없어요</div>;
   }

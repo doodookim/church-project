@@ -1,12 +1,10 @@
 "use client";
 
 import useFetchNews from "@/app/apis/useNewsData";
-
 import React, { useEffect, useState } from "react";
 import NewsList from "./list/NewsList";
-import Pagination from "./list/Pagination";
+import Pagination from "../common/Pagination";
 import { useRouter } from "next/navigation";
-import { INewsList } from "@/utils/types/newsData";
 
 export default function NewsPagination() {
   const router = useRouter();

@@ -8,7 +8,6 @@ export default function NewsDetail() {
   const params = useParams();
   const id = Number(params.id);
   const { data, isLoading } = useFetchNewsDetail(id);
-  console.log(data);
   if (isLoading) return <div>로딩 중입니다!</div>;
   if (!data) return <div>데이터를 찾을 수 없어요!</div>;
   return (
@@ -16,11 +15,6 @@ export default function NewsDetail() {
       <div className="mb-8">
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-3xl font-bold">{data.title}</h1>
-          {/* {data.notification && (
-            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-              공지
-            </span>
-          )} */}
         </div>
       </div>
       <p className="text-gray-600">{data.date}</p>
@@ -49,6 +43,12 @@ export default function NewsDetail() {
           </div>
         ))}
       </div>
+      <button
+        className="w-[100px] h-[100px] bg-sky-600"
+        onClick={() => window.history.back()}
+      >
+        목록
+      </button>
     </div>
   );
 }

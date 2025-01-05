@@ -1,6 +1,6 @@
 "use client";
 
-interface PaginationProps {
+interface IPaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
@@ -10,7 +10,7 @@ export default function Pagination({
   currentPage,
   totalPages,
   onPageChange,
-}: PaginationProps) {
+}: IPaginationProps) {
   // 최대 4개까지니까, 4로 나눈 다음에 올림해서 정수로 만들기
   const currentPageGroup = Math.ceil(currentPage / 4);
   // 현재페이지 그룹에서 1빼고 4개씩이니까 4 곱한 다음 그다음에 올 순서가 다음 그룹
