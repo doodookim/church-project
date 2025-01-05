@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function SignInPage() {
   return (
-    <BoxLayout width="484px">
+    <BoxLayout width={484}>
       <div className="w-full max-w-[318px] mx-auto mt-[65px] mb-[104px]">
         <TitleLayout title="로그인" />
         <form action="" className="flex flex-col gap-[10px] mt-[20px]">
@@ -35,7 +35,7 @@ export default function SignInPage() {
         </form>
         <button
           type="submit"
-          className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-[16px] mt-[12px] text-[#202020]"
+          className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-[16px] mt-[12px]"
         >
           카카오톡으로 로그인
         </button>

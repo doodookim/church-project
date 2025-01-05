@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function SignUpPage() {
   return (
-    <BoxLayout width="650px">
-      <div className="w-full max-w-[484px] mx-auto mt-[65px] mb-[104px] font-medium text-[#202020] text-[16px]">
+    <BoxLayout width={650}>
+      <div className="w-full max-w-[484px] mx-auto mt-[65px] mb-[104px] font-medium text-[16px]">
         <WarningList />
         <hr className="mt-[30px] mb-[50px]" />
         <form action="">
