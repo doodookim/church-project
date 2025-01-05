@@ -13,16 +13,16 @@ export default function NewsWeeklyPagination() {
   const itemPerPage = 10;
   const { data, isLoading } = useFetchNewsWeekly(currentPage);
   const totalPages = Math.ceil((data?.count || 0) / itemPerPage);
-
+  console.log(data);
   if (isLoading) return <div>로딩 중</div>;
 
   const moveToDetail = (weeklyId: number) => {
-    router.push(`/weekly/${weeklyId}`);
+    router.push(`/news/weekly/${weeklyId}`);
   };
   return (
     <div className="w-full relative">
       <div className="flex justify-between ">
-        <WeeklyRecentNews />
+        <WeeklyRecentNews moveToDetail={moveToDetail} />
         <WeeklyNewsList data={data} moveToDetail={moveToDetail} />
       </div>
       <Pagination

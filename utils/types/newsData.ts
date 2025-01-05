@@ -16,6 +16,7 @@ export interface INewsListItem {
   notification: boolean;
   file_set: INewsFile[];
   church_news_img_set: INewsImg[];
+  weekly_img_set: INewsImg[];
 }
 
 export interface INewsList {

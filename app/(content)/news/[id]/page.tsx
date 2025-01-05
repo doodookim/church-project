@@ -10,6 +10,7 @@ export default function NewsDetailPage({ params }: { params: { id: string } }) {
   const { id } = params;
   return (
     <div>
+      {id}
       <NewsDetail />
     </div>
   );

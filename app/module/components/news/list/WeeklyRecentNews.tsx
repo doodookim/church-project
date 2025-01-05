@@ -2,13 +2,23 @@ import useFetchNewsWeeklyRecent from "@/app/apis/useNewsWeeklyRecent";
 import { INewsImg } from "@/utils/types/newsData";
 import Image from "next/image";
 
-export default function WeeklyRecentNews() {
+interface INewsWeeklyRecentProps {
+  moveToDetail: (recentId: number) => void;
+}
+
+export default function WeeklyRecentNews({
+  moveToDetail,
+}: INewsWeeklyRecentProps) {
   const { data, isLoading } = useFetchNewsWeeklyRecent();
 
   return (
     <div className="flex flex-col cursor-pointer mt-[40px] gap-[16px]">
       {data?.map((recent) => (
-        <div key={recent.id} className="relative">
+        <div
+          key={recent.id}
+          className="relative"
+          onClick={() => moveToDetail(recent.id)}
+        >
           {Array.isArray(recent.image_files) ? (
             // image_files가 배열인 경우
             recent.image_files.map((image, index) => (
