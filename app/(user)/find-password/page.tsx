@@ -1,3 +1,7 @@
+import BoxLayout from "@/app/module/components/user/box-layout";
+import UserButton from "@/app/module/components/user/button";
+import FindPassword from "@/app/module/components/user/find-password/find-password";
+import Input from "@/app/module/components/user/input";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function FindPasswordPage() {
-  return <div>비밀번호 찾기</div>;
+  return <FindPassword />;
 }
