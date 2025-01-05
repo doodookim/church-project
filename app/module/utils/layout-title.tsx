@@ -20,6 +20,13 @@ const layoutTitle = (pathName: string): string => {
   if (pathName === "/mission") return "선교지 안내";
   if (pathName.includes("/mission/gallery")) return "선교지 갤러리";
 
+  //유저
+  if (pathName === "/sign-in") return "회원 로그인";
+  if (pathName === "/sign-up") return "회원 가입";
+  if (pathName === "/success-sign-up") return "회원가입";
+  if (pathName === "/my-page") return "마이 페이지";
+  if (pathName === "/find-password") return "비밀번호 찾기";
+
   return "";
 };
 
