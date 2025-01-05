@@ -1,3 +1,4 @@
+import NewsWeeklyPagination from "@/app/module/components/news/NewsWeeklyPagination";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function WeeklyPage() {
-  return <div>주보</div>;
+  return (
+    <div>
+      <div>주보</div>
+      <NewsWeeklyPagination />
+    </div>
+  );
 }

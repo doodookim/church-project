@@ -3,12 +3,11 @@
 import { INewsList } from "@/utils/types/newsData";
 import React from "react";
 
-interface NewsListProps {
+interface INewsListProps {
   data: INewsList | undefined;
-  moveToDetail: (newsid: number) => void;
+  moveToDetail: (newsId: number) => void;
 }
-export default function NewsList({ data, moveToDetail }: NewsListProps) {
-  console.log(data);
+export default function NewsList({ data, moveToDetail }: INewsListProps) {
   if (!data?.results.length) {
     return <div>아직 작성된 소식이 없어요</div>;
   }
@@ -24,26 +23,14 @@ export default function NewsList({ data, moveToDetail }: NewsListProps) {
             <div>{news.id}</div>
             <h2 className="text-lg font-medium">{news.title}</h2>
           </div>
-          {/* {news.notification || ""} */}
+          {news.notification && (
+            <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+              공지
+            </span>
+          )}
           <p className="flex text-gray-600 text-sm ">{news.date}</p>
         </div>
       ))}
     </div>
   );
-
-  // return (
-  //   <div>
-  //     {data?.results.map((news) => (
-  //       <div
-  //         key={news.id}
-  //         className="border-b-[1px] border-solid border-[#d9d9d9] cursor-pointer"
-  //       >
-  //         <h2>{news.title}</h2>
-  //         <p>{news.date}</p>
-  //         <div>{news.notification ? "공지" : ""}</div>
-  //       </div>
-  //     ))}
-  //     {data?.next}
-  //   </div>
-  // );
 }

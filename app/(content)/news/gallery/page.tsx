@@ -1,3 +1,4 @@
+import NewsGalleryPagination from "@/app/module/components/news/NewsGalleryPagination";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function GalleryPage() {
-  return <div>생명의 빛 갤러리</div>;
+  return (
+    <div>
+      <div>생명의 빛 갤러리</div>
+      <NewsGalleryPagination />
+    </div>
+  );
 }

@@ -1,3 +1,4 @@
+import NewsWeeklyDetail from "@/app/module/components/news/NewsWeeklyDetail";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,5 +8,10 @@ export const metadata: Metadata = {
 
 export default function NewsPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  return <div>주보 상세 {id}</div>;
+  return (
+    <div>
+      <div>주보 상세 {id}</div>
+      <NewsWeeklyDetail />
+    </div>
+  );
 }

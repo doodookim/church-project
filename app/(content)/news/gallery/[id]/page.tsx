@@ -1,3 +1,4 @@
+import NewsGalleryDetail from "@/app/module/components/news/NewsGalleryDetail";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,5 +12,9 @@ export default function GalleryDetailPage({
   params: { id: string };
 }) {
   const { id } = params;
-  return <div>생명의 빛 갤러리 상세 {id}</div>;
+  return (
+    <div>
+      <NewsGalleryDetail />
+    </div>
+  );
 }
