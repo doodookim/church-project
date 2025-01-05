@@ -22,12 +22,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${pretendard.variable} font-sans antialiased bg-background`}
+        className={`${pretendard.variable} font-sans antialiased bg-background text-gray-03`}
       >
         <ReactQueryProvider>
           <HydrationBoundary state={dehydratedState}>
             <Header />
-            <main className="min-h-[calc(100vh-60px)]">{children}</main>
+            <main className="min-h-[calc(100vh-190px)]">{children}</main>
             <Footer />
           </HydrationBoundary>
         </ReactQueryProvider>
