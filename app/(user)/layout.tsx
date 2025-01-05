@@ -11,7 +11,7 @@ export default function NewsLayout({
   const title = layoutTitle(pathName);
 
   return (
-    <section className="flex flex-col justify-start items-center w-full min-h-[calc(100vh-60px)] bg-[#F9F9F9]">
+    <section className="flex flex-col justify-center items-center w-full">
       <h1 className="text-[28px] font-bold text-[#578FCC] my-[58px] leading-none">
         {title}
       </h1>
