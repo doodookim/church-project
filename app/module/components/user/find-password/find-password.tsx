@@ -7,7 +7,7 @@ import Input from "../input";
 import ConfirmModal from "./confirm-modal";
 
 export default function FindPassword() {
-  const [isModal, setIsModal] = useState(false);
+  const [isModal] = useState(false);
 
   return (
     <>
