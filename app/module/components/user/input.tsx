@@ -1,12 +1,14 @@
 import clsx from "clsx";
 import React from "react";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 interface IInput {
   type: string;
-  name: string;
+  name?: string;
   id: string;
   placeholder?: string;
   classNamePlus?: string;
+  register?: (name: string) => UseFormRegisterReturn;
 }
 
 export default function Input({
@@ -15,6 +17,7 @@ export default function Input({
   id,
   placeholder,
   classNamePlus,
+  ...register
 }: IInput) {
   return (
     <input
@@ -26,6 +29,7 @@ export default function Input({
         "text-[16px] font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none",
         classNamePlus
       )}
+      {...register}
     />
   );
 }
