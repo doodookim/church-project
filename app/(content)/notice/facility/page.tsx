@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import ChurchFacility from "@/app/module/components/facility/ChurchFacility"
 
 export const metadata: Metadata = {
   title: "시설 안내 | 생명의 빛 교회",
@@ -6,5 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function FacilityPage() {
-  return <div>시설 안내</div>;
+  return (<div>
+    <ChurchFacility/>
+  </div>);
 }

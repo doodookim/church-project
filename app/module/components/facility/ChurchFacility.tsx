@@ -1,9 +1,9 @@
 "use client";
 
-import useFetchNotice from "@/app/apis/useOrganiData";
+import useFetchNotice from "@/app/apis/useFacilityData";
 import React from "react";
 
-export default function ChurchOrganization() {
+export default function ChurchFacility() {
   const { data, isLoading } = useFetchNotice();
   if (isLoading)
     return (
@@ -14,14 +14,14 @@ export default function ChurchOrganization() {
 
   return (
     <div>
-      {data?.map((organization) => (
-        <div key={organization.id}>
-          <h2 className="text-[#578FCC] text-2xl">교회 조직</h2>
+      {data?.map((facility) => (
+        <div key={facility.id}>
+          <h2 className="text-[#578FCC] text-2xl">시설 안내</h2>
           <div>
             <img
               className="text-center mt-10 w-full h-auto"
-              src={organization.image_files}
-              alt="교회 조직"
+              src={facility.image_files}
+              alt="시설안내"
             />
           </div>
         </div>
