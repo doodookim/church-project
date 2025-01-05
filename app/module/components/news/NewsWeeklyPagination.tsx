@@ -1,7 +1,7 @@
 "use client";
 
 import Pagination from "../common/Pagination";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useFetchNewsWeekly from "@/app/apis/useNewsWeekly";
 import WeeklyNewsList from "./list/WeeklyNewsList";
 import { useRouter } from "next/navigation";
