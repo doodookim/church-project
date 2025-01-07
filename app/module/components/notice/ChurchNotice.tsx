@@ -53,9 +53,9 @@ export default function ChurchNotice() {
           {/* 표어 */}
           <div className="border-b-2 border-[#D9D9D9] py-[150px]">
             <h2 className="text-[#578FCC] text-2xl">표어</h2>
-            <div>
+            <div className="h-[900px]">
               <img
-                className="text-center mt-10 w-full h-auto"
+                className="text-center mt-10 w-full h-full object-cover"
                 src={info.slogan_img.image_files}
                 alt="교회 슬로건"
               />

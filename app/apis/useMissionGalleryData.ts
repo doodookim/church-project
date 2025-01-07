@@ -5,12 +5,11 @@ const getNoticeData = async () => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/mission-gallery/`
   );
-
   const data = await res.json();
   return data;
 };
 
-const useFetchNotice = () => {
+const useFetchMissionGallery = () => {
   const { data, isLoading, isError, error } = useQuery<IMissionGalleryAll>({
     queryKey: ["churchmissiongallery"],
     queryFn: getNoticeData,
@@ -18,4 +17,4 @@ const useFetchNotice = () => {
 
   return { data, isLoading, isError, error };
 };
-export default useFetchNotice;
+export default useFetchMissionGallery;
