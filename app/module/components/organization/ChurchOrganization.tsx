@@ -1,10 +1,10 @@
 "use client";
 
-import useFetchNotice from "@/app/apis/useOrganiData";
+import useFetchOrganiZation from "@/app/apis/useOrganizationData";
 import React from "react";
 
 export default function ChurchOrganization() {
-  const { data, isLoading } = useFetchNotice();
+  const { data, isLoading } = useFetchOrganiZation();
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
