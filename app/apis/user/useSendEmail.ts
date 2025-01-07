@@ -1,4 +1,3 @@
-import { IResponseType } from "@/app/module/types/response-types";
 import { ISendEmailRequest } from "@/app/module/types/send-email-types";
 import { useMutation } from "@tanstack/react-query";
 
