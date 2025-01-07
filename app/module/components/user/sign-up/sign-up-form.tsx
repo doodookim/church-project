@@ -5,8 +5,12 @@ import Input from "@/app/module/components/user/input";
 import InputBox from "@/app/module/components/user/input-box";
 import TitleLayout from "@/app/module/components/user/title-layout";
 import { UseFormReturn } from "react-hook-form";
-import ErrorMessage from "../error-message";
-import { TSignUp } from "./sign-up";
+import Message from "../message-box";
+import { TSignUp } from "@/app/module/types/sign-up-types";
+import { useClickSignUpHandler } from "@/app/module/hooks/useClickSignUpHandler";
+import { useSendEmail } from "@/app/apis/user/useSendEmail";
+import LoadingSpinner from "../../common/LoadingSpinner";
+import { useEmailVerify } from "@/app/module/hooks/useEmailVerify";
 
 interface ISignUpForm {
   form: UseFormReturn<TSignUp, unknown, undefined>;
@@ -14,32 +18,35 @@ interface ISignUpForm {
 
 export default function SignUpForm({ form }: ISignUpForm) {
   const {
+    data: sendEmailData,
+    isPending: isSendEmailPending,
+    mutate: sendEmailMutate,
+  } = useSendEmail();
+
+  // 백앤드 로직에 따른 주석 추후 기획변경을 위해 주석처리
+  // const {
+  //   data: verifyCodeData,
+  //   isPending: isVerifyCoedPending,
+  //   mutate: verifyCoedMutate,
+  // } = useVerifyCode();
+
+  const {
     register,
     handleSubmit,
     formState: { errors },
+    getFieldState,
+    getValues,
+    trigger,
   } = form;
-
-  const onSubmit = (data: TSignUp) => {
-    const { email, name, password, passwordConfirm, phone, isAgeConfirmed } =
-      data;
-
-    const numbers =
-      "82 " +
-      phone
-        .replace(/[^0-9]/g, "")
-        .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`)
-        .substring(1);
-
-    const result = {
-      name,
-      email,
-      password,
-      password2: passwordConfirm,
-      phone_number: numbers,
-      is_age_confirmed: isAgeConfirmed,
-    };
-    console.log(result);
-  };
+  const { isSendEmailDone, sendEmailMessage, clickSendEmailHandler } =
+    useEmailVerify({
+      getFieldState,
+      getValues,
+      trigger,
+      sendEmailData,
+      sendEmailMutate,
+    });
+  const { onSubmit } = useClickSignUpHandler();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -58,7 +65,7 @@ export default function SignUpForm({ form }: ISignUpForm) {
               동의합니다
             </label>
           </div>
-          <ErrorMessage>{errors.isPersonalConfirm?.message}</ErrorMessage>
+          <Message>{errors.isPersonalConfirm?.message}</Message>
         </div>
         <hr className="mt-[20px] mb-[20px]" />
         <div className="flex flex-col items-start mb-[70px] gap-[8px]">
@@ -73,9 +80,9 @@ export default function SignUpForm({ form }: ISignUpForm) {
               만 14세 이상입니다.
             </label>
           </div>
-          <ErrorMessage classNamePlus="pl-[22px]">
+          <Message classNamePlus="pl-[22px]">
             {errors.isAgeConfirmed?.message}
-          </ErrorMessage>
+          </Message>
         </div>
       </div>
 
@@ -85,37 +92,62 @@ export default function SignUpForm({ form }: ISignUpForm) {
           <label htmlFor="name">이름</label>
           <Input type="text" id="name" {...register("name")} />
         </InputBox>
-        <ErrorMessage isLabel={true}>{errors.name?.message}</ErrorMessage>
+        <Message isLabel={true}>{errors.name?.message}</Message>
         <InputBox>
           <label htmlFor="email">이메일(아이디)</label>
           <Input type="email" id="email" {...register("email")} />
         </InputBox>
-        <ErrorMessage isLabel={true}>{errors.email?.message}</ErrorMessage>
+        {(isSendEmailDone || sendEmailMessage) && (
+          <Message isLabel={true} isConfirm={true}>
+            ✔ {sendEmailMessage}
+          </Message>
+        )}
+        <Message isLabel={true}>{errors.email?.message}</Message>
         <div className="flex justify-end mt-[2px] mb-[8px]">
-          <UserButton>이메일 인증</UserButton>
+          <UserButton
+            type="button"
+            isDisabled={isSendEmailPending || isSendEmailDone}
+            onClick={clickSendEmailHandler}
+          >
+            {isSendEmailPending ? (
+              <LoadingSpinner boxSize={1.2} ballSize={0.2} />
+            ) : (
+              (isSendEmailDone && "발송 완료") ||
+              (!isSendEmailDone && "이메일 인증")
+            )}
+          </UserButton>
         </div>
-
         <InputBox>
-          <label htmlFor="authentication">인증번호</label>
-          <Input
-            type="text"
-            id="authentication"
-            {...register("authentication")}
-          />
+          <label htmlFor="verifyCode">인증번호</label>
+          <Input type="text" id="verifyCode" {...register("verifyCode")} />
         </InputBox>
-        <div className="flex mt-[2px] mb-[8px]">
-          <div className="flex-[1]"></div>
-          <div className="flex-[3] flex justify-between items-start pl-[8px]">
-            <ErrorMessage>{errors.authentication?.message}</ErrorMessage>
-            <UserButton>확인</UserButton>
-          </div>
-        </div>
+
+        {/*  백앤드 로직에 따른 주석 추후 기획변경을 위해 주석처리 */}
+        {/* {(isVerifyCodeDone || verifyCodeMessage) && (
+          <Message isLabel={true} isConfirm={true}>
+            ✔ {verifyCodeMessage}
+          </Message>
+        )}
+        <Message>{errors.verifyCode?.message}</Message>
+        <div className="flex justify-end mt-[2px] mb-[8px]">
+          <UserButton
+            type="button"
+            isDisabled={isVerifyCoedPending || isVerifyCodeDone}
+            onClick={clickVerifyCodeHandler}
+          >
+            {isVerifyCoedPending ? (
+              <LoadingSpinner boxSize={1.2} ballSize={0.2} />
+            ) : (
+              (isVerifyCodeDone && "인증 완료") || (!isVerifyCodeDone && "확인")
+            )}
+          </UserButton>
+        </div> */}
+
         <InputBox>
           <label htmlFor="password">비밀번호</label>
           <Input type="password" id="password" {...register("password")} />
         </InputBox>
-        <ErrorMessage isLabel={true}>{errors.password?.message}</ErrorMessage>
-
+        <Message isLabel={true}>{errors.password?.message}</Message>
         <InputBox>
           <label htmlFor="passwordConfirm">비밀번호 확인</label>
           <Input
@@ -124,18 +156,14 @@ export default function SignUpForm({ form }: ISignUpForm) {
             {...register("passwordConfirm")}
           />
         </InputBox>
-        <ErrorMessage isLabel={true}>
-          {errors.passwordConfirm?.message}
-        </ErrorMessage>
-
+        <Message isLabel={true}>{errors.passwordConfirm?.message}</Message>
         <InputBox>
           <label htmlFor="phone">휴대전화</label>
           <Input type="tel" id="phone" {...register("phone")} />
         </InputBox>
-        <ErrorMessage isLabel={true}>{errors.phone?.message}</ErrorMessage>
-
+        <Message isLabel={true}>{errors.phone?.message}</Message>
         <div className="flex justify-end mt-[22px]">
-          <UserButton style="confirm">확인</UserButton>
+          <UserButton style="confirm">회원 가입</UserButton>
         </div>
       </div>
     </form>
