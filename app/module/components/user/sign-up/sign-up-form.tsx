@@ -11,6 +11,7 @@ import { useClickSignUpHandler } from "@/app/module/hooks/useClickSignUpHandler"
 import { useSendEmail } from "@/app/apis/user/useSendEmail";
 import LoadingSpinner from "../../common/LoadingSpinner";
 import { useEmailVerify } from "@/app/module/hooks/useEmailVerify";
+import { useSignUp } from "@/app/apis/user/useSignUp";
 
 interface ISignUpForm {
   form: UseFormReturn<TSignUp, unknown, undefined>;
@@ -22,6 +23,7 @@ export default function SignUpForm({ form }: ISignUpForm) {
     isPending: isSendEmailPending,
     mutate: sendEmailMutate,
   } = useSendEmail();
+  const { isPending: isSignUpPending } = useSignUp();
 
   // 백앤드 로직에 따른 주석 추후 기획변경을 위해 주석처리
   // const {
@@ -163,7 +165,13 @@ export default function SignUpForm({ form }: ISignUpForm) {
         </InputBox>
         <Message isLabel={true}>{errors.phone?.message}</Message>
         <div className="flex justify-end mt-[22px]">
-          <UserButton style="confirm">회원 가입</UserButton>
+          <UserButton isDisabled={isSignUpPending} style="confirm">
+            {isSignUpPending ? (
+              <LoadingSpinner boxSize={1.2} ballSize={0.2} />
+            ) : (
+              "회원 가입"
+            )}
+          </UserButton>
         </div>
       </div>
     </form>
