@@ -29,7 +29,7 @@ const signUpSchema = z
     passwordConfirm: z
       .string()
       .min(6, "비밀번호는 최소 6자리 이상이어야 합니다."),
-    authentication: z.string().min(1, "인증번호를 입력해 주세요."),
+    verifyCode: z.string().min(1, "인증번호를 입력해 주세요."),
     phone: z
       .string()
 
