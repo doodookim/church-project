@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { IMainMenuList } from "../components/layout/types";
+import { IMainMenuList } from "../types/layout-types";
 
 export default function useSidebarForce(
   pathName: string,
