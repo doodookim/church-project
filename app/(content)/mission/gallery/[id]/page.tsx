@@ -1,3 +1,4 @@
+import ChurchMissionGalleryDetail from "@/app/module/components/mission-gallery/gallery-detail/ChurchMissionGalleryDetail";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,11 +6,11 @@ export const metadata: Metadata = {
   description: "선교갤러리 상세 페이지 입니다.",
 };
 
-export default function MissionGalleryDetailPage({
+export default async function MissionGalleryDetailPage({
   params,
 }: {
   params: { id: string };
 }) {
   const { id } = params;
-  return <div>선교갤러리 상세 {id}</div>;
+  return <ChurchMissionGalleryDetail />;
 }

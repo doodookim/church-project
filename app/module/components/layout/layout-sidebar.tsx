@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { IMainMenuList } from "./types";
+import { IMainMenuList } from "../../types/layout-types";
 
 import SubMenuList from "./sidebar-sub-menu";
 import clsx from "clsx";
