@@ -26,7 +26,7 @@ export default function NewsGalleryDetail() {
 
       {/* 이미지 섹션 (썸네일 포함) */}
       {combinedImages.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
           {combinedImages.map((img) => (
             <div key={img.id} className="relative w-full h-64">
               <Image
