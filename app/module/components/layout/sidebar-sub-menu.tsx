@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { ISubMenuList } from "../../types/layout-types";
+import { ISubMenuList } from "../../types/layout";
 import clsx from "clsx";
 import Link from "next/link";
 

@@ -6,7 +6,7 @@ import InputBox from "@/app/module/components/user/input-box";
 import TitleLayout from "@/app/module/components/user/title-layout";
 import { UseFormReturn } from "react-hook-form";
 import Message from "../message-box";
-import { TSignUp } from "@/app/module/types/sign-up-types";
+import { TSignUp } from "@/app/module/types/sign-up";
 import { useClickSignUpHandler } from "@/app/module/hooks/useClickSignUpHandler";
 import { useSendEmail } from "@/app/apis/user/useSendEmail";
 import LoadingSpinner from "../../common/LoadingSpinner";
