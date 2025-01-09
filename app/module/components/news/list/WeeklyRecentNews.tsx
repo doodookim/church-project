@@ -1,49 +1,31 @@
-import useFetchNewsWeeklyRecent from "@/app/apis/useNewsWeeklyRecent";
 import { INewsImg } from "@/utils/types/newsData";
 import Image from "next/image";
+import Link from "next/link";
 
 interface INewsWeeklyRecentProps {
-  moveToDetail: (recentId: number) => void;
+  data: INewsImg[] | undefined;
+  isLoading: boolean;
 }
 
 export default function WeeklyRecentNews({
-  moveToDetail,
+  data,
+  isLoading,
 }: INewsWeeklyRecentProps) {
-  const { data, isLoading } = useFetchNewsWeeklyRecent();
-
+  if (!data) return <div>데이터가 없습니다</div>;
+  if (isLoading) return <div>로딩 중입니다</div>;
   return (
     <div className="flex flex-col cursor-pointer mt-[40px] gap-[16px]">
       {data?.map((recent) => (
-        <div
-          key={recent.id}
-          className="relative"
-          onClick={() => moveToDetail(recent.id)}
-        >
-          {Array.isArray(recent.image_files) ? (
-            // image_files가 배열인 경우
-            recent.image_files.map((image, index) => (
-              <div key={index} className="relative w-[200px] h-[200px]">
-                <Image
-                  src={image}
-                  alt={`최신뉴스파일 ${index + 1}`}
-                  className="object-cover rounded-lg"
-                  width={200}
-                  height={200}
-                />
-              </div>
-            ))
-          ) : (
-            // image_files가 단일 문자열인 경우
-            <div className="relative w-[200px] h-[200px]">
-              <Image
-                src={recent.image_files}
-                alt="최신뉴스파일"
-                className="object-cover rounded-lg"
-                width={200}
-                height={200}
-              />
-            </div>
-          )}
+        <div key={recent.id} className="relative">
+          <Link href={`/news/weekly/${recent.id}`}>
+            <Image
+              src={recent.image_files}
+              alt={`최신뉴스파일 ${recent.id + 1}`}
+              className="object-cover rounded-lg"
+              width={200}
+              height={200}
+            />
+          </Link>
         </div>
       ))}
     </div>
