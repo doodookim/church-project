@@ -1,5 +1,6 @@
 "use client";
 import clsx from "clsx";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -8,6 +9,10 @@ export default function HeaderMenu({
 }: {
   clickMenuHandler: () => void;
 }) {
+  const clickLogoutHandler = () => {
+    signOut();
+  };
+
   return (
     <>
       <p
@@ -26,7 +31,12 @@ export default function HeaderMenu({
             마이페이지
           </Link>
         </li>
-        <li className="cursor-pointer hover:text-gray-01">로그아웃</li>
+        <li
+          className="cursor-pointer hover:text-gray-01"
+          onClick={clickLogoutHandler}
+        >
+          로그아웃
+        </li>
       </ul>
     </>
   );
