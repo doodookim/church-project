@@ -4,11 +4,10 @@ import {
   UseFormGetValues,
   UseFormTrigger,
 } from "react-hook-form";
-import { TSignUp } from "../types/sign-up-types";
+import { TSignUp } from "../types/sign-up";
 import { UseMutateFunction } from "@tanstack/react-query";
-import { ISendEmailRequest } from "../types/send-email-types";
-// import { IVerifyCodeRequest } from "../types/verify-code-types";
-import { IResponseType } from "../types/response-types";
+import { ISendEmailRequest } from "../types/send-email";
+import { IResponseType } from "../types/response";
 
 interface IUseEmailVerify {
   getFieldState: UseFormGetFieldState<TSignUp>;

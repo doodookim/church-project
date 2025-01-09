@@ -1,4 +1,4 @@
-import { IResultSignUpRequest } from "@/app/module/types/sign-up-types";
+import { IResultSignUpRequest } from "@/app/module/types/sign-up";
 import { useMutation } from "@tanstack/react-query";
 
 const signUpRequest = async (signUpInfo: IResultSignUpRequest) => {

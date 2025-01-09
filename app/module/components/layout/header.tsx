@@ -3,8 +3,14 @@ import { HEADER_MENU_LIST } from "./constant";
 import Image from "next/image";
 import Logo from "@/public/assets/logo.png";
 import Link from "next/link";
+import { getServerSession } from "next-auth";
+import clsx from "clsx";
+import HeaderUserButton from "./header-user-button";
 
-export default function Header() {
+export default async function Header() {
+  const session = await getServerSession();
+  const email = session?.user?.email;
+
   return (
     <header className="bg-white w-full h-auto">
       <div className="lg:px-0 px-[60px] w-full max-w-[1024px] mx-auto h-[60px] flex justify-between items-center">
@@ -22,15 +28,7 @@ export default function Header() {
             );
           })}
         </ul>
-        <ul className="flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]">
-          <li>
-            <Link href={"/sign-in"}>로그인</Link>
-          </li>
-          <p className="w-[2px] h-[18px] bg-white rounded-full" />
-          <li>
-            <Link href={"/sign-up"}>회원가입</Link>
-          </li>
-        </ul>
+        <HeaderUserButton email={email} />
       </div>
     </header>
   );

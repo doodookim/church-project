@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema } from "@/app/module/utils/validation/sign-up-register";
 import SignUpForm from "./sign-up-form";
 import { useForm } from "react-hook-form";
-import { TSignUp } from "@/app/module/types/sign-up-types";
+import { TSignUp } from "@/app/module/types/sign-up";
 
 export default function SignUp() {
   const form = useForm<TSignUp>({
