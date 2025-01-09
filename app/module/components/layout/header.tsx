@@ -1,15 +1,15 @@
-"use client";
 import React from "react";
 import { HEADER_MENU_LIST } from "./constant";
 import Image from "next/image";
 import Logo from "@/public/assets/logo.png";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { getServerSession } from "next-auth";
+import clsx from "clsx";
+import HeaderUserButton from "./header-user-button";
 
-export default function Header() {
-  const { data: session } = useSession();
+export default async function Header() {
+  const session = await getServerSession();
   const email = session?.user?.email;
-  const userEmail = email && email.substring(0, email.indexOf("@"));
 
   return (
     <header className="bg-white w-full h-auto">
@@ -28,21 +28,7 @@ export default function Header() {
             );
           })}
         </ul>
-        <ul className="flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]">
-          {email ? (
-            <li>{userEmail} 님</li>
-          ) : (
-            <>
-              <li>
-                <Link href={"/sign-in"}>로그인</Link>
-              </li>
-              <p className="w-[2px] h-[18px] bg-white rounded-full" />
-              <li>
-                <Link href={"/sign-up"}>회원가입</Link>
-              </li>
-            </>
-          )}
-        </ul>
+        <HeaderUserButton email={email} />
       </div>
     </header>
   );
