@@ -1,3 +1,4 @@
+import Sunday from "@/app/module/components/\bworship/Sunday";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function WorshipPage() {
-  return <div>예배 및 집회</div>;
+  return (
+    <div>
+      <div>예배 및 집회</div>
+      <Sunday />
+    </div>
+  );
 }

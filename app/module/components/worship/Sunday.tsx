@@ -1,20 +1,18 @@
 "use client";
 
-import useFetchNews from "@/app/apis/useNewsData";
-import React, { useEffect, useState } from "react";
-import NewsList from "./list/NewsList";
+import useSundayData from "@/app/apis/useSundayData";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import Pagination from "../common/Pagination";
-import { useRouter, useSearchParams } from "next/navigation";
+import SundayList from "./list/Sundaylist";
 
-export default function NewsPagination() {
+export default function Sunday() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // 첫 페이지를 1번으로 지정.
   const defaultPage = 1;
-  // 페이지당 나와야 하는 데이터 수
-  const itemsPerPage = 10;
-
+  const itemsPerPage = 6;
   const getParsedPage = (): number => {
     const getPage = searchParams.get("page");
     if (!getPage) return defaultPage;
@@ -24,17 +22,16 @@ export default function NewsPagination() {
   };
 
   const [currentPage, setCurrentPage] = useState(getParsedPage);
-  const { data, isLoading } = useFetchNews(currentPage);
-  // 전체 페이지 수
+  const { data, isLoading } = useSundayData(currentPage);
   const totalPages = Math.ceil((data?.count || 0) / itemsPerPage);
 
   useEffect(() => {
-    router.push(`/news?page=${currentPage}`);
+    router.push(`/worship/?page=${currentPage}`);
   }, [currentPage, router]);
-  if (isLoading) return <div className="h-screen">로딩 중입니다.</div>;
+  if (isLoading) return <div>로딩 중입니다</div>;
   return (
     <div>
-      <NewsList data={data} isLoading={isLoading} />
+      <SundayList data={data} isLoading={isLoading} />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
