@@ -1,5 +1,4 @@
-import { IResponseType } from "@/app/module/types/response-types";
-import { IVerifyCodeRequest } from "@/app/module/types/verify-code-types";
+import { IVerifyCodeRequest } from "@/app/module/types/verify-code";
 import { useMutation } from "@tanstack/react-query";
 
 const verifyRequest = async ({
