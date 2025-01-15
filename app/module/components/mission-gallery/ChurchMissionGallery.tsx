@@ -6,17 +6,17 @@ import Image from "next/image";
 import arrow_left from "@/public/assets/arrow-left.png";
 import arrow_right from "@/public/assets/arrow-right.png";
 import Link from "next/link";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function ChurchMissionGallery() {
-  const { data, isLoading, isError, error } = useFetchMissionGallery();
+  const { data, isLoading } = useFetchMissionGallery();
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
-        로딩 중...
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
       </div>
     );
-  if (isError) throw new Error(`${error}가 발생하였습니다.`);
-  console.log(data);
+
   return (
     <div>
       <div className="grid grid-cols-1 gap-y-10 gap-x-3 md:grid-cols-2 lg:grid-cols-3">
