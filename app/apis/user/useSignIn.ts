@@ -7,7 +7,6 @@ const signInRequest = async (signInInfo: TSignIn) => {
     ...signInInfo,
     callbackUrl: "/",
   });
-  console.log(res);
 
   if (!res?.ok) throw res;
   return res;
