@@ -2,6 +2,7 @@ import BoxLayout from "@/app/module/components/user/box-layout";
 import UserButton from "@/app/module/components/user/button";
 import TitleLayout from "@/app/module/components/user/title-layout";
 import { Metadata } from "next";
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 
@@ -11,6 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default function SuccessSignUpPage() {
+  const handleClick = () => {
+    signOut();
+  };
   return (
     <BoxLayout width={650}>
       <div className="mt-[108px] mb-[113px] flex flex-col justify-center items-center gap-[40px]">
@@ -27,7 +31,7 @@ export default function SuccessSignUpPage() {
               메인으로
             </Link>
           </UserButton>
-          <UserButton>로그아웃</UserButton>
+          <UserButton onClick={handleClick}>로그아웃</UserButton>
         </div>
       </div>
     </BoxLayout>
