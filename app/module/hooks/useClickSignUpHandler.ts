@@ -33,7 +33,6 @@ const useClickSignUpHandler = () => {
         code: verifyCode,
         is_age_confirmed: isAgeConfirmed,
       };
-      console.log(result);
       mutate({ ...result, router });
     }
   };

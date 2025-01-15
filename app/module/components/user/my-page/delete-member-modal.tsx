@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { SIGN_UP_WARNING_LIST } from "../constant";
 import BoxLayout from "../box-layout";
 import TitleLayout from "../title-layout";
 import UserButton from "../button";
@@ -28,7 +27,7 @@ export default function DeleteMemberModal({
       >
         <div className="my-[110px] flex flex-col justify-center items-center gap-[40px]">
           <TitleLayout
-            title="정말로 회원을 탈되하시겠습니까?"
+            title="정말로 회원을 탈퇴하시겠습니까?"
             classNamePlus="flex justify-center"
           />
           <div className="flex gap-[18px]">

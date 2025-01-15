@@ -9,6 +9,8 @@ import { useSignIn } from "@/app/apis/user/useSignIn";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/app/module/utils/validation/sign-in-register";
 import Message from "../message-box";
+import Link from "next/link";
+import { signIn } from "next-auth/react";
 
 export default function SignIn() {
   const { mutate } = useSignIn();
@@ -57,12 +59,14 @@ export default function SignIn() {
             로그인
           </button>
         </form>
-        <button
-          type="button"
-          className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-[16px] mt-[12px]"
-        >
-          카카오톡으로 로그인
-        </button>
+        <div className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-[16px] mt-[12px]">
+          <Link
+            href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=${process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI}`}
+            className="w-full h-full flex justify-center items-center"
+          >
+            카카오톡으로 로그인
+          </Link>
+        </div>
       </div>
     </BoxLayout>
   );
