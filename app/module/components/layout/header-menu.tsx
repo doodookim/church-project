@@ -3,14 +3,20 @@ import clsx from "clsx";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import React, { useState } from "react";
+import useModalStore from "../../store/useModalStore";
 
 export default function HeaderMenu({
   clickMenuHandler,
 }: {
   clickMenuHandler: () => void;
 }) {
+  const { showModal } = useModalStore();
   const clickLogoutHandler = () => {
-    signOut();
+    showModal({
+      title: "정말로 로그아웃을 하시겠습니까?",
+      type: "confirm",
+      onClickFunction: signOut,
+    });
   };
 
   return (

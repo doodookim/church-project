@@ -3,8 +3,15 @@ import clsx from "clsx";
 import Link from "next/link";
 import React, { useState } from "react";
 import HeaderMenu from "./header-menu";
+import { useSession } from "next-auth/react";
+import { Session } from "next-auth";
 
-export default function HeaderUserButton({ email }: { email?: string }) {
+export default function HeaderUserButton({
+  session,
+}: {
+  session?: Session | null;
+}) {
+  const email = session?.user?.email;
   const userEmail = email && email.substring(0, email.indexOf("@"));
   const [isMenu, setIsMenu] = useState(false);
 
@@ -16,13 +23,13 @@ export default function HeaderUserButton({ email }: { email?: string }) {
     <ul
       className={clsx(
         "relative flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]",
-        email && "cursor-pointer"
+        session && "cursor-pointer"
       )}
-      onClick={email ? clickMenuHandler : undefined}
+      onClick={session ? clickMenuHandler : undefined}
     >
-      {email ? (
+      {session ? (
         <>
-          <li>{userEmail} 님</li>
+          <li>{!email ? "익명" : userEmail} 님</li>
           {isMenu && <HeaderMenu clickMenuHandler={clickMenuHandler} />}
         </>
       ) : (
