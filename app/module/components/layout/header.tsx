@@ -4,12 +4,10 @@ import Image from "next/image";
 import Logo from "@/public/assets/logo.png";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import clsx from "clsx";
 import HeaderUserButton from "./header-user-button";
 
 export default async function Header() {
   const session = await getServerSession();
-  const email = session?.user?.email;
 
   return (
     <header className="bg-white w-full h-auto">
@@ -28,7 +26,7 @@ export default async function Header() {
             );
           })}
         </ul>
-        <HeaderUserButton email={email} />
+        <HeaderUserButton session={session} />
       </div>
     </header>
   );
