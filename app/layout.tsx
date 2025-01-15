@@ -8,6 +8,7 @@ import Header from "./module/components/layout/header";
 import Footer from "./module/components/layout/footer";
 import { SessionProvider } from "next-auth/react";
 import AuthProvider from "./AuthProvider";
+import Modal from "./module/components/common/modal";
 
 export const metadata: Metadata = {
   title: "생명의 빛 교회",
@@ -32,6 +33,7 @@ export default function RootLayout({
               <Header />
               <main className="min-h-[calc(100vh-190px)]">{children}</main>
               <Footer />
+              <Modal />
             </AuthProvider>
           </HydrationBoundary>
         </ReactQueryProvider>
