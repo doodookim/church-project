@@ -65,6 +65,7 @@ export const authOptions: NextAuthOptions = {
             }
           );
         }
+        console.log("data", data);
         return data;
       },
     }),
@@ -77,18 +78,19 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     jwt({ token, user }) {
       if (user) {
+        console.log("user", user);
         token.access = user.access;
         token.refresh = user.refresh;
-        token.email = user.email;
-        token.is_church_member = user.is_church_member;
-        token.is_admin = user.is_admin;
+        token.email = user.email ?? "(알수없음)";
+        token.is_church_member = user.is_church_member ?? false;
+        token.is_admin = user.is_admin ?? false;
       }
       return token;
     },
     session({ session, token }) {
       session.user.access = token.access;
       session.user.refresh = token.refresh;
-      session.user.email = token.email;
+      session.user.email = token.email ?? "(알수없음)";
       return session;
     },
   },
