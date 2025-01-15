@@ -1,30 +1,33 @@
-// "use client";
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import BoxLayout from "../box-layout";
 import TitleLayout from "../title-layout";
 import Link from "next/link";
 import DeleteMemberModal from "./delete-member-modal";
-import { getServerSession } from "next-auth";
+import { Session } from "next-auth";
 
-export default async function MyPage() {
-  const session = await getServerSession();
+export default function MyPage({ session }: { session: Session | null }) {
   const email = session?.user?.email;
 
-  // const [isModal, setIsModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
 
-  // const handleClick = () => {
-  //   setIsModal((prev) => !prev);
-  // };
+  const handleClick = () => {
+    setIsModal(!isModal);
+  };
 
   return (
     <>
       <BoxLayout width={650}>
         <div className="mt-[108px] mb-[113px] flex flex-col justify-center items-center gap-[40px]">
           <TitleLayout
-            title={`${email ? email + " 님" : "로그인을 해주세요"} `}
+            title={`${
+              (session && email && email + " 님") ||
+              ((session || !email) && "익명 님") ||
+              (!session && "로그인을 해주세요")
+            } `}
             classNamePlus="flex justify-center text-[#578FCC]"
           />
-          {email && (
+          {session && (
             <div className="flex items-center gap-[10px] leading-none">
               <Link href={"/find-password"} className="leading-none p-0 m-0">
                 비밀번호 찾기
@@ -32,7 +35,7 @@ export default async function MyPage() {
               <p className="bg-gray-03 w-[1px] h-[13px]" />
               <button
                 className="text-gray-01 leading-none p-0 m-0"
-                // onClick={handleClick}
+                onClick={handleClick}
               >
                 회원 탈퇴
               </button>
@@ -40,7 +43,7 @@ export default async function MyPage() {
           )}
         </div>
       </BoxLayout>
-      {/* {isModal && <DeleteMemberModal setIsModal={setIsModal} />} */}
+      {isModal && <DeleteMemberModal setIsModal={setIsModal} />}
     </>
   );
 }
