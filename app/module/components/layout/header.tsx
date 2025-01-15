@@ -1,3 +1,4 @@
+// "use client";
 import React from "react";
 import { HEADER_MENU_LIST } from "./constant";
 import Image from "next/image";
@@ -5,9 +6,12 @@ import Logo from "@/public/assets/logo.png";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import HeaderUserButton from "./header-user-button";
+import { getToken } from "next-auth/jwt";
+import { useSession } from "next-auth/react";
 
 export default async function Header() {
   const session = await getServerSession();
+  const email = session?.user?.email;
 
   return (
     <header className="bg-white w-full h-auto">
@@ -26,7 +30,7 @@ export default async function Header() {
             );
           })}
         </ul>
-        <HeaderUserButton session={session} />
+        <HeaderUserButton email={email} />
       </div>
     </header>
   );

@@ -4,16 +4,14 @@ import Link from "next/link";
 import React, { useState } from "react";
 import HeaderMenu from "./header-menu";
 import { useSession } from "next-auth/react";
-import { Session } from "next-auth";
 
-export default function HeaderUserButton({
-  session,
-}: {
-  session?: Session | null;
-}) {
-  const email = session?.user?.email;
-  const userEmail = email && email.substring(0, email.indexOf("@"));
+export default function HeaderUserButton({ email }: { email?: string }) {
+  const userEmail = email?.includes("@")
+    ? email?.substring(0, email?.indexOf("@"))
+    : email;
   const [isMenu, setIsMenu] = useState(false);
+  const session = useSession();
+  const clientEmail = session.data?.user.email;
 
   const clickMenuHandler = () => {
     setIsMenu(!isMenu);
@@ -23,13 +21,13 @@ export default function HeaderUserButton({
     <ul
       className={clsx(
         "relative flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]",
-        session && "cursor-pointer"
+        (email || clientEmail) && "cursor-pointer"
       )}
-      onClick={session ? clickMenuHandler : undefined}
+      onClick={email || clientEmail ? clickMenuHandler : undefined}
     >
-      {session ? (
+      {email || clientEmail ? (
         <>
-          <li>{!email ? "익명" : userEmail} 님</li>
+          <li>{userEmail || clientEmail} 님</li>
           {isMenu && <HeaderMenu clickMenuHandler={clickMenuHandler} />}
         </>
       ) : (
