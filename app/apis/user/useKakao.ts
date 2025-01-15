@@ -7,7 +7,7 @@ const kakaoRequest = async ({ code, push }: IKakaoRequest) => {
     code,
     redirect: false,
   });
-
+  console.log(res);
   if (!res?.ok) {
     throw new Error(res?.error as string);
   }
