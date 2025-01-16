@@ -45,11 +45,6 @@ IUseEmailVerify) => {
   const email = getValues("email");
 
   const clickSendEmailHandler = () => {
-    console.log(!emailState.isDirty);
-    console.log(emailState.invalid);
-    console.log(emailState.dirtyFields);
-    console.log(sendEmailData?.message);
-    console.log(isSendEmailDone);
     if (emailState.invalid) {
       trigger(["email"]);
       return;
@@ -58,10 +53,6 @@ IUseEmailVerify) => {
   };
 
   useEffect(() => {
-    console.log(emailState.isDirty);
-    console.log(emailState.invalid);
-    console.log(sendEmailData?.message);
-    console.log(isSendEmailDone);
     if (!emailState.isDirty || emailState.invalid) return;
     if (isSendEmailDone && sendEmailData) {
       setSendEmailMessage(sendEmailData?.message);

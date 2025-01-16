@@ -6,28 +6,24 @@ const verifyRequest = async ({
   code,
   setIsVerifyCodeDone,
 }: IVerifyCodeRequest) => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/user/verify-code/`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, code }),
-      }
-    );
-
-    setIsVerifyCodeDone(true);
-    const data = await res.json();
-    console.log(data);
-    if (!res.ok) {
-      throw new Error(data.message);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/user/verify-code/`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, code }),
     }
-    return data;
-  } catch (error) {
-    console.error(error);
+  );
+
+  setIsVerifyCodeDone(true);
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message);
   }
+  return data;
 };
 
 const useVerifyCode = () => {

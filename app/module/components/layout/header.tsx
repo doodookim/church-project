@@ -1,11 +1,13 @@
+// "use client";
 import React from "react";
 import { HEADER_MENU_LIST } from "./constant";
 import Image from "next/image";
 import Logo from "@/public/assets/logo.png";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
-import clsx from "clsx";
 import HeaderUserButton from "./header-user-button";
+import { getToken } from "next-auth/jwt";
+import { useSession } from "next-auth/react";
 
 export default async function Header() {
   const session = await getServerSession();
