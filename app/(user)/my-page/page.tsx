@@ -8,6 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default async function MyPagePage() {
-  const session = await getServerSession();
-  return <MyPage session={session} />;
+  return <MyPage />;
 }
