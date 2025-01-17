@@ -2,8 +2,7 @@ import { IResultSignUpRequest } from "@/app/module/types/sign-up";
 import { useMutation } from "@tanstack/react-query";
 import { signIn } from "next-auth/react";
 
-const signUpRequest = async (signUpInfo: IResultSignUpRequest) => {
-  const { router, ...signUpData } = signUpInfo;
+const signUpRequest = async (signUpData: IResultSignUpRequest) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/user/signup/`, {
     method: "POST",
     headers: {
@@ -20,10 +19,9 @@ const signUpRequest = async (signUpInfo: IResultSignUpRequest) => {
     const res = await signIn("CredentialId", {
       email: signUpData.email,
       password: signUpData.password,
+      callbackUrl: "/",
     });
-
     if (!res?.ok) throw res;
-    router.push("/success-sign-up");
   }
   return data;
 };

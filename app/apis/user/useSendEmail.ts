@@ -5,6 +5,7 @@ const sendEmailRequest = async ({
   email,
   setIsSendEmailDone,
 }: ISendEmailRequest) => {
+  console.log(email);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/user/send-email/`,
     {
@@ -15,11 +16,12 @@ const sendEmailRequest = async ({
       body: JSON.stringify({ email }),
     }
   );
-  setIsSendEmailDone(true);
   const data = await res.json();
+
   if (!res.ok) {
     throw new Error(data.message);
   }
+  setIsSendEmailDone(true);
   return data;
 };
 

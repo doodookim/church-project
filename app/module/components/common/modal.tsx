@@ -17,8 +17,11 @@ export default function Modal() {
       )}
     >
       <div
-        className="fixed top-0 left-0 w-full h-[100vh] bg-black/50 cursor-pointer"
-        onClick={deleteModal}
+        className={clsx(
+          "fixed top-0 left-0 w-full h-[100vh] bg-black/50 ",
+          type === "alert" && onClickFunction ? "" : "cursor-pointer"
+        )}
+        onClick={type === "alert" && onClickFunction ? undefined : deleteModal}
       />
       <BoxLayout
         width={650}
@@ -27,22 +30,19 @@ export default function Modal() {
         <div className="mt-[108px] mb-[113px] flex flex-col justify-center items-center gap-[40px]">
           <TitleLayout title={title} classNamePlus="flex justify-center" />
           <div className="flex gap-[18px]">
-            {type === "confirm" && (
-              <UserButton
-                onClick={() => {
-                  if (onClickFunction) {
-                    onClickFunction();
-                  }
-                  deleteModal();
-                }}
-              >
-                확인
-              </UserButton>
-            )}
-
-            <UserButton onClick={deleteModal}>
-              {type === "confirm" ? "취소" : "확인"}
+            <UserButton
+              onClick={() => {
+                if (onClickFunction) {
+                  onClickFunction();
+                }
+                deleteModal();
+              }}
+            >
+              확인
             </UserButton>
+            {type === "confirm" && (
+              <UserButton onClick={deleteModal}>취소</UserButton>
+            )}
           </div>
         </div>
       </BoxLayout>
