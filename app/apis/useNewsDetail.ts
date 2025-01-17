@@ -9,7 +9,6 @@ const getNewsDetail = async (id: number) => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("news detail fetching 에러", error);
     throw error;
   }
 };

@@ -26,7 +26,6 @@ export default function NewPassword() {
   });
 
   const onSubmit = (data: TNewPasswordSchema) => {
-    console.log(data);
     const result = {
       email: email,
       code: verifyCode,

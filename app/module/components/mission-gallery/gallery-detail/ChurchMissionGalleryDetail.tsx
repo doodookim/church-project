@@ -8,8 +8,8 @@ import Image from "next/image";
 export default function ChurchMissionGalleryDetail() {
   const params = useParams();
   const id = Number(params.id);
-  const { data, isLoading, isError, error } = useFetchMissionGalleryDetail(id);
-  console.log;
+  const { data, isLoading } = useFetchMissionGalleryDetail(id);
+
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
@@ -24,7 +24,6 @@ export default function ChurchMissionGalleryDetail() {
     ...data.mission_gallery_img_set,
   ];
 
-  console.log("Fetched data:", data);
   return (
     <div>
       <div className="flex justify-between border-t-2 border-b-2 border-black py-5 items-center">
