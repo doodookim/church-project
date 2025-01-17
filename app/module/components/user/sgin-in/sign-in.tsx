@@ -24,6 +24,7 @@ export default function SignIn() {
       email: "",
       password: "",
     },
+    mode: "onChange",
   });
 
   const onSubmit = (data: TSignIn) => {
@@ -65,6 +66,15 @@ export default function SignIn() {
             className="w-full h-full flex justify-center items-center"
           >
             카카오톡으로 로그인
+          </Link>
+        </div>
+        <div className="flex justify-end items-center gap-[10px] leading-none mt-[20px]">
+          <Link href={"/find-password"} className="leading-none p-0 m-0">
+            비밀번호 찾기
+          </Link>
+          <p className="bg-gray-03 w-[1px] h-[13px]" />
+          <Link href={"/sign-up"} className="text-primary leading-none p-0 m-0">
+            회원 가입
           </Link>
         </div>
       </div>

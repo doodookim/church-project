@@ -15,11 +15,12 @@ const sendEmailRequest = async ({
       body: JSON.stringify({ email }),
     }
   );
-  setIsSendEmailDone(true);
   const data = await res.json();
+
   if (!res.ok) {
     throw new Error(data.message);
   }
+  setIsSendEmailDone(true);
   return data;
 };
 

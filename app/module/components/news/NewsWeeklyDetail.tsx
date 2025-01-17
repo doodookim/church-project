@@ -9,7 +9,7 @@ export default function NewsWeeklyDetail() {
   const { data, isLoading } = useFetchNewsWeeklyDetail(id);
   if (isLoading) return <div>로딩 중입니다!</div>;
   if (!data) return <div>데이터를 찾을 수 없어요!</div>;
-  console.log(data);
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="mb-8">

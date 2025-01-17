@@ -9,7 +9,6 @@ const getGalleryDetail = async (id: number) => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("gallerydetail data fetching 에러", error);
     throw error;
   }
 };

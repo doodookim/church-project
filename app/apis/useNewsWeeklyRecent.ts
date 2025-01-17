@@ -9,7 +9,6 @@ const getNewsWeeklyRecent = async () => {
     const data = res.json();
     return data;
   } catch (error) {
-    console.error("news weekly recent fetching 에러", error);
     throw error;
   }
 };
