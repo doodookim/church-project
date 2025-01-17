@@ -9,7 +9,6 @@ const getNewsWeekly = async (page: number) => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("weekly news fetching 에러", error);
     throw error;
   }
 };

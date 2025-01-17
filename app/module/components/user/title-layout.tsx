@@ -5,7 +5,7 @@ export default function TitleLayout({
   title,
   classNamePlus,
 }: {
-  title: string;
+  title: React.ReactNode;
   classNamePlus?: string;
 }) {
   return (

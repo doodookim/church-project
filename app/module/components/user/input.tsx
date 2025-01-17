@@ -29,6 +29,7 @@ export default function Input({
         "text-[16px] font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none",
         classNamePlus
       )}
+      autoComplete="off"
       {...register}
     />
   );

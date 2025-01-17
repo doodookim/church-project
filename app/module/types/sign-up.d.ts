@@ -20,7 +20,6 @@ interface IResultSignUpRequest {
   phone_number: string;
   code: string;
   is_age_confirmed: boolean;
-  router: AppRouterInstance;
 }
 
 export type { TSignUp, IResultSignUpData, IResultSignUpRequest };
