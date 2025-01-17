@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Pagination from "../common/Pagination";
-import WorshipList from "./list/Worshiplist";
+import WorshipList from "./list/WorshipList";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import useSermonData, { sermonCategory } from "@/app/apis/useSermonData";
