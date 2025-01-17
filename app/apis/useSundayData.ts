@@ -16,7 +16,7 @@ const getSundayData = async (page: number) => {
 
 export default function useSundayData(page: number) {
   const { data, isLoading } = useQuery<ISundayList>({
-    queryKey: ["SundayData", page],
+    queryKey: ["sundayData", page],
     queryFn: () => getSundayData(page),
   });
   return { data, isLoading };

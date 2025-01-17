@@ -22,14 +22,16 @@ export default function NewsList({ data, isLoading }: INewsListProps) {
             className="flex justify-between items-center text-center border-b boder-gray-200 pb-4 cursor-pointer hover:bg-gray-50 p-4 rounded"
           >
             <div className="flex items-center gap-[30px] ">
-              <div>{news.id}</div>
+              {news.notification ? (
+                <span className="border-[2px] border-[#578fcc] text-[#578fcc]  rounded-[5px] px-3 py-1 text-[14px] font-bold">
+                  공지
+                </span>
+              ) : (
+                <div>{news.id}</div>
+              )}
               <h2 className="text-lg font-medium">{news.title}</h2>
             </div>
-            {news.notification && (
-              <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                공지
-              </span>
-            )}
+
             <p className="flex text-gray-600 text-sm ">{news.date}</p>
           </Link>
         </div>

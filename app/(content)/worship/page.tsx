@@ -1,4 +1,4 @@
-import Sunday from "@/app/module/components/\bworship/Sunday";
+import Worship from "@/app/module/components/\bworship/Worship";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   description: "예배 및 집회 페이지 입니다.",
 };
 
-export default function WorshipPage() {
+export default async function WorshipPage() {
   return (
     <div>
       <div>예배 및 집회</div>
-      <Sunday />
+      <Worship />
     </div>
   );
 }

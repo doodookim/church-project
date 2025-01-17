@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Pagination from "../common/Pagination";
 import SundayList from "./list/Sundaylist";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function Sunday() {
   const router = useRouter();
@@ -28,9 +29,15 @@ export default function Sunday() {
   useEffect(() => {
     router.push(`/worship/?page=${currentPage}`);
   }, [currentPage, router]);
-  if (isLoading) return <div>로딩 중입니다</div>;
+  // if (isLoading)
+  //   return (
+  //     <div className="min-h-lvh mt-[100px] text-center align-center text-[30px]">
+  //       <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+  //     </div>
+  //   );
   return (
-    <div>
+    <div className="mt-[20px]">
+      주일예배
       <SundayList data={data} isLoading={isLoading} />
       <Pagination
         currentPage={currentPage}

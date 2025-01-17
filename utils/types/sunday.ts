@@ -2,7 +2,7 @@ interface ISundayData {
   id: string;
   title: string;
   verse: string;
-  data: string;
+  date: string;
   url: string;
 }
 
