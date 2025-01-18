@@ -1,4 +1,4 @@
-import WorshipDetail from "@/app/module/components/\bworship/WorshipDetail";
+import WorshipDetail from "@/app/module/components/worship/WorshipDetail";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
