@@ -1,3 +1,4 @@
+import NextGeneration from "@/app/module/components/notice/next-generation/NextGeneration";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,10 @@ export const metadata: Metadata = {
 };
 
 export default function NextGenerationPage() {
-  return <div>다음 세대</div>;
+  return (
+    <div>
+      <div>다음세대</div>
+      <NextGeneration />
+    </div>
+  );
 }

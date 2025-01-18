@@ -1,3 +1,4 @@
+import Worship from "@/app/module/components/worship/Worship";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,6 +6,10 @@ export const metadata: Metadata = {
   description: "예배 및 집회 페이지 입니다.",
 };
 
-export default function WorshipPage() {
-  return <div>예배 및 집회</div>;
+export default async function WorshipPage() {
+  return (
+    <div>
+      <Worship />
+    </div>
+  );
 }

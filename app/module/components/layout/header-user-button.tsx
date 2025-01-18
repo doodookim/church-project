@@ -11,7 +11,13 @@ export default function HeaderUserButton({ email }: { email?: string }) {
     : email;
   const [isMenu, setIsMenu] = useState(false);
   const session = useSession();
-  const clientEmail = session.data?.user.email;
+  const clientEmail = session.data?.user.email.includes("@")
+    ? session.data?.user.email?.substring(
+        0,
+        session.data?.user.email?.indexOf("@")
+      )
+    : session.data?.user.email;
+  const resultEmail = userEmail || clientEmail;
 
   const clickMenuHandler = () => {
     setIsMenu(!isMenu);
@@ -21,13 +27,13 @@ export default function HeaderUserButton({ email }: { email?: string }) {
     <ul
       className={clsx(
         "relative flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]",
-        (email || clientEmail) && "cursor-pointer"
+        resultEmail && "cursor-pointer"
       )}
-      onClick={email || clientEmail ? clickMenuHandler : undefined}
+      onClick={resultEmail ? clickMenuHandler : undefined}
     >
-      {email || clientEmail ? (
+      {resultEmail ? (
         <>
-          <li>{userEmail || clientEmail} 님</li>
+          <li>{resultEmail} 님</li>
           {isMenu && <HeaderMenu clickMenuHandler={clickMenuHandler} />}
         </>
       ) : (

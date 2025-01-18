@@ -50,6 +50,7 @@ export default function NewsDetail() {
           </div>
         ))}
       </div>
+<<<<<<< HEAD
 
       {/* 목록으로 */}
       <div className="flex justify-end mt-10 text-lg text-white">
@@ -60,6 +61,14 @@ export default function NewsDetail() {
           목록으로
         </button>
       </div>
+=======
+      <button
+        className="w-[100px] h-[100px] bg-sky-600"
+        onClick={() => window.history.back()}
+      >
+        목록으로
+      </button>
+>>>>>>> a37147b763a15e83d7ff116b5eac55635f7b881c
     </div>
   );
 }

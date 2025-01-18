@@ -2,24 +2,27 @@ import React, { Dispatch, SetStateAction } from "react";
 import BoxLayout from "../box-layout";
 import TitleLayout from "../title-layout";
 import UserButton from "../button";
+import useDeleteMember from "@/app/apis/user/useDeleteMember";
 
 export default function DeleteMemberModal({
   setIsModal,
 }: {
   setIsModal: Dispatch<SetStateAction<boolean>>;
 }) {
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.stopPropagation();
+  const { mutate } = useDeleteMember();
+
+  const handleClick = () => {
     setIsModal(false);
+  };
+  const clickDeleteMemberHandler = () => {
+    mutate();
   };
 
   return (
     <div className="fixed top-0 left-0 w-full h-[100vh]">
       <div
         className="fixed top-0 left-0 w-full h-[100vh] bg-black/50 cursor-pointer"
-        onClick={(e) => {
-          handleClick(e);
-        }}
+        onClick={handleClick}
       />
       <BoxLayout
         classNamePlus="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
@@ -31,7 +34,8 @@ export default function DeleteMemberModal({
             classNamePlus="flex justify-center"
           />
           <div className="flex gap-[18px]">
-            <UserButton>동의</UserButton>
+            <UserButton onClick={clickDeleteMemberHandler}>동의</UserButton>
+            <UserButton onClick={handleClick}>취소</UserButton>
           </div>
         </div>
       </BoxLayout>

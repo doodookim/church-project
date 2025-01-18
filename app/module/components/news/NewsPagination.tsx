@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 import NewsList from "./list/NewsList";
 import Pagination from "../common/Pagination";
 import { useRouter, useSearchParams } from "next/navigation";
-import { parse } from "path";
 
 export default function NewsPagination() {
   const router = useRouter();
@@ -33,7 +32,6 @@ export default function NewsPagination() {
     router.push(`/news?page=${currentPage}`);
   }, [currentPage, router]);
   if (isLoading) return <div className="h-screen">로딩 중입니다.</div>;
-  // <Link href={`/news?page=${currentPage}`} />;
   return (
     <div>
       <NewsList data={data} isLoading={isLoading} />

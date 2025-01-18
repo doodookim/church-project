@@ -42,10 +42,10 @@ IUseEmailVerify) => {
   const [isSendEmailDone, setIsSendEmailDone] = useState(false);
   const [sendEmailMessage, setSendEmailMessage] = useState("");
   const emailState = getFieldState("email");
-  const email = getValues("email");
 
   const clickSendEmailHandler = () => {
-    if (emailState.invalid) {
+    const email = getValues("email");
+    if (!emailState.isDirty || emailState.invalid) {
       trigger(["email"]);
       return;
     }

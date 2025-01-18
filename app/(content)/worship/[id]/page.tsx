@@ -1,3 +1,4 @@
+import WorshipDetail from "@/app/module/components/worship/WorshipDetail";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,5 +12,10 @@ export default function WorshipDetailPage({
   params: { id: string };
 }) {
   const { id } = params;
-  return <div>예배 및 집회 상세 {id}</div>;
+  return (
+    <div>
+      {/* <div>예배 및 집회 상세 {id}</div> */}
+      <WorshipDetail />
+    </div>
+  );
 }
