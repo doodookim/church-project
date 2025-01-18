@@ -36,8 +36,8 @@ export default function NewsGalleryPagination() {
   const totalPages = Math.ceil((data?.count || 0) / itemPerPage);
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
-      <div className="flex justify-between ">
+    <div>
+      <div>
         <NewsGalleryList data={data} isLoading={isLoading} />
       </div>
       <Pagination

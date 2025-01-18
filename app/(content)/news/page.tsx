@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function NewsPage() {
   return (
     <div>
-      <div>교회 소식</div>
       <NewsPagination />
     </div>
   );

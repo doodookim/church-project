@@ -6,15 +6,18 @@ const getNoticeData = async () => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/church-facilities/`
   );
   const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
   return data;
 };
 
 const useFetchFacility = () => {
-  const { data, isLoading } = useQuery<IimageData[]>({
+  const { data, isLoading, isError, error } = useQuery<IimageData[]>({
     queryKey: ["churchorfacility"],
     queryFn: getNoticeData,
   });
 
-  return { data, isLoading };
+  return { data, isLoading, isError, error };
 };
 export default useFetchFacility;

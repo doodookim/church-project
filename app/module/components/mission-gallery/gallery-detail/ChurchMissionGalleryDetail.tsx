@@ -4,6 +4,7 @@ import useFetchMissionGalleryDetail from "@/app/apis/useMissionGalleryDetailData
 import React from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
 
 export default function ChurchMissionGalleryDetail() {
   const params = useParams();
@@ -13,7 +14,7 @@ export default function ChurchMissionGalleryDetail() {
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
-        로딩 중...
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
       </div>
     );
 
@@ -25,6 +26,7 @@ export default function ChurchMissionGalleryDetail() {
   ];
 
   console.log("Fetched data:", data);
+
   return (
     <div>
       <div className="flex justify-between border-t-2 border-b-2 border-black py-5 items-center">
