@@ -6,8 +6,6 @@ import Logo from "@/public/assets/logo.png";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import HeaderUserButton from "./header-user-button";
-import { getToken } from "next-auth/jwt";
-import { useSession } from "next-auth/react";
 
 export default async function Header() {
   const session = await getServerSession();
@@ -21,7 +19,7 @@ export default async function Header() {
             <Image src={Logo} alt="로고 이미지" />
           </Link>
         </p>
-        <ul className="flex justify-center items-center gap-[20px] font-medium text-[18px]">
+        <ul className="flex justify-center items-center gap-[20px] font-medium text-lg">
           {HEADER_MENU_LIST.map(({ id, name, url }) => {
             return (
               <li key={id}>
