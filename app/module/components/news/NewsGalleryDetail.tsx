@@ -19,21 +19,23 @@ export default function NewsGalleryDetail() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
-      <p className="text-gray-600 mb-8">{data.date}</p>
-      <p className="mb-8">{data.content}</p>
+    <div>
+      <div className="flex items-center justify-between border-[#D9D9D9] border-solid border-y py-[18px]">
+        <h1 className="text-xl font-bold text-[#202020]">{data.title}</h1>
+        <p className="text-[#ABABAB]">{data.date}</p>
+      </div>
+      <p>{data.content}</p>
 
       {/* 이미지 섹션 (썸네일 포함) */}
       {combinedImages.length > 0 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+        <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-4 mt-[30px]">
           {combinedImages.map((img) => (
-            <div key={img.id} className="relative w-full h-64">
+            <div key={img.id} className="relative  h-[206px]">
               <Image
                 src={img.image_files}
                 alt={`갤러리 이미지 ${img.id}`}
                 layout="fill"
-                className="object-cover rounded-lg"
+                className="object-cover rounded-[10px]"
               />
             </div>
           ))}
@@ -54,10 +56,10 @@ export default function NewsGalleryDetail() {
       )}
       <div className="flex justify-end">
         <button
-          className="justify-end mt-8 px-6 py-3 bg-sky-600 text-white font-bold rounded-[22px]"
+          className="justify-end mt-10  bg-[#578FCC] text-white font-bold rounded-[22px] text-lg w-[151px] h-[44px]"
           onClick={() => window.history.back()}
         >
-          목록
+          목록으로
         </button>
       </div>
     </div>

@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <div>
-      <div>생명의 빛 갤러리</div>
       <NewsGalleryPagination />
     </div>
   );

@@ -2,13 +2,14 @@
 
 import useFetchNotice from "@/app/apis/useNoticeData";
 import React from "react";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function ChurchNotice() {
   const { data, isLoading } = useFetchNotice();
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
-        로딩 중...
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
       </div>
     );
 
@@ -19,11 +20,10 @@ export default function ChurchNotice() {
           {/* 교회소개 */}
           <div className="border-b-2 border-[#D9D9D9] pb-[150px]">
             <h2 className="text-[#578FCC] text-2xl">교회소개</h2>
-            <div className="w-[77%]">
-              <p className="mt-10 text-lg leading-7 ">
-                {info.church_info_content}
-              </p>
-            </div>
+            <p className="mt-10 text-lg leading-7 ">
+              {info.church_info_content}
+            </p>
+
             <div>
               <img
                 className="text-center mt-[30px] w-full h-auto"
@@ -36,11 +36,9 @@ export default function ChurchNotice() {
           {/* 목사소개 */}
           <div className="border-b-2 border-[#D9D9D9] py-[150px]">
             <h2 className="text-[#578FCC] text-2xl">담임 목사 소개</h2>
-            <div className="w-[77%]">
-              <p className="mt-10 text-lg leading-7">
-                {info.pastor_info_content}
-              </p>
-            </div>
+            <p className="mt-10 text-lg leading-7">
+              {info.pastor_info_content}
+            </p>
             <div>
               <img
                 className="text-center mt-[30px] w-full h-auto"
@@ -49,7 +47,6 @@ export default function ChurchNotice() {
               />
             </div>
           </div>
-
           {/* 표어 */}
           <div className="border-b-2 border-[#D9D9D9] py-[150px]">
             <h2 className="text-[#578FCC] text-2xl">표어</h2>
@@ -61,7 +58,6 @@ export default function ChurchNotice() {
               />
             </div>
           </div>
-
           {/* 예배안내 */}
           <div className="border-b-2 border-[#D9D9D9] py-[150px]">
             <h2 className="text-[#578FCC] text-2xl">예배 안내</h2>
@@ -73,7 +69,6 @@ export default function ChurchNotice() {
               />
             </div>
           </div>
-
           {/* 오시는길 */}
           <div className="border-b-2 border-[#D9D9D9] py-[150px]">
             <h2 className="text-[#578FCC] text-2xl">오시는 길</h2>

@@ -14,9 +14,9 @@ const getNewsDetail = async (id: number) => {
 };
 
 export default function useFetchNewsDetail(id: number) {
-  const { data, isLoading } = useQuery<INewsListItem>({
+  const { data, isLoading, isError, error } = useQuery<INewsListItem>({
     queryKey: ["newsListDetail", id],
     queryFn: () => getNewsDetail(id),
   });
-  return { data, isLoading };
+  return { data, isLoading, isError, error };
 }

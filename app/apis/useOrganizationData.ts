@@ -6,6 +6,9 @@ const getNoticeData = async () => {
     `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/church-organization/`
   );
   const data = await res.json();
+  if (!res.ok) {
+    throw new Error(data.message);
+  }
   return data;
 };
 
