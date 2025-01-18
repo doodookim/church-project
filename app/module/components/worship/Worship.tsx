@@ -33,6 +33,12 @@ export default function Worship() {
   const [currentPage, setCurrentPage] = useState(getParsedPage);
   const [currentCategory, setCurrentCategory] = useState(getCategory);
 
+  //searchParams 변경 시 카테고리, 페이지 업데이트
+  useEffect(() => {
+    setCurrentCategory(getCategory());
+    setCurrentPage(getParsedPage());
+  }, [searchParams]);
+
   const selectedCategories = {
     sundaySermon: "주일 예배",
     sundayWorshipSermon: "주일 찬양 예배",
@@ -40,20 +46,23 @@ export default function Worship() {
   };
 
   const { data, isLoading } = useSermonData(currentCategory, currentPage);
-  console.log(data);
   const totalPages = Math.ceil((data?.count || 0) / itemsPerPage);
 
   //다른 페이지 번호, 다른 카테고리 누를 때 누른 페이지나 카테고리로 라우팅
   useEffect(() => {
-    router.push(`/worship/?category=${currentCategory}?page=${currentPage}`);
+    router.push(`/worship/?category=${currentCategory}&page=${currentPage}`);
   }, [currentPage, currentCategory, router]);
 
   return (
     <div className="mt-[20px]">
-      <h2 className="text-2xl font-bold mb-4 text-[#578fcc]">
+      <h2 className="text-2xl font-bold p-4 text-[#578fcc]">
         {selectedCategories[currentCategory]}
       </h2>
-      <WorshipList data={data} isLoading={isLoading} />
+      <WorshipList
+        data={data}
+        isLoading={isLoading}
+        currentCategory={currentCategory}
+      />
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

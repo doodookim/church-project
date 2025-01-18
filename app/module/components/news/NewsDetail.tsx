@@ -47,7 +47,7 @@ export default function NewsDetail() {
         className="w-[100px] h-[100px] bg-sky-600"
         onClick={() => window.history.back()}
       >
-        목록
+        목록으로
       </button>
     </div>
   );

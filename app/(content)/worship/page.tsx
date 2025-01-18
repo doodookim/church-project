@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default async function WorshipPage() {
   return (
     <div>
-      <div>예배 및 집회</div>
       <Worship />
     </div>
   );

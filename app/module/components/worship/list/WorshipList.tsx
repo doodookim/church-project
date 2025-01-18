@@ -7,9 +7,14 @@ import LoadingSpinner from "../../common/LoadingSpinner";
 interface IWorshipProps {
   data: ISermonList | undefined;
   isLoading: boolean;
+  currentCategory: string;
 }
 
-export default function WorshipList({ data, isLoading }: IWorshipProps) {
+export default function WorshipList({
+  data,
+  isLoading,
+  currentCategory,
+}: IWorshipProps) {
   const getYoutubeUrlId = (url: string) => {
     const videoId = url.split("live/")[1]?.split("?")[0];
     return `https://www.youtube.com/embed/${videoId}`;
@@ -32,11 +37,11 @@ export default function WorshipList({ data, isLoading }: IWorshipProps) {
         {data.results.map((sermon) => (
           <div
             key={sermon.id}
-            className="items-center text-center pb-4 cursor-pointer p-4 rounded"
+            className="items-center text-center pb-4 p-4 rounded"
           >
             <Link
-              href={`/worship/${sermon.id}`}
-              className="flex flex-col items-center gap-[30px]"
+              href={`/worship/${sermon.id}?category=${currentCategory}`}
+              className="flex flex-col items-center gap-[30px] cursor-pointer"
             >
               <div className="relative w-full h-full">
                 <iframe
