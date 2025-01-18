@@ -4,12 +4,17 @@ import useMainCarousel from "@/app/apis/useMainCarousel";
 import { useCarouselStore } from "@/store/useCarouselStore";
 import Image from "next/image";
 import Pagination from "../common/Pagination";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function MainCarousel() {
   const { data, isLoading } = useMainCarousel();
   const { currentIndex, setCurrentIndex } = useCarouselStore();
 
-  if (isLoading) <div>캐러셀 로딩 중입니다</div>;
+  if (isLoading)
+    <div>
+      {" "}
+      <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+    </div>;
   if (!data) return null;
 
   const totalCarouselPage = Math.min(data.length, 4);
