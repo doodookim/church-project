@@ -11,7 +11,7 @@ const HEADER_MENU_LIST = [
   },
   {
     id: 2,
-    name: "에배 및 집회",
+    name: "예배 및 집회",
     url: "/worship",
   },
   {
@@ -141,19 +141,19 @@ const WORSHIP_SIDEBAR_LIST = [
       {
         id: 0,
         name: "주일 예배",
-        url: "",
+        url: "/worship/?category=sundaySermon",
         isClick: false,
       },
       {
         id: 1,
-        name: "주일 특별 예배",
-        url: "",
+        name: "주일 찬양 예배",
+        url: "/worship/?category=sundayWorshipSermon",
         isClick: false,
       },
       {
         id: 2,
-        name: "찬양 예배",
-        url: "",
+        name: "특별 예배",
+        url: "/worship/?category=sundayEventSermon",
         isClick: false,
       },
     ],
