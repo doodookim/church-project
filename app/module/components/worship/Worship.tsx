@@ -54,8 +54,8 @@ export default function Worship() {
   }, [currentPage, currentCategory, router]);
 
   return (
-    <div className="mt-[20px]">
-      <h2 className="text-2xl font-bold p-4 text-[#578fcc]">
+    <div>
+      <h2 className="text-2xl  text-[#578fcc]">
         {selectedCategories[currentCategory]}
       </h2>
       <WorshipList

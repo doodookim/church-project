@@ -39,25 +39,24 @@ export default function WorshipDetail() {
   if (!data) return <div>데이터를 찾을 수 없어요!</div>;
 
   return (
-    <div className="flex flex-col px-6 py-8">
+    <div>
       <div>
         <h2 className="text-2xl font-bold text-[#578fcc]">
           {selectedCategories[currentCategory]}
         </h2>
       </div>
 
-      <div className="flex justify-between gap-8 mt-8">
+      <div className="flex justify-between gap-4 mt-[43px]">
         <div className="flex-1 flex flex-col h-[315px]">
-          <div className="border-t border-[#D9D9D9] pt-6">
-            <h3 className="text-xl font-medium text-[#202020]">{data.title}</h3>
+          <div className="border-t border-[#D9D9D9] py-5">
+            <h3 className="text-xl  text-[#202020]">{data.title}</h3>
           </div>
-          <div className="border-t border-[#D9D9D9] mt-6 pt-6 flex-1">
+          <div className="border-t border-[#D9D9D9] flex-1 pt-[31px]">
             <p className="text-[#202020] break-words">{data.verse}</p>
           </div>
-          <div className="border-t border-[#D9D9D9] mt-6 pt-6">
-            <span className="text-[#ABABAB]">{data.date}</span>
+          <div className="border-solid border-[#D9D9D9] border-y py-5">
+            <span className="text-[#ABABAB] text-lg ">{data.date}</span>
           </div>
-          <div className="border-t border-[#D9D9D9] mt-6"></div>
         </div>
         <div className="flex-1">
           <iframe
@@ -71,10 +70,9 @@ export default function WorshipDetail() {
           />
         </div>
       </div>
-
-      <div className="flex justify-end mt-6">
+      <div className="flex justify-end mt-10">
         <button
-          className="px-6 py-3 bg-[#578FCC] text-white rounded-[22px] hover:bg-[#4A7AB0] transition-colors"
+          className="w-[151px] h-[44px] bg-[#578FCC] text-white rounded-[22px]"
           onClick={() => window.history.back()}
         >
           목록으로
