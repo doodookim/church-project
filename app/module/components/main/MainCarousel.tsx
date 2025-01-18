@@ -27,7 +27,7 @@ export default function MainCarousel() {
   return (
     <div className="relative">
       <div className="overflow-hidden">
-        <div className="w-full aspect-video transition-transform duration-300 ease-in-out">
+        <div className="max-w-[1024px] mx-auto aspect-video transition-transform duration-300 ease-in-out">
           {data[currentIndex] && (
             <Image
               src={data[currentIndex].image_files}
@@ -39,11 +39,6 @@ export default function MainCarousel() {
           )}
         </div>
       </div>
-      <Pagination
-        currentPage={currentIndex + 1}
-        totalPages={totalCarouselPage}
-        onPageChange={handlePageChange}
-      />
     </div>
   );
 }
