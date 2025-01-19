@@ -67,6 +67,9 @@ export default {
       fontFamily: {
         sans: ["var(--font-pretendard)", "sans-serif"],
       },
+      boxShadow: {
+        "mobile-menu": "inset 0 10px 10px -10px rgba(0, 0, 0, 1)",
+      },
     },
   },
   plugins: [],
