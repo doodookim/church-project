@@ -5,6 +5,7 @@ import { useCarouselStore } from "@/store/useCarouselStore";
 import Image from "next/image";
 import Pagination from "../common/Pagination";
 import LoadingSpinner from "../common/LoadingSpinner";
+import clsx from "clsx";
 
 export default function MainCarousel() {
   const { data, isLoading } = useMainCarousel();
@@ -12,7 +13,6 @@ export default function MainCarousel() {
 
   if (isLoading)
     <div>
-      {" "}
       <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
     </div>;
   if (!data) return null;
@@ -25,20 +25,31 @@ export default function MainCarousel() {
   };
 
   return (
-    <div className="relative">
-      <div className="overflow-hidden">
-        <div className="w-full aspect-video transition-transform duration-300 ease-in-out">
-          {data[currentIndex] && (
-            <Image
-              src={data[currentIndex].image_files}
-              alt="메인캐러셀"
-              width={600}
-              height={400}
-              className="object-cover w-full h-full"
-            />
-          )}
-        </div>
-      </div>
+    <div className="">
+      <ul className="relative w-full h-[600px] aspect-video ease-in-out">
+        {data.map(({ id, image_files }, index) => {
+          return (
+            <li
+              key={id}
+              className={clsx(
+                "absolute top-0 left-0 w-full h-full transition-all duration-300",
+
+                index === currentIndex && `translate-x-0`,
+                index > currentIndex && `translate-x-[100%]`,
+                index < currentIndex && `translate-x-[-100%]`
+              )}
+            >
+              <Image
+                src={image_files}
+                alt="메인캐러셀"
+                fill
+                style={{ objectFit: "cover" }}
+              />
+            </li>
+          );
+        })}
+      </ul>
+
       <Pagination
         currentPage={currentIndex + 1}
         totalPages={totalCarouselPage}
