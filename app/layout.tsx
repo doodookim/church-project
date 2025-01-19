@@ -9,6 +9,7 @@ import Footer from "./module/components/layout/footer";
 import { SessionProvider } from "next-auth/react";
 import AuthProvider from "./AuthProvider";
 import Modal from "./module/components/common/modal";
+import MobileMenu from "./module/components/layout/mobile-menu";
 
 export const metadata: Metadata = {
   title: "생명의 빛 교회",
@@ -25,12 +26,13 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${pretendard.variable} font-sans antialiased bg-background text-gray-03`}
+        className={`${pretendard.variable} font-sans antialiased bg-background text-gray-03 overflow-x-hidden`}
       >
         <ReactQueryProvider>
           <HydrationBoundary state={dehydratedState}>
             <AuthProvider>
               <Header />
+              {/* <MobileMenu /> */}
               <main className="min-h-[calc(100vh-190px)]">{children}</main>
               <Footer />
               <Modal />

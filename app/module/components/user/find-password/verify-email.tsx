@@ -61,7 +61,7 @@ export default function VerifyEmail() {
           id="email"
           placeholder="이메일 입력"
           onChange={changeEmailHandler}
-          className="w-[calc(100%-167px)] text-[16px] font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
+          className="w-[calc(100%-167px)] text-base font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
         />
         <UserButton
           type="button"
@@ -84,7 +84,7 @@ export default function VerifyEmail() {
           placeholder="인증번호 입력"
           onChange={changeVerifyCodeHandler}
           onKeyUp={handleHeyUp}
-          className="w-[calc(100%-167px)] text-[16px] font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
+          className="w-[calc(100%-167px)] text-base font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
         />
         <UserButton
           isDisabled={isLoading || isEmailVerify}

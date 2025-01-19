@@ -8,7 +8,7 @@ export default function ContentLayout({
   return (
     <>
       <ContentBanner />
-      <section className="w-full max-w-[1024px] flex justify-between items-start mx-auto my-[100px]">
+      <section className="md:px-[60px] px-[30px] w-full max-w-[1144px] flex justify-between items-start mx-auto my-[100px]">
         {children}
       </section>
     </>

@@ -32,7 +32,7 @@ export default function SubMenuList({
   return (
     <ul
       className={clsx(
-        "text-[#636363] text-[18px] transition-all duration-[0.5s] ",
+        "text-[#636363] text-lg transition-all duration-[0.5s] ",
         isToggle ? height : "translate-y-[-50%] scale-y-0 h-0 my-0"
       )}
       ref={subMenuRef}

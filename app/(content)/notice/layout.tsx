@@ -15,7 +15,9 @@ export default function NoticeLayout({
   return (
     <>
       <Sidebar menuList={menuList} />
-      <section className="w-[calc(100%-334px)]">{children}</section>
+      <section className="w-full md:w-[65%] lg:w-[calc(100%-334px)]">
+        {children}
+      </section>
     </>
   );
 }

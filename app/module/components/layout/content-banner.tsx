@@ -23,7 +23,7 @@ export default function ContentBanner() {
         className="z-0"
       />
       <div className="absolute top-0 left-0 w-full h-full bg-black/45" />
-      <h3 className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold text-[28px] text-white">
+      <h3 className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold text-3xl text-white">
         {contentTitle}
       </h3>
     </section>
