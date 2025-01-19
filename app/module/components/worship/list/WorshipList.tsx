@@ -45,7 +45,7 @@ export default function WorshipList({
                   width="100%"
                   height="100%"
                   src={getYoutubeUrlId(sermon.url)}
-                  title="worship-sermon"
+                  title="sermonVideo"
                   allow="autoplay;"
                   allowFullScreen
                   className="rounded-[10px]"
