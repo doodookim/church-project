@@ -3,6 +3,7 @@
 import { INewsList } from "@/utils/types/newsData";
 import Link from "next/link";
 import React from "react";
+import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
 
 interface INewsListProps {
   data: INewsList | undefined;
@@ -12,8 +13,12 @@ export default function NewsList({ data, isLoading }: INewsListProps) {
   if (!data?.results.length) {
     return <div>아직 작성된 소식이 없어요</div>;
   }
-  if (isLoading) return <div>로딩 중입니다</div>;
-
+  if (isLoading)
+    return (
+      <div className="min-h-lvh text-center align-center text-[30px]">
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+      </div>
+    );
   return (
     <div>
       <h2 className="text-[#578FCC] text-2xl font-bold">교회소식</h2>
