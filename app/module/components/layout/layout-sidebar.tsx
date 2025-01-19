@@ -13,7 +13,7 @@ interface INoticeSidebar {
 
 export default function Sidebar({ menuList, pathName }: INoticeSidebar) {
   return (
-    <nav className="w-[234px] h-auto">
+    <nav className="hidden md:block w-[30%] max-w-[234px] h-auto">
       <ul className="flex flex-col justify-start items-start gap-[9px] font-semibold text-[20px] text-[#578FCC]">
         {menuList.map(({ id, name, url, isClick, subMenuList }) => {
           return (

@@ -9,12 +9,7 @@ export default function TitleLayout({
   classNamePlus?: string;
 }) {
   return (
-    <h3
-      className={clsx(
-        "w-full max-[318px] text-[18px] font-bold",
-        classNamePlus
-      )}
-    >
+    <h3 className={clsx("w-full max-[318px] text-lg font-bold", classNamePlus)}>
       {title}
     </h3>
   );

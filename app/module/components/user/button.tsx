@@ -26,7 +26,7 @@ export default function UserButton({
       className={clsx(
         className
           ? className
-          : "w-[150px] h-[42px] text-[16px] rounded-full transition-all duration-300 flex justify-center items-center",
+          : "w-[150px] h-[42px] text-base rounded-full transition-all duration-300 flex justify-center items-center",
         classNamePuls,
         isDisabled || style === "confirm"
           ? (isDisabled && "bg-[#578FCC] text-white hover:bg-[#578FCC]") ||

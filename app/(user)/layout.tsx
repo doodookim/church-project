@@ -12,7 +12,7 @@ export default function NewsLayout({
 
   return (
     <section className="flex flex-col justify-center items-center w-full">
-      <h1 className="text-[28px] font-bold text-[#578FCC] my-[58px] leading-none">
+      <h1 className="text-3xl font-bold text-[#578FCC] my-[58px] leading-none">
         {title}
       </h1>
       {children}
