@@ -47,21 +47,23 @@ export default function WorshipDetail() {
       </div>
 
       <div className="flex justify-between gap-4 mt-[43px]">
-        <div className="flex-1 flex flex-col h-[315px]">
+        <div className="flex flex-col">
           <div className="border-t border-[#D9D9D9] py-5">
             <h3 className="text-xl  text-[#202020]">{data.title}</h3>
           </div>
-          <div className="border-t border-[#D9D9D9] flex-1 pt-[31px]">
-            <p className="text-[#202020] break-words">{data.verse}</p>
+          <div className="border-t border-[#D9D9D9] pt-[31px]">
+            <p className="text-[#202020] break-words h-[198px] overflow-y-auto w-[401px]">
+              {data.verse}
+            </p>
           </div>
           <div className="border-solid border-[#D9D9D9] border-y py-5">
             <span className="text-[#ABABAB] text-lg ">{data.date}</span>
           </div>
         </div>
-        <div className="flex-1">
+        <div className="w-full">
           <iframe
             width="100%"
-            height="315"
+            height="100%"
             src={getYoutubeUrlId(data.url)}
             title="worship-sermon"
             allow="autoplay;"

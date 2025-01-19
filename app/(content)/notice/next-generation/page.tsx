@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function NextGenerationPage() {
   return (
     <div>
-      <div>다음세대</div>
       <NextGeneration />
     </div>
   );
