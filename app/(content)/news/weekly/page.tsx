@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export default function WeeklyPage() {
   return (
     <div>
-      <div>주보</div>
       <NewsWeeklyPagination />
     </div>
   );

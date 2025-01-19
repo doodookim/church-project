@@ -41,7 +41,8 @@ export default function NewsWeeklyPagination() {
 
   return (
     <div className="w-full relative">
-      <div className="flex justify-between ">
+      <h2 className="text-[#578FCC] text-2xl mb-10">이주의 주보</h2>
+      <div className="flex gap-4">
         <WeeklyRecentNews
           data={weeklyRecentData}
           isLoading={isWeeklyRecentDataLoading}
