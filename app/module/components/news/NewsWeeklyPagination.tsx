@@ -7,7 +7,6 @@ import WeeklyNewsList from "./list/WeeklyNewsList";
 import WeeklyRecentNews from "./list/WeeklyRecentNews";
 import useFetchNewsWeeklyRecent from "@/app/apis/useNewsWeeklyRecent";
 import { useRouter, useSearchParams } from "next/navigation";
-import { parse } from "path";
 
 export default function NewsWeeklyPagination() {
   const router = useRouter();
@@ -46,6 +45,7 @@ export default function NewsWeeklyPagination() {
         <WeeklyRecentNews
           data={weeklyRecentData}
           isLoading={isWeeklyRecentDataLoading}
+          linkData={weeklyData}
         />
         <WeeklyNewsList data={weeklyData} isLoading={isWeeklyLoading} />
       </div>

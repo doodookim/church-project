@@ -1,4 +1,4 @@
-import { INewsImg } from "@/utils/types/newsData";
+import { INewsImg, INewsList } from "@/utils/types/newsData";
 import Image from "next/image";
 import Link from "next/link";
 import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
@@ -6,11 +6,13 @@ import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
 interface INewsWeeklyRecentProps {
   data: INewsImg[] | undefined;
   isLoading: boolean;
+  linkData: INewsList | undefined;
 }
 
 export default function WeeklyRecentNews({
   data,
   isLoading,
+  linkData,
 }: INewsWeeklyRecentProps) {
   if (!data) return <div>데이터가 없습니다</div>;
   if (isLoading)
@@ -24,15 +26,20 @@ export default function WeeklyRecentNews({
       <div className="max-w-[234px] w-full flex flex-col gap-4">
         {data?.map((recent) => (
           <div key={recent.id} className="relative">
-            <Link href={`/news/weekly/${recent.id}`}>
-              <Image
-                src={recent.image_files}
-                alt={`최신뉴스파일 ${recent.id + 1}`}
-                className="object-cover rounded-lg"
-                width={234}
-                height={234}
-              />
-            </Link>
+            {linkData?.results.map((weeklyDetail) => (
+              <Link
+                key={weeklyDetail.id}
+                href={`/news/weekly/${weeklyDetail.id}`}
+              >
+                <Image
+                  src={recent.image_files}
+                  alt={`최신뉴스파일 ${recent.id + 1}`}
+                  className="object-cover rounded-lg"
+                  width={234}
+                  height={234}
+                />
+              </Link>
+            ))}
           </div>
         ))}
       </div>
