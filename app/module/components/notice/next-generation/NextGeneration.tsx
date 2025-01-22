@@ -94,7 +94,7 @@ export default function NextGeneration() {
           {/* 청년부 섹션 */}
           <section>
             <h2 className="text-xl font-bold text-[#578FCC]">청년부</h2>
-            <div className="flex flex-col  gap-4 pt-[30px]  pb-10 border-b border-[#D9D9D9] border-solid  lg:flex-row-reverse md:flex-row-reverse">
+            <div className="flex flex-col  gap-4 pt-[30px]  pb-10  lg:flex-row-reverse md:flex-row-reverse">
               <div className="basis-1/2">
                 <img
                   src={next.next_generation_adult_img.image_files}

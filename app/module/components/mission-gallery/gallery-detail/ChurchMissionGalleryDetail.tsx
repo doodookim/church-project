@@ -25,15 +25,10 @@ export default function ChurchMissionGalleryDetail() {
     ...data.mission_gallery_img_set,
   ];
 
-<<<<<<< HEAD
-  console.log("Fetched data:", data);
-
-=======
->>>>>>> a37147b763a15e83d7ff116b5eac55635f7b881c
   return (
     <div>
-      <div className="flex justify-between border-t-2 border-b-2 border-black py-5 items-center">
-        <h1 className="text-xl font-bold ">{data.title}</h1>
+      <div className="flex justify-between border-t-2 border-b-2 border-[#D9D9D9] py-5 items-center">
+        <h1 className="text-xl font-bold text-[#202020]">{data.title}</h1>
         <p className="text-[#ABABAB] text-lg ">{data.date}</p>
       </div>
 
