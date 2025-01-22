@@ -10,7 +10,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "@/app/module/utils/validation/sign-in-register";
 import Message from "../message-box";
 import Link from "next/link";
-import { signIn } from "next-auth/react";
 
 export default function SignIn() {
   const { mutate } = useSignIn();
@@ -55,12 +54,12 @@ export default function SignIn() {
           <Message>{errors.password?.message}</Message>
           <button
             type="submit"
-            className="bg-[#578FCC] rounded-[5px] h-[50px] text-white font-bold text-[16px] mt-[10px]"
+            className="bg-[#578FCC] rounded-[5px] h-[50px] text-white font-bold text-base mt-[10px]"
           >
             로그인
           </button>
         </form>
-        <div className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-[16px] mt-[12px]">
+        <div className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-base mt-[12px]">
           <Link
             href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=${process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI}`}
             className="w-full h-full flex justify-center items-center"

@@ -13,7 +13,9 @@ export default function MissionLayout({
   return (
     <>
       <Sidebar menuList={MISSION_SIDEBAR_LIST} pathName={pathName} />
-      <section className="w-[calc(100%-334px)]">{children}</section>
+      <section className="w-full md:w-[65%] lg:w-[calc(100%-334px)]">
+        {children}
+      </section>
     </>
   );
 }

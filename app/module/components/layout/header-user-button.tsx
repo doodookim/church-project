@@ -6,7 +6,7 @@ import HeaderMenu from "./header-menu";
 import { useSession } from "next-auth/react";
 
 export default function HeaderUserButton({ email }: { email?: string }) {
-  const userEmail = email?.includes("@")
+  const serverEmail = email?.includes("@")
     ? email?.substring(0, email?.indexOf("@"))
     : email;
   const [isMenu, setIsMenu] = useState(false);
@@ -17,7 +17,7 @@ export default function HeaderUserButton({ email }: { email?: string }) {
         session.data?.user.email?.indexOf("@")
       )
     : session.data?.user.email;
-  const resultEmail = userEmail || clientEmail;
+  const resultEmail = serverEmail || clientEmail;
 
   const clickMenuHandler = () => {
     setIsMenu(!isMenu);

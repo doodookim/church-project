@@ -26,7 +26,7 @@ export default function Input({
       id={id}
       placeholder={placeholder}
       className={clsx(
-        "text-[16px] font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none",
+        "text-base font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none",
         classNamePlus
       )}
       autoComplete="off"
