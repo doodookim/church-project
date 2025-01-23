@@ -1,4 +1,4 @@
-import { INewsImg } from "@/utils/types/newsData";
+import { INewsImg, INewsList } from "@/utils/types/newsData";
 import Image from "next/image";
 import Link from "next/link";
 import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";

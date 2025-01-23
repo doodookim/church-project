@@ -15,7 +15,7 @@ export default function WorshipDetailPage({
   return (
     <div>
       {/* <div>예배 및 집회 상세 {id}</div> */}
-      <WorshipDetail />
+      <WorshipDetail id={id} />
     </div>
   );
 }

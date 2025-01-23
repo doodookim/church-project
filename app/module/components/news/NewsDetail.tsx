@@ -5,9 +5,8 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import LoadingSpinner from "../common/LoadingSpinner";
 
-export default function NewsDetail() {
+export default function NewsDetail({ id }: { id: string }) {
   const params = useParams();
-  const id = Number(params.id);
   const { data, isLoading } = useFetchNewsDetail(id);
   if (isLoading)
     return (

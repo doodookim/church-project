@@ -14,7 +14,7 @@ export default function GalleryDetailPage({
   const { id } = params;
   return (
     <div>
-      <NewsGalleryDetail />
+      <NewsGalleryDetail id={id} />
     </div>
   );
 }

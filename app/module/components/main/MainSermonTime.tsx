@@ -17,12 +17,12 @@ export default function MainSermonTime() {
   }
 
   if (!data?.length) return null;
-
+  console.log(data);
   return (
     <div className="w-full h-full">
-      {data?.map((WorshipTime, index) => (
+      {data?.map((WorshipTime) => (
         <Link
-          key={index}
+          key={WorshipTime.worship_time_img.id}
           href={`/notice`}
           className="block w-full h-full relative"
         >

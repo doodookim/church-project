@@ -4,9 +4,8 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
 
-export default function NewsWeeklyDetail() {
+export default function NewsWeeklyDetail({ id }: { id: string }) {
   const params = useParams();
-  const id = Number(params.id);
   console.log(id, "<----------");
   const { data, isLoading } = useFetchNewsWeeklyDetail(id);
   if (isLoading)
@@ -16,7 +15,7 @@ export default function NewsWeeklyDetail() {
       </div>
     );
   if (!data) return <div>데이터를 찾을 수 없어요!</div>;
-  console.log(data);
+
   return (
     <div className="max-w-4xl mx-auto p-6 ">
       <div className="mb-8">
@@ -26,7 +25,10 @@ export default function NewsWeeklyDetail() {
         </div>
       </div>
       <div>
-        {data?.weekly_img_set.map((img) => (
+        {!data.weekly_img_set && (
+          <div className="w-full py-[60px] text-center">이미지가 없습니다</div>
+        )}
+        {data?.weekly_img_set?.map((img) => (
           <div
             key={img.id}
             className="flex flext-col relative w-full h-[300px]"
