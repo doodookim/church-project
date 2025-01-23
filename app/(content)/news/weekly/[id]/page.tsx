@@ -11,7 +11,7 @@ export default function NewsPage({ params }: { params: { id: string } }) {
   return (
     <div>
       <div>주보 상세 {id}</div>
-      <NewsWeeklyDetail />
+      <NewsWeeklyDetail id={id} />
     </div>
   );
 }
