@@ -13,7 +13,7 @@ export default function NewsPage({ params }: { params: { id: string } }) {
       <div className="py-5 border-y border-solid border-[#D9D9D9] text-xl text-[#202020]">
         {id}
       </div>
-      <NewsWeeklyDetail />
+      <NewsWeeklyDetail id={id} />
     </div>
   );
 }

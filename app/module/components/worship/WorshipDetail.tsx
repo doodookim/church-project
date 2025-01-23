@@ -6,10 +6,9 @@ import LoadingSpinner from "../common/LoadingSpinner";
 import { sermonCategory } from "@/app/apis/useSermonData";
 import { useState } from "react";
 
-export default function WorshipDetail() {
+export default function WorshipDetail({ id }: { id: string }) {
   const params = useParams();
   const searchParams = useSearchParams();
-  const id = Number(params.id);
   const { data, isLoading } = useWorshipDetail(id);
 
   const getCategory = () => {

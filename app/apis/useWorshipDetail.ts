@@ -1,7 +1,7 @@
 import { ISermonData } from "@/utils/types/sermonData";
 import { useQuery } from "@tanstack/react-query";
 
-const getWorshipDetail = async (id: number) => {
+const getWorshipDetail = async (id: string) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/sermon-detail/${id}`
@@ -14,7 +14,7 @@ const getWorshipDetail = async (id: number) => {
   }
 };
 
-export default function useWorshipDetail(id: number) {
+export default function useWorshipDetail(id: string) {
   const { data, isLoading } = useQuery<ISermonData>({
     queryKey: ["worshipDetail", id],
     queryFn: () => getWorshipDetail(id),
