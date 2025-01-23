@@ -45,7 +45,6 @@ export default function NewsWeeklyPagination() {
         <WeeklyRecentNews
           data={weeklyRecentData}
           isLoading={isWeeklyRecentDataLoading}
-          linkData={weeklyData}
         />
         <WeeklyNewsList data={weeklyData} isLoading={isWeeklyLoading} />
       </div>

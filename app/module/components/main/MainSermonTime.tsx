@@ -4,6 +4,7 @@ import useFetchNotice from "@/app/apis/useNoticeData";
 import LoadingSpinner from "../common/LoadingSpinner";
 import Image from "next/image";
 import Link from "next/link";
+import Worship from "../worship/Worship";
 
 export default function MainSermonTime() {
   const { data, isLoading } = useFetchNotice();
@@ -17,12 +18,12 @@ export default function MainSermonTime() {
   }
 
   if (!data?.length) return null;
-
+  console.log(data);
   return (
     <div className="w-full h-full">
-      {data?.map((WorshipTime, index) => (
+      {data?.map((WorshipTime) => (
         <Link
-          key={index}
+          key={WorshipTime.worship_time_img.id}
           href={`/notice`}
           className="block w-full h-full relative"
         >

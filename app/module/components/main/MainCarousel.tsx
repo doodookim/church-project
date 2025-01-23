@@ -6,6 +6,7 @@ import Image from "next/image";
 import Pagination from "../common/Pagination";
 import LoadingSpinner from "../common/LoadingSpinner";
 import clsx from "clsx";
+import CarouselPagination from "./pagination/CarouselPagination";
 
 export default function MainCarousel() {
   const { data, isLoading } = useMainCarousel();
@@ -50,7 +51,7 @@ export default function MainCarousel() {
         })}
       </ul>
 
-      <Pagination
+      <CarouselPagination
         currentPage={currentIndex + 1}
         totalPages={totalCarouselPage}
         onPageChange={handlePageChange}
