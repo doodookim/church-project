@@ -2,11 +2,8 @@
 
 import useFetchGalleryDetail from "@/app/apis/useGalleryDetail";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 
-export default function NewsGalleryDetail() {
-  const params = useParams();
-  const id = Number(params.id);
+export default function NewsGalleryDetail({ id }: { id: string }) {
   const { data, isLoading } = useFetchGalleryDetail(id);
 
   if (isLoading) return <div>로딩 중입니다!</div>;

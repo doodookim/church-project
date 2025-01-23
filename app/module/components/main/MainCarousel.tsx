@@ -6,6 +6,7 @@ import Image from "next/image";
 import Pagination from "../common/Pagination";
 import LoadingSpinner from "../common/LoadingSpinner";
 import clsx from "clsx";
+import CarouselPagination from "./pagination/CarouselPagination";
 
 export default function MainCarousel() {
   const { data, isLoading } = useMainCarousel();
@@ -19,41 +20,32 @@ export default function MainCarousel() {
 
   const totalCarouselPage = Math.min(data.length, 4);
 
-  // 페이지 변경 핸들러
-  const handlePageChange = (page: number) => {
-    setCurrentIndex(page - 1);
-  };
-
   return (
-    <div className="">
-      <ul className="relative w-full h-[600px] aspect-video ease-in-out">
-        {data.map(({ id, image_files }, index) => {
-          return (
-            <li
-              key={id}
-              className={clsx(
-                "absolute top-0 left-0 w-full h-full transition-all duration-300",
-
-                index === currentIndex && `translate-x-0`,
-                index > currentIndex && `translate-x-[100%]`,
-                index < currentIndex && `translate-x-[-100%]`
-              )}
-            >
-              <Image
-                src={image_files}
-                alt="메인캐러셀"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </li>
-          );
-        })}
+    <div className="relative w-full ">
+      <ul className="relative w-full h-[300px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] aspect-video ease-in-out">
+        {data.map(({ id, image_files }, index) => (
+          <li
+            key={id}
+            className={clsx(
+              "absolute top-0 left-0 w-full h-full transition-all duration-300",
+              index === currentIndex && `translate-x-0`,
+              index > currentIndex && `translate-x-[100%]`,
+              index < currentIndex && `translate-x-[-100%]`
+            )}
+          >
+            <Image
+              src={image_files}
+              alt="메인캐러셀"
+              fill
+              style={{ objectFit: "cover" }}
+            />
+          </li>
+        ))}
       </ul>
-
-      <Pagination
+      <CarouselPagination
         currentPage={currentIndex + 1}
         totalPages={totalCarouselPage}
-        onPageChange={handlePageChange}
+        onPageChange={(page) => setCurrentIndex(page - 1)}
       />
     </div>
   );
