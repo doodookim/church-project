@@ -27,8 +27,8 @@ export default function ChurchMissionGalleryDetail() {
 
   return (
     <div>
-      <div className="flex justify-between border-t-2 border-b-2 border-black py-5 items-center">
-        <h1 className="text-xl font-bold ">{data.title}</h1>
+      <div className="flex justify-between border-t-2 border-b-2 border-[#D9D9D9] py-5 items-center">
+        <h1 className="text-xl font-bold text-[#202020]">{data.title}</h1>
         <p className="text-[#ABABAB] text-lg ">{data.date}</p>
       </div>
 
