@@ -21,7 +21,7 @@ export default function NextGeneration() {
                 <img
                   src={next.next_generation_kinder_img.image_files}
                   alt=""
-                  className="rounded-[10px]"
+                  className="rounded-[10px] w-full"
                 />
                 {/* <Image
                   src={next.next_generation_kinder_img.image_files}
