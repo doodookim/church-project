@@ -3,6 +3,7 @@
 import useFetchOrganiZation from "@/app/apis/useOrganizationData";
 import React from "react";
 import LoadingSpinner from "../common/LoadingSpinner";
+import Image from "next/image";
 
 export default function ChurchOrganization() {
   const { data, isLoading } = useFetchOrganiZation();
@@ -19,10 +20,12 @@ export default function ChurchOrganization() {
         <div key={organization.id}>
           <h2 className="text-[#578FCC] text-2xl">교회 조직</h2>
           <div>
-            <img
+            <Image
               className="text-center mt-10 w-full h-auto"
               src={organization.image_files}
               alt="교회 조직"
+              width={500}
+              height={500}
             />
           </div>
         </div>

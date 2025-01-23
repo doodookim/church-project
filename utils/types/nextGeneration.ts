@@ -3,7 +3,7 @@ interface INextImage {
   image_files: string;
 }
 
-export interface InextGenerationItem {
+export interface INextGenerationItem {
   kinder_content: string;
   next_generation_kinder_img: INextImage;
   child_content: string;

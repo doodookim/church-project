@@ -1,11 +1,15 @@
 "use client";
 
 import useFetchNotice from "@/app/apis/useNoticeData";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LoadingSpinner from "../common/LoadingSpinner";
+import Image from "next/image";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 export default function ChurchNotice() {
   const { data, isLoading } = useFetchNotice();
+
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
@@ -14,63 +18,81 @@ export default function ChurchNotice() {
     );
 
   return (
-    <div>
+    <div className="translate-y-[-50px]">
       {data?.map((info, index) => (
         <div key={index}>
           {/* 교회소개 */}
-          <div className="border-b-2 border-[#D9D9D9] pb-[150px]">
+          <div
+            id="church_info"
+            className="border-b-2 border-[#D9D9D9] pb-[150px] pt-[50px]"
+          >
             <h2 className="text-[#578FCC] text-2xl">교회소개</h2>
             <p className="mt-10 text-lg leading-7 ">
               {info.church_info_content}
             </p>
 
-            <div>
-              <img
+            <div className="w-full">
+              <Image
                 className="text-center mt-[30px] w-full h-auto"
                 src={info.church_info_img.image_files}
                 alt="교회 전경"
+                width={500}
+                height={500}
               />
             </div>
           </div>
 
           {/* 목사소개 */}
-          <div className="border-b-2 border-[#D9D9D9] py-[150px]">
+          <div
+            id="pastor_info"
+            className="border-b-2 border-[#D9D9D9] py-[150px]"
+          >
             <h2 className="text-[#578FCC] text-2xl">담임 목사 소개</h2>
             <p className="mt-10 text-lg leading-7">
               {info.pastor_info_content}
             </p>
-            <div>
-              <img
+            <div className="w-full">
+              <Image
                 className="text-center mt-[30px] w-full h-auto"
                 src={info.pastor_img.image_files}
                 alt="담임목사"
+                width={500}
+                height={500}
               />
             </div>
           </div>
           {/* 표어 */}
-          <div className="border-b-2 border-[#D9D9D9] py-[150px]">
+          <div id="slogan" className="border-b-2 border-[#D9D9D9] py-[150px]">
             <h2 className="text-[#578FCC] text-2xl">표어</h2>
-            <div className="h-[900px]">
-              <img
+            <div className="h-[900px] w-full">
+              <Image
                 className="text-center mt-10 w-full h-full object-cover"
                 src={info.slogan_img.image_files}
                 alt="교회 슬로건"
+                width={500}
+                height={500}
               />
             </div>
           </div>
           {/* 예배안내 */}
-          <div className="border-b-2 border-[#D9D9D9] py-[150px]">
+          <div
+            id="worship_time"
+            className="border-b-2 border-[#D9D9D9] py-[150px]"
+          >
             <h2 className="text-[#578FCC] text-2xl">예배 안내</h2>
-            <div>
-              <img
+            <div className="w-full">
+              <Image
                 className="h-auto text-center mt-10"
                 src={info.worship_time_img.image_files}
                 alt="예배 시간"
+                width={500}
+                height={500}
+                style={{ width: "100%" }}
               />
             </div>
           </div>
           {/* 오시는길 */}
-          <div className="border-b-2 border-[#D9D9D9] py-[150px]">
+          <div id="location" className="border-b-2 border-[#D9D9D9] py-[150px]">
             <h2 className="text-[#578FCC] text-2xl">오시는 길</h2>
             <div className="w-full h-auto mt-10 ">
               <iframe

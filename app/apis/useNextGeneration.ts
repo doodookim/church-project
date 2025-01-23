@@ -1,4 +1,4 @@
-import { InextGenerationItem } from "@/utils/types/nextGeneration";
+import { INextGenerationItem } from "@/utils/types/nextGeneration";
 import { useQuery } from "@tanstack/react-query";
 
 const getNextGeneration = async () => {
@@ -15,7 +15,7 @@ const getNextGeneration = async () => {
 };
 
 export default function useNextGeneration() {
-  const { data, isLoading } = useQuery<InextGenerationItem[]>({
+  const { data, isLoading } = useQuery<INextGenerationItem[]>({
     queryKey: ["next-generation"],
     queryFn: () => getNextGeneration(),
   });
