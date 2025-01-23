@@ -25,7 +25,7 @@ export default function CarouselPagination({
   );
 
   return (
-    <div className="flex items-center justify-center gap-2 mt-[40px] h-[100px]">
+    <div className="flex items-center justify-center gap-2 mt-[40px] h-[50px]">
       <div className="px-[3px] py-[3px] bg-[#FFFFFF] rounded-[15px] text-white">
         {movePage.map((page: number) => (
           <button

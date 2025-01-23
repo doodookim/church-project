@@ -4,7 +4,6 @@ import useFetchNotice from "@/app/apis/useNoticeData";
 import LoadingSpinner from "../common/LoadingSpinner";
 import Image from "next/image";
 import Link from "next/link";
-import Worship from "../worship/Worship";
 
 export default function MainSermonTime() {
   const { data, isLoading } = useFetchNotice();
