@@ -12,5 +12,5 @@ export default async function MissionGalleryDetailPage({
   params: { id: string };
 }) {
   const { id } = params;
-  return <ChurchMissionGalleryDetail />;
+  return <ChurchMissionGalleryDetail id={id} />;
 }

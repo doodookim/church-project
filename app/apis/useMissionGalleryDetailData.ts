@@ -1,9 +1,7 @@
 import { IMissionGalleryData } from "@/utils/types/churchData";
 import { useQuery } from "@tanstack/react-query";
 
-const getMissionGalleryDetailData = async (
-  /* { id }: { id: string } */ id: number
-) => {
+const getMissionGalleryDetailData = async (id: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/mission-gallery/${id}`
   );
@@ -14,7 +12,7 @@ const getMissionGalleryDetailData = async (
   return data;
 };
 
-const useFetchMissionGalleryDetail = (id: number) => {
+const useFetchMissionGalleryDetail = (id: string) => {
   const { data, isLoading, isError, error } = useQuery<IMissionGalleryData>({
     queryKey: ["churchmissiongalleryDetail", id],
     queryFn: () => getMissionGalleryDetailData(id),

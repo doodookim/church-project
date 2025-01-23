@@ -1,7 +1,7 @@
 import { INewsListItem } from "@/utils/types/newsData";
 import { useQuery } from "@tanstack/react-query";
 
-const getNewsWeeklyDetail = async (id: number) => {
+const getNewsWeeklyDetail = async (id: string) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/weekly/${id}`
@@ -13,7 +13,7 @@ const getNewsWeeklyDetail = async (id: number) => {
   }
 };
 
-export default function useFetchNewsWeeklyDetail(id: number) {
+export default function useFetchNewsWeeklyDetail(id: string) {
   const { data, isLoading } = useQuery<INewsListItem>({
     queryKey: ["newsWeeklyListDetail"],
     queryFn: () => getNewsWeeklyDetail(id),

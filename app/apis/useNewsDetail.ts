@@ -1,7 +1,7 @@
 import { INewsListItem } from "@/utils/types/newsData";
 import { useQuery } from "@tanstack/react-query";
 
-const getNewsDetail = async (id: number) => {
+const getNewsDetail = async (id: string) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/notice-board/church-news/${id}/`
@@ -13,7 +13,7 @@ const getNewsDetail = async (id: number) => {
   }
 };
 
-export default function useFetchNewsDetail(id: number) {
+export default function useFetchNewsDetail(id: string) {
   const { data, isLoading, isError, error } = useQuery<INewsListItem>({
     queryKey: ["newsListDetail", id],
     queryFn: () => getNewsDetail(id),
