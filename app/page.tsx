@@ -6,23 +6,32 @@ import MainWeekly from "./module/components/main/MainWeekly";
 
 export default function Home() {
   return (
-    <div>
-      <div>
-        <MainCarousel />
-      </div>
-      <div className="flex gap-6 px-6 mb-20 mt-12">
-        <div className="w-1/3 bg-white rounded-lg shadow-sm min-h-[500px] p-6">
-          <MainNewsList />
+    <div className="min-h-screen flex flex-col">
+      <div className="flex-grow">
+        {/* 메인 캐러셀 */}
+        <div className="w-full">
+          <MainCarousel />
         </div>
-        <div className="w-1/3 bg-white rounded-lg shadow-sm min-h-[500px] p-6">
-          <MainWeekly />
-        </div>
-        <div className="w-1/3 flex flex-col gap-8">
-          <div className="aspect-[16/9] w-full bg-white rounded-lg shadow-sm p-4">
-            <MainRecentWorship />
+
+        <div className="flex flex-wrap xl:flex-nowrap gap-[30px] sm:gap-2 lg:gap-4 xl:gap-6 px-6 mb-[84px] mt-[70px]">
+          {/* 교회소식 */}
+          <div className="w-full md:w-1/2 xl:w-1/3 flex-1 rounded-lg min-h-[400px] xl:h-[500px] flex justify-center">
+            <MainNewsList />
           </div>
-          <div className="flex-1 bg-white rounded-lg shadow-sm p-4">
-            <MainSermonTime />
+
+          {/* 교회주보 */}
+          <div className="w-full md:w-1/2 xl:w-1/3 flex-1 rounded-lg min-h-[400px] xl:h-[500px] flex justify-center">
+            <MainWeekly />
+          </div>
+
+          {/* 최근주일예배, 예배시간 */}
+          <div className="w-full xl:w-1/3 flex flex-col gap-[60px]">
+            <div className="flex-1 rounded-[15px] min-h-[200px] xl:h-[300px]">
+              <MainRecentWorship />
+            </div>
+            <div className="flex-1 rounded-[15px] min-h-[200px] xl:h-[300px]">
+              <MainSermonTime />
+            </div>
           </div>
         </div>
       </div>
