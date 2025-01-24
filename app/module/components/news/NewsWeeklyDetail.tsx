@@ -17,38 +17,39 @@ export default function NewsWeeklyDetail({ id }: { id: string }) {
   if (!data) return <div>데이터를 찾을 수 없어요!</div>;
 
   return (
-    <div className="max-w-4xl mx-auto p-6 ">
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-bold">{data.title}</h1>
-
-          <p className="text-gray-600">{data.date}</p>
+    <div>
+      <div className="py-5 border-b border-solid border-[#D9D9D9]">
+        <div className="flex justify-between items-center">
+          <h1 className="text-lg text-[#202020] font-medium">{data.title}12</h1>
+          {/* 12 임시로적어둠둠 */}
+          <p className="text-[#ABABAB] text-lg">{data.date}2020-20-20</p>
+          {/* 2020-20-20 임시로적어둠둠 */}
         </div>
       </div>
-      <div>
+
+      <div className="mt-[30px]">
         {!data.weekly_img_set && (
-          <div className="w-full py-[60px] text-center">이미지가 없습니다</div>
+          <div className="w-full h-[345px] bg-[#EBEBEB]">이미지가 없습니다</div>
         )}
         {data?.weekly_img_set?.map((img) => (
-          <div
-            key={img.id}
-            className="flex flext-col relative w-full h-[300px]"
-          >
+          <div key={img.id} className="relative">
             <Image
               src={img.image_files}
               alt="최신 뉴스이미지"
               fill={true}
-              className=" priority object-cover rounded-lg"
+              className=" priority object-cover rounded-[10px]"
             />
           </div>
         ))}
       </div>
-      <button
-        className="w-[100px] h-[100px] bg-sky-600"
-        onClick={() => window.history.back()}
-      >
-        목록
-      </button>
+      <div className="flex justify-end mt-10 text-lg text-white">
+        <button
+          className="bg-[#578FCC] rounded-[22px] w-[151px] h-11"
+          onClick={() => window.history.back()}
+        >
+          목록으로
+        </button>
+      </div>
     </div>
   );
 }

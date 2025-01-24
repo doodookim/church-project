@@ -13,21 +13,25 @@ export default function MainWeekly() {
       </div>
     );
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="flex bg-[#578FCC] font-bold text-lg text-[#ffffff] w-[120px] h-[40px] rounded-[22px] justify-center items-center">
+    <div className="flex flex-col items-center justify-center ">
+      <div className="font-semibold flex bg-[#578FCC] text-xl text-[#ffffff] w-[120px] h-10 rounded-[22px] justify-center items-center mb-[14px]">
         교회주보
       </div>
-      <div className="w-full h-[300px] sm:h-[300px] xl:h-full border rounded-[15px] mt-[14px] px-[22px] py-[38px]">
+      <div className="w-full  rounded-[15px] px-[22px] py-[38px] shadow-[0_0_10px_rgba(0,0,0,0.2)]">
         {data?.map((mainWeekly) => (
           <Link
             href={`/news/weekly/${mainWeekly.id}`}
             key={mainWeekly.id}
-            className="flex justify-between py-3 sm:py-4 xl:p-[30px] items-center border-b last:border-b-0"
+            className="flex justify-between items-center  border-b border-[#ABABAB] last:border-b-0 py-4 last:pb-0
+            first:pt-0"
           >
-            <p className="text-[18px] flex-1 whitespace-nowrap overflow-hidden text-ellipsis">
+            <p
+              className="lg:text-lg  lg:w-[171px] whitespace-nowrap overflow-hidden text-ellipsis font-medium
+            md:text-base text-sm"
+            >
               {mainWeekly.title}
             </p>
-            <span className="text-[#ababab] text-[18px] whitespace-nowrap">
+            <span className="text-[#ababab] lg:text-base font-medium md:text-base text-sm">
               {mainWeekly.date}
             </span>
           </Link>

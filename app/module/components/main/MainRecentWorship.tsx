@@ -24,7 +24,10 @@ export default function MainRecentWorship() {
 
   const recentSermon = data.results[0];
   return (
-    <Link href={`/worship/${recentSermon.id}`} className="w-full h-full block">
+    <Link
+      href={`/worship/${recentSermon.id}`}
+      className="w-full h-full block relative pt-[38%]"
+    >
       <iframe
         width="100%"
         height="100%"
@@ -32,7 +35,7 @@ export default function MainRecentWorship() {
         title="recentWorshipVideo"
         allow="autoplay"
         allowFullScreen
-        className="rounded-lg w-full h-full"
+        className="rounded-[15px] w-full h-full absolute top-0 left-0"
       />
     </Link>
   );
