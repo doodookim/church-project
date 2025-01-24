@@ -1,15 +1,40 @@
 "use client";
 
 import useFetchMissionGallery from "@/app/apis/useMissionGalleryData";
-import React from "react";
-import Image from "next/image";
-import arrow_left from "@/public/assets/arrow-left.png";
-import arrow_right from "@/public/assets/arrow-right.png";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import LoadingSpinner from "../common/LoadingSpinner";
+import Pagination from "../common/Pagination";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function ChurchMissionGallery() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // 최초 페이지 지정
+  const defaultPage = 1;
+  // 페이지 당 데이터 수 지정
+  const itemsPerPage = 6;
+
+  // 페이지 새로고침 시 해당 페이지 렌더링 및 예외처리
+  const getParsedPage = (): number => {
+    const getPage = searchParams.get("page");
+    if (!getPage) return defaultPage;
+    const parsedPage = parseInt(getPage, 10);
+    if (isNaN(parsedPage) || parsedPage < 1) return defaultPage;
+    return parsedPage;
+  };
+
+  const [currentPage, setCurrentPage] = useState(getParsedPage);
+
   const { data, isLoading } = useFetchMissionGallery();
+
+  const totalPages = Math.ceil((data?.count || 0) / itemsPerPage);
+
+  useEffect(() => {
+    router.push(`/mission/gallery?page=${currentPage}`);
+  }, [currentPage, router]);
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
@@ -55,38 +80,13 @@ export default function ChurchMissionGallery() {
             )
           )}
       </div>
-      {/* pagenation/ 할 자리 */}
+      {/* pagination*/}
       <div className="flex justify-center items-center mt-[60px] gap-[6px]">
-        <div>
-          <button
-            className="w-[22px] h-[22px] border border-[#D9D9D9] border-solid
-          flex justify-center items-center"
-          >
-            <Image src={arrow_left} alt="화살표 왼쪽" />
-          </button>
-        </div>
-        <div className="flex justify-center items-center gap-[2px]">
-          <button className="w-[22px] h-[22px] text-white bg-[#578FCC] text-sm">
-            1
-          </button>
-          <button className="w-[22px] h-[22px] border border-[#D9D9D9] border-solid text-[#ABABAB] text-sm">
-            2
-          </button>
-          <button className="w-[22px] h-[22px] border border-[#D9D9D9] border-solid text-[#ABABAB] text-sm">
-            3
-          </button>
-          <button className="w-[22px] h-[22px] border border-[#D9D9D9] border-solid text-[#ABABAB] text-sm">
-            4
-          </button>
-        </div>
-        <div>
-          <button
-            className="w-[22px] h-[22px] border border-[#D9D9D9] border-solid
-          flex justify-center items-center"
-          >
-            <Image src={arrow_right} alt="화살표 오른쪽" />
-          </button>
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
     </div>
   );

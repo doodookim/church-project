@@ -33,14 +33,14 @@ export default function WorshipList({
   }
   return (
     <div className="mt-10 ">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-10">
+      <div className="grid grid-cols-1 ss:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-10">
         {data.results.map((sermon) => (
           <div key={sermon.id}>
             <Link
               href={`/worship/${sermon.id}?category=${currentCategory}`}
               className="flex flex-col items-center  cursor-pointer"
             >
-              <div className="relative mb-[30px]">
+              <div className="relative mb-[30px] w-full">
                 <iframe
                   width="100%"
                   height="100%"

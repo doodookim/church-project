@@ -6,9 +6,8 @@ import { useParams } from "next/navigation";
 import Image from "next/image";
 import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
 
-export default function ChurchMissionGalleryDetail() {
+export default function ChurchMissionGalleryDetail({ id }: { id: string }) {
   const params = useParams();
-  const id = Number(params.id);
   const { data, isLoading } = useFetchMissionGalleryDetail(id);
 
   if (isLoading)
