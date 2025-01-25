@@ -24,7 +24,7 @@ export default function NewsGalleryList({ data, isLoading }: IGalleryProps) {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-4 gap-y-10 ">
+      <div className="grid grid-cols-1 ss:grid-cols-2 lg:grid-cols-3  gap-4 gap-y-10 ">
         {data?.results.map((gallery) => (
           <div key={gallery.id}>
             <Link href={`/news/gallery/${gallery.id}`}>

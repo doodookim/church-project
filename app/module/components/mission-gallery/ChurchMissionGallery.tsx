@@ -44,7 +44,7 @@ export default function ChurchMissionGallery() {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-y-10 gap-x-3 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-y-10 gap-x-3 ss:grid-cols-2 lg:grid-cols-3">
         {data &&
           data.results.map(
             ({

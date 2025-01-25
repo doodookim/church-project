@@ -33,7 +33,7 @@ export default function WorshipList({
   }
   return (
     <div className="mt-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-10">
+      <div className="grid grid-cols-1 ss:grid-cols-2 lg:grid-cols-3 gap-x-4  gap-y-10">
         {data.results.map((sermon) => (
           <div key={sermon.id}>
             <Link
