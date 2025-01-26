@@ -1,14 +1,14 @@
 "use client";
 
 import useFetchNews from "@/app/apis/useNewsData";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import NewsList from "./list/NewsList";
 import Pagination from "../common/Pagination";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import LoadingSpinner from "../common/LoadingSpinner";
+import useNavigatePage from "../../hooks/useNavigate";
 
 export default function NewsPagination() {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   // 첫 페이지를 1번으로 지정.
@@ -29,9 +29,12 @@ export default function NewsPagination() {
   // 전체 페이지 수
   const totalPages = Math.ceil((data?.count || 0) / itemsPerPage);
 
-  useEffect(() => {
-    router.push(`/news?page=${currentPage}`);
-  }, [currentPage, router]);
+  // 페이지 네비게이션 커스텀 훅
+  useNavigatePage({
+    baseUrl: "/news",
+    queryParams: { page: currentPage.toString() },
+  });
+
   if (isLoading)
     return (
       <div className="h-screen">

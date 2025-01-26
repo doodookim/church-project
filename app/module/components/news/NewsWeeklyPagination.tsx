@@ -1,13 +1,14 @@
 "use client";
 
 import Pagination from "../common/Pagination";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useFetchNewsWeekly from "@/app/apis/useNewsWeekly";
 import WeeklyNewsList from "./list/WeeklyNewsList";
 import WeeklyRecentNews from "./list/WeeklyRecentNews";
 import useFetchNewsWeeklyRecent from "@/app/apis/useNewsWeeklyRecent";
 import { useRouter, useSearchParams } from "next/navigation";
 import LoadingSpinner from "../common/LoadingSpinner";
+import useNavigatePage from "../../hooks/useNavigate";
 
 export default function NewsWeeklyPagination() {
   const router = useRouter();
@@ -31,9 +32,11 @@ export default function NewsWeeklyPagination() {
   const { data: weeklyData, isLoading: isWeeklyLoading } =
     useFetchNewsWeekly(currentPage);
 
-  useEffect(() => {
-    router.push(`/news/weekly?page=${currentPage}`);
-  }, [currentPage, router]);
+  // 페이지 네비게이션 커스텀 훅
+  useNavigatePage({
+    baseUrl: "/news/weekly",
+    queryParams: { page: currentPage.toString() },
+  });
 
   const totalPages = Math.ceil((weeklyData?.count || 0) / itemPerPage);
   if (isWeeklyLoading || isWeeklyRecentDataLoading)

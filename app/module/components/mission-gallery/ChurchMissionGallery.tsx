@@ -1,15 +1,14 @@
 "use client";
 
 import useFetchMissionGallery from "@/app/apis/useMissionGalleryData";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import LoadingSpinner from "../common/LoadingSpinner";
 import Pagination from "../common/Pagination";
-import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
+import useNavigatePage from "../../hooks/useNavigate";
 
 export default function ChurchMissionGallery() {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   // 최초 페이지 지정
@@ -32,9 +31,11 @@ export default function ChurchMissionGallery() {
 
   const totalPages = Math.ceil((data?.count || 0) / itemsPerPage);
 
-  useEffect(() => {
-    router.push(`/mission/gallery?page=${currentPage}`);
-  }, [currentPage, router]);
+  // 페이지 네비게이션 커스텀 훅
+  useNavigatePage({
+    baseUrl: "/mission/gallery",
+    queryParams: { page: currentPage.toString() },
+  });
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
