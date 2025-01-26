@@ -17,7 +17,7 @@ export default function MainWeekly() {
       <div className="font-semibold flex bg-[#578FCC] text-xl text-[#ffffff] w-[120px] h-10 rounded-[22px] justify-center items-center mb-[14px]">
         교회주보
       </div>
-      <div className="w-full  rounded-[15px] px-[22px] py-[38px] shadow-[0_0_10px_rgba(0,0,0,0.2)]">
+      <div className="w-full  rounded-[15px] px-4 py-[38px] shadow-[0_0_10px_rgba(0,0,0,0.2)]">
         {data?.map((mainWeekly) => (
           <Link
             href={`/news/weekly/${mainWeekly.id}`}
@@ -31,7 +31,7 @@ export default function MainWeekly() {
             >
               {mainWeekly.title}
             </p>
-            <span className="text-[#ababab] lg:text-base font-medium md:text-base text-sm">
+            <span className="text-[#ababab] lg:text-base font-medium md:text-base text-sm whitespace-nowrap overflow-hidden text-ellipsis">
               {mainWeekly.date}
             </span>
           </Link>
