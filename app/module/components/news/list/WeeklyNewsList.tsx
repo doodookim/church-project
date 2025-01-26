@@ -22,8 +22,8 @@ export default function WeeklyNewsList({ data }: INewsWeeklyListProps) {
             className="flex justify-between items-center text-center border-b boder-gray-200 cursor-pointer hover:bg-gray-50 py-[22px] rounded"
           >
             <div className="flex items-center gap-4 ">
-              <div className="px-[27px]">{weekly.id}</div>
-              <h2 className="text-base">{weekly.title}</h2>
+              <div className="w-[50px] text-center">{weekly.id}</div>
+              <h2 className="text-base min-w-0 truncate">{weekly.title}</h2>
             </div>
           </Link>
         </div>

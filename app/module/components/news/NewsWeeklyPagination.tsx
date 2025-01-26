@@ -7,6 +7,7 @@ import WeeklyNewsList from "./list/WeeklyNewsList";
 import WeeklyRecentNews from "./list/WeeklyRecentNews";
 import useFetchNewsWeeklyRecent from "@/app/apis/useNewsWeeklyRecent";
 import { useRouter, useSearchParams } from "next/navigation";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function NewsWeeklyPagination() {
   const router = useRouter();
@@ -36,12 +37,16 @@ export default function NewsWeeklyPagination() {
 
   const totalPages = Math.ceil((weeklyData?.count || 0) / itemPerPage);
   if (isWeeklyLoading || isWeeklyRecentDataLoading)
-    return <div>로딩 중입니다!</div>;
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+      </div>
+    );
 
   return (
     <div className="w-full relative">
       <h2 className="text-[#578FCC] text-2xl mb-10">이주의 주보</h2>
-      <div className="flex gap-4">
+      <div className="flex flex-col ss:flex-row gap-4">
         <WeeklyRecentNews
           data={weeklyRecentData}
           isLoading={isWeeklyRecentDataLoading}

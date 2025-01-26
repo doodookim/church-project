@@ -13,7 +13,7 @@ export default function Home() {
           <MainCarousel />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-[100px] pb-[84px] max-w-[1024px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[40px] ss:gap-4 pt-[100px] pb-[84px] px-[20px] ss:px-0 max-w-[1024px] mx-auto">
           {/* 교회소식 */}
           <div className="w-full">
             <MainNewsList />

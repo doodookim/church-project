@@ -40,7 +40,7 @@ export default function WorshipList({
               href={`/worship/${sermon.id}?category=${currentCategory}`}
               className="flex flex-col items-center  cursor-pointer"
             >
-              <div className="relative mb-[30px] w-full">
+              <div className="relative mb-[15px] ss:mb-[30px] w-full">
                 <iframe
                   width="100%"
                   height="100%"
@@ -52,8 +52,12 @@ export default function WorshipList({
                 />
               </div>
               <div className="w-full flex flex-col gap-[10px]">
-                <h3 className="text-lg text-black">{sermon.title}</h3>
-                <p className="text-lg text-black">{sermon.verse}</p>
+                <h3 className="text-lg text-black min-w-0 truncate">
+                  {sermon.title}
+                </h3>
+                <p className="text-lg text-black min-w-0 truncate">
+                  {sermon.verse}
+                </p>
                 <p className="text-[#ABABAB]">{sermon.date}</p>
               </div>
             </Link>

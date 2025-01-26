@@ -5,6 +5,7 @@ import NewsGalleryList from "./list/NewsGalleryList";
 import { useEffect, useState } from "react";
 import useFetchGallery from "@/app/apis/useNewsGalleryData";
 import { useRouter, useSearchParams } from "next/navigation";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function NewsGalleryPagination() {
   const router = useRouter();
@@ -32,7 +33,12 @@ export default function NewsGalleryPagination() {
     router.push(`/news/gallery?page=${currentPage}`);
   }, [currentPage, router]);
 
-  if (isLoading) return <div className="h-screen">로딩 중입니다.</div>;
+  if (isLoading)
+    return (
+      <div className="min-h-lvh text-center align-center text-[30px]">
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+      </div>
+    );
   const totalPages = Math.ceil((data?.count || 0) / itemPerPage);
 
   return (

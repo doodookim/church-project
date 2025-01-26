@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import NewsList from "./list/NewsList";
 import Pagination from "../common/Pagination";
 import { useRouter, useSearchParams } from "next/navigation";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function NewsPagination() {
   const router = useRouter();
@@ -31,7 +32,12 @@ export default function NewsPagination() {
   useEffect(() => {
     router.push(`/news?page=${currentPage}`);
   }, [currentPage, router]);
-  if (isLoading) return <div className="h-screen">로딩 중입니다.</div>;
+  if (isLoading)
+    return (
+      <div className="h-screen">
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+      </div>
+    );
   return (
     <div>
       <NewsList data={data} isLoading={isLoading} />

@@ -22,7 +22,7 @@ export default function MainCarousel() {
 
   return (
     <div className="relative w-full ">
-      <ul className="relative w-full h-[300px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] aspect-video ease-in-out">
+      <ul className="relative w-full selection:h-[300px] ss:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] aspect-video ease-in-out">
         {data.map(({ id, image_files }, index) => (
           <li
             key={id}

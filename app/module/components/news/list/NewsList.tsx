@@ -27,7 +27,7 @@ export default function NewsList({ data, isLoading }: INewsListProps) {
           <div key={news.id}>
             <Link
               href={`/news/${news.id}`}
-              className="flex justify-between items-center border-b p-[18px] cursor-pointer hover:bg-gray-50 sm:p-[22px] ss:p-[26px]"
+              className="flex justify-between items-center border-b p-[18px] cursor-pointer hover:bg-gray-50 ss:p-[26px]"
             >
               <div className="flex flex-wrap gap-[15px] ss:gap-[25px] items-center w-full">
                 <div className="w-[60px] flex items-center justify-center">
