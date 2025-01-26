@@ -1,12 +1,11 @@
 "use client";
 import useFetchNewsWeeklyDetail from "@/app/apis/useNewsWeeklyDetail";
 import Image from "next/image";
-import { useParams } from "next/navigation";
 import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
+import { useRouter } from "next/navigation";
 
 export default function NewsWeeklyDetail({ id }: { id: string }) {
-  const params = useParams();
-  console.log(id, "<----------");
+  const router = useRouter();
   const { data, isLoading } = useFetchNewsWeeklyDetail(id);
   if (isLoading)
     return (
@@ -20,32 +19,39 @@ export default function NewsWeeklyDetail({ id }: { id: string }) {
     <div>
       <div className="py-5 border-b border-solid border-[#D9D9D9]">
         <div className="flex justify-between items-center">
-          <h1 className="text-lg text-[#202020] font-medium">{data.title}12</h1>
-          {/* 12 임시로적어둠둠 */}
-          <p className="text-[#ABABAB] text-lg">{data.date}2020-20-20</p>
-          {/* 2020-20-20 임시로적어둠둠 */}
+          <h1 className="text-sm ss:text-lg text-[#202020] font-medium">
+            {data.title}
+          </h1>
+          <p className="text-[#ABABAB] text-sm ss:text-lg">{data.date}</p>
         </div>
       </div>
 
-      <div className="mt-[30px]">
+      <div className="mt-[30px] w-full flex flex-col justify-center items-center">
         {!data.weekly_img_set && (
-          <div className="w-full h-[345px] bg-[#EBEBEB]">이미지가 없습니다</div>
+          <div className="w-full h-[345px] flex bg-[#EBEBEB] rounded-[22px] items-center justify-center">
+            이미지가 없습니다
+          </div>
         )}
         {data?.weekly_img_set?.map((img) => (
-          <div key={img.id} className="relative">
+          <div
+            key={img.id}
+            className="w-full ss:w-[500px] h-auto flex justify-center items-center mb-4 "
+          >
             <Image
               src={img.image_files}
               alt="최신 뉴스이미지"
-              fill={true}
-              className=" priority object-cover rounded-[10px]"
+              layout="responsive"
+              width={500}
+              height={500}
+              className="object-cover rounded-[10px] w-full"
             />
           </div>
         ))}
       </div>
-      <div className="flex justify-end mt-10 text-lg text-white">
+      <div className="flex justify-end mt-[50px] text-lg text-white">
         <button
-          className="bg-[#578FCC] rounded-[22px] w-[151px] h-11"
-          onClick={() => window.history.back()}
+          className="bg-[#578FCC] text-white font-bold rounded-[22px] text-[12px] ss:text-lg w-[80px] h-[40px] ss:w-[151px] ss:h-[44px]"
+          onClick={() => router.back()}
         >
           목록으로
         </button>

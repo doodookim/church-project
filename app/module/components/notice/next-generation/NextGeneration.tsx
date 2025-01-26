@@ -2,11 +2,17 @@
 
 import useNextGeneration from "@/app/apis/useNextGeneration";
 import Image from "next/image";
+import LoadingSpinner from "../../common/LoadingSpinner";
 
 export default function NextGeneration() {
   const { data, isLoading } = useNextGeneration();
 
-  if (isLoading) return <div>로딩 중입니다</div>;
+  if (isLoading)
+    return (
+      <div className="min-h-lvh text-center align-center text-[30px]">
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+      </div>
+    );
 
   return (
     <div>

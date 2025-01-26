@@ -1,4 +1,4 @@
-import { IchurchNotice, IimageData } from "@/utils/types/churchData";
+import { IimageData } from "@/utils/types/churchData";
 import { useQuery } from "@tanstack/react-query";
 
 const getNoticeData = async () => {

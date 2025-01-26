@@ -1,4 +1,4 @@
-import { INewsList, INewsListItem } from "@/utils/types/newsData";
+import { INewsListItem } from "@/utils/types/newsData";
 import { useQuery } from "@tanstack/react-query";
 
 const getGalleryDetail = async (id: string) => {

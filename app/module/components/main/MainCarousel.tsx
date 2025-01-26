@@ -1,29 +1,44 @@
 "use client";
 
-import useMainCarousel from "@/app/apis/useMainCarousel";
 import { useCarouselStore } from "@/store/useCarouselStore";
 import Image from "next/image";
-import Pagination from "../common/Pagination";
-import LoadingSpinner from "../common/LoadingSpinner";
 import clsx from "clsx";
 import CarouselPagination from "./pagination/CarouselPagination";
+import { IimageData } from "@/utils/types/churchData";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../common/LoadingSpinner";
 
-export default function MainCarousel() {
-  const { data, isLoading } = useMainCarousel();
+interface IMainCarouselProps {
+  carousel: IimageData[];
+}
+
+export default function MainCarousel({ carousel }: IMainCarouselProps) {
   const { currentIndex, setCurrentIndex } = useCarouselStore();
 
-  if (isLoading)
-    <div>
-      <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
-    </div>;
-  if (!data) return null;
+  if (!carousel || carousel.length === 0) return null;
 
-  const totalCarouselPage = Math.min(data.length, 4);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (carousel.length > 0) {
+      setIsLoading(false);
+    }
+  }, [carousel]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <LoadingSpinner boxSize={5} ballSize={0.5} color="#578fcc" />
+      </div>
+    );
+  }
+
+  const totalCarouselPage = Math.min(carousel.length, 4);
 
   return (
     <div className="relative w-full ">
-      <ul className="relative w-full h-[300px] sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] aspect-video ease-in-out">
-        {data.map(({ id, image_files }, index) => (
+      <ul className="relative w-full selection:h-[300px] ss:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] aspect-video ease-in-out">
+        {carousel.map(({ id, image_files }, index) => (
           <li
             key={id}
             className={clsx(
