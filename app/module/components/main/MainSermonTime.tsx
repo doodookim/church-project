@@ -1,20 +1,11 @@
 "use client";
 
 import useFetchNotice from "@/app/apis/useNoticeData";
-import LoadingSpinner from "../common/LoadingSpinner";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function MainSermonTime() {
   const { data, isLoading } = useFetchNotice();
-
-  if (isLoading) {
-    return (
-      <div className="w-full h-full flex items-center justify-center">
-        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
-      </div>
-    );
-  }
 
   if (!data?.length) return null;
   console.log(data);

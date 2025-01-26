@@ -1,28 +1,23 @@
 "use client";
 
-import useMainWorshipData from "@/app/apis/useMainWorshipData";
-import LoadingSpinner from "../common/LoadingSpinner";
 import Link from "next/link";
+import { ISermonList } from "@/utils/types/sermonData";
 
-export default function MainRecentWorship() {
-  const { data, isLoading } = useMainWorshipData();
+interface IRecentWorshipProps {
+  recentWorship: ISermonList;
+}
 
+export default function MainRecentWorship({
+  recentWorship,
+}: IRecentWorshipProps) {
   const getYoutubeUrlId = (url: string) => {
     const videoId = url.split("live/")[1]?.split("?")[0];
     return `https://www.youtube.com/embed/${videoId}`;
   };
 
-  if (isLoading) {
-    return (
-      <div className="w-full h-full flex items-center justify-center">
-        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
-      </div>
-    );
-  }
+  if (!recentWorship?.results.length) return null;
 
-  if (!data?.results.length) return null;
-
-  const recentSermon = data.results[0];
+  const recentSermon = recentWorship.results[0];
   return (
     <Link
       href={`/worship/${recentSermon.id}`}

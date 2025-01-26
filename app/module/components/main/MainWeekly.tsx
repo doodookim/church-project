@@ -1,24 +1,20 @@
 "use client";
 
-import LoadingSpinner from "../common/LoadingSpinner";
 import Link from "next/link";
-import useMainNWeeklyData from "@/app/apis/useMainWeeklyData";
+import { INewsListItem } from "@/utils/types/newsData";
 
-export default function MainWeekly() {
-  const { data, isLoading } = useMainNWeeklyData();
-  if (isLoading)
-    return (
-      <div>
-        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
-      </div>
-    );
+interface IWeeklyDataProps {
+  weekly: INewsListItem[];
+}
+
+export default function MainWeekly({ weekly }: IWeeklyDataProps) {
   return (
     <div className="flex flex-col items-center justify-center ">
       <div className="font-semibold flex bg-[#578FCC] text-xl text-[#ffffff] w-[120px] h-10 rounded-[22px] justify-center items-center mb-[14px]">
         교회주보
       </div>
       <div className="w-full  rounded-[15px] px-4 py-[38px] shadow-[0_0_10px_rgba(0,0,0,0.2)]">
-        {data?.map((mainWeekly) => (
+        {weekly?.map((mainWeekly) => (
           <Link
             href={`/news/weekly/${mainWeekly.id}`}
             key={mainWeekly.id}

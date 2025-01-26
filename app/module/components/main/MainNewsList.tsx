@@ -1,24 +1,20 @@
 "use client";
 
-import useMainNewsData from "@/app/apis/useMainNewsData";
-import LoadingSpinner from "../common/LoadingSpinner";
 import Link from "next/link";
+import { INewsListItem } from "@/utils/types/newsData";
 
-export default function MainNewsList() {
-  const { data, isLoading } = useMainNewsData();
-  if (isLoading)
-    return (
-      <div>
-        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
-      </div>
-    );
+interface IMainNewsListProps {
+  news: INewsListItem[];
+}
+
+export default function MainNewsList({ news }: IMainNewsListProps) {
   return (
     <div className="flex flex-col items-center">
       <div className="font-semibold flex bg-[#578FCC] text-xl text-[#ffffff] w-[120px] h-10 rounded-[22px] justify-center items-center mb-[14px]">
         교회소식
       </div>
       <div className="w-full  rounded-[15px] py-[38px] px-4 shadow-[0_0_10px_rgba(0,0,0,0.2)] ">
-        {data?.map((mainNews) => (
+        {news?.map((mainNews) => (
           <Link
             href={`/news/${mainNews.id}`}
             key={mainNews.id}
