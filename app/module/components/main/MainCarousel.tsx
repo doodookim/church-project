@@ -5,6 +5,8 @@ import Image from "next/image";
 import clsx from "clsx";
 import CarouselPagination from "./pagination/CarouselPagination";
 import { IimageData } from "@/utils/types/churchData";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 interface IMainCarouselProps {
   carousel: IimageData[];
@@ -14,6 +16,22 @@ export default function MainCarousel({ carousel }: IMainCarouselProps) {
   const { currentIndex, setCurrentIndex } = useCarouselStore();
 
   if (!carousel || carousel.length === 0) return null;
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (carousel.length > 0) {
+      setIsLoading(false);
+    }
+  }, [carousel]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <LoadingSpinner boxSize={5} ballSize={0.5} color="#578fcc" />
+      </div>
+    );
+  }
 
   const totalCarouselPage = Math.min(carousel.length, 4);
 

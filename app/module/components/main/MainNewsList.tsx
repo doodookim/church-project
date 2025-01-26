@@ -2,12 +2,30 @@
 
 import Link from "next/link";
 import { INewsListItem } from "@/utils/types/newsData";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 interface IMainNewsListProps {
   news: INewsListItem[];
 }
 
 export default function MainNewsList({ news }: IMainNewsListProps) {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (news.length > 0) {
+      setIsLoading(false);
+    }
+  }, [news]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <LoadingSpinner boxSize={5} ballSize={0.5} color="#578fcc" />
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col items-center">
       <div className="font-semibold flex bg-[#578FCC] text-xl text-[#ffffff] w-[120px] h-10 rounded-[22px] justify-center items-center mb-[14px]">

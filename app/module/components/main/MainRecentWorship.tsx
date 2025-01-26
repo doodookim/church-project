@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { ISermonList } from "@/utils/types/sermonData";
+import { useEffect, useState } from "react";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 interface IRecentWorshipProps {
   recentWorship: ISermonList;
@@ -16,6 +18,22 @@ export default function MainRecentWorship({
   };
 
   if (!recentWorship?.results.length) return null;
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (recentWorship !== null) {
+      setIsLoading(false);
+    }
+  }, [recentWorship]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex justify-center items-center">
+        <LoadingSpinner boxSize={5} ballSize={0.5} color="#578fcc" />
+      </div>
+    );
+  }
 
   const recentSermon = recentWorship.results[0];
   return (

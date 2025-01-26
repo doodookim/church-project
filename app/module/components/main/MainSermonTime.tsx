@@ -3,10 +3,17 @@
 import useFetchNotice from "@/app/apis/useNoticeData";
 import Image from "next/image";
 import Link from "next/link";
+import LoadingSpinner from "../common/LoadingSpinner";
 
 export default function MainSermonTime() {
   const { data, isLoading } = useFetchNotice();
-
+  if (isLoading) {
+    return (
+      <div className="min-h-lvh text-center align-center text-[30px]">
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+      </div>
+    );
+  }
   if (!data?.length) return null;
   console.log(data);
   return (
