@@ -3,6 +3,7 @@
 import useFetchMissionField from "@/app/apis/useMissionFieldData";
 import React from "react";
 import LoadingSpinner from "../common/LoadingSpinner";
+import Image from "next/image";
 
 export default function ChurchFacility() {
   const { data, isLoading } = useFetchMissionField();
@@ -17,11 +18,12 @@ export default function ChurchFacility() {
     <div>
       {data?.map((mission_field) => (
         <div key={mission_field.id}>
-          <div>
-            <img
-              className="text-center  w-full h-auto"
+          <div className="relative w-full aspect-[4/3]">
+            <Image
               src={mission_field.image_files}
               alt="선교지안내"
+              fill
+              className="object-cover text-center rounded-[10px]"
             />
           </div>
         </div>

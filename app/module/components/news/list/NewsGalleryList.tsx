@@ -28,15 +28,17 @@ export default function NewsGalleryList({ data, isLoading }: IGalleryProps) {
         {data?.results.map((gallery) => (
           <div key={gallery.id}>
             <Link href={`/news/gallery/${gallery.id}`}>
-              <div key={gallery.id} className="relative  h-[206px] ">
+              <div key={gallery.id} className="relative h-[206px] w-full">
                 <Image
                   src={gallery.gallery_thumb_img.image_files}
                   alt="교회소식사진"
                   className="object-cover rounded-[10px]"
-                  fill={true}
+                  fill
                 />
               </div>
-              <h2 className="text-lg font-bold mt-[30px]">{gallery.title}</h2>
+              <h2 className="text-lg font-bold mt-[30px] min-w-0 truncate">
+                {gallery.title}
+              </h2>
               <p className="text-base mt-4 text-[#ABABAB]">{gallery.date}</p>
             </Link>
           </div>

@@ -37,12 +37,12 @@ export default function NewsGalleryDetail({ id }: { id: string }) {
       {combinedImages.length > 0 && (
         <div className="flex flex-col mt-[30px] ss:mt-[60px] gap-[30px]">
           {combinedImages.map((img) => (
-            <div key={img.id} className="relative w-full mb-4 aspect-square">
+            <div key={img.id} className="relative w-full mb-4 aspect-[4/3]">
               <Image
                 src={img.image_files}
                 alt={`갤러리 이미지 ${img.id}`}
-                layout="fill"
-                className="object-cover rounded-[10px] w-full"
+                fill
+                className="object-cover rounded-[10px]"
               />
             </div>
           ))}

@@ -21,16 +21,16 @@ export default function WeeklyRecentNews({
     );
   return (
     <div>
-      <div className="max-w-[234px] w-full flex flex-col gap-4">
+      <div className="max-w-full ss:max-w-[234px] w-full flex flex-col gap-4">
         {data?.map((recent) => (
           <div key={recent.id} className="relative">
             <Link href={`/news/weekly/${recent.id}`}>
               <Image
                 src={recent.image_files}
                 alt={`최신뉴스파일 ${recent.id + 1}`}
-                className="object-cover rounded-lg"
                 width={234}
                 height={234}
+                className="object-cover rounded-lg w-full"
               />
             </Link>
           </div>
