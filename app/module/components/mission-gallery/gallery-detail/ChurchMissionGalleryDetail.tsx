@@ -35,15 +35,13 @@ export default function ChurchMissionGalleryDetail({ id }: { id: string }) {
 
       {/* 이미지 섹션 (썸네일 포함) */}
       {combinedImages.length > 0 && (
-        <div className="flex flex-col mt-[30px] gap-[30px]">
+        <div className="flex flex-col mt-[30px] ss:mt-[60px] gap-[30px]">
           {combinedImages.map((img) => (
-            <div key={img.id} className="relative w-full">
+            <div key={img.id} className="relative w-full mb-4 aspect-square">
               <Image
                 src={img.image_files}
                 alt={`갤러리 이미지 ${img.id}`}
-                layout="responsive"
-                width={500}
-                height={500}
+                layout="fill"
                 className="object-cover rounded-[10px] w-full"
               />
             </div>

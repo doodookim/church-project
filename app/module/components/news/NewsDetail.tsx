@@ -36,14 +36,14 @@ export default function NewsDetail({ id }: { id: string }) {
         {data.content}
       </div>
 
-      <div>
+      <div className="flex flex-col gap-4">
         {data?.church_news_img_set?.map((img) => (
-          <div key={img.id} className="relative min-h-[100px] w-[300px] mb-4">
+          <div key={img.id} className="relative w-full mb-4 aspect-square">
             <Image
               src={img.image_files}
               alt="뉴스이미지"
               layout="fill"
-              className="object-contain rounded-lg"
+              className="object-cover rounded-[10px] w-full"
             />
           </div>
         ))}
