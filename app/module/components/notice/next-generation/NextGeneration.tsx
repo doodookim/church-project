@@ -18,28 +18,20 @@ export default function NextGeneration() {
     <div>
       {data?.map((next, idx) => (
         <div key={idx} className="space-y-10">
-          {" "}
           {/* 유치부 섹션 */}
           <section>
-            <h2 className="text-2xl text-[#578FCC]">유치부</h2>
-            <div className="flex flex-col lg:flex-row md:flex-row gap-4 pt-[30px] pb-10 border-b border-[#D9D9D9] border-solid ">
-              <div className="basis-1/2">
-                <img
+            <h2 className="text-xl ss:text-2xl text-[#578FCC]">유치부</h2>
+            <div className="flex flex-col lg:flex-row md:flex-row gap-[30px] pt-[30px] pb-10 border-b border-[#D9D9D9] border-solid ">
+              <div className="relative basis-1/2 aspect-square">
+                <Image
                   src={next.next_generation_kinder_img.image_files}
-                  alt=""
-                  className="rounded-[10px] w-full"
-                />
-                {/* <Image
-                  src={next.next_generation_kinder_img.image_files}
-                  alt="유치부사진"
-                  width={318}
-                  height={220}
+                  alt="유치부 소개"
+                  fill
                   className="object-cover rounded-[10px]"
-                /> */}
+                />
               </div>
               <div className="basis-1/2">
-                <h3 className="pb-5">소개글</h3>
-                <p className="text-[#202020] text-lg leading-7">
+                <p className="text-[#202020] text-base leading-3 ss:text-lg ss:leading-5 break-words">
                   {next.kinder_content}
                 </p>
               </div>
@@ -47,25 +39,18 @@ export default function NextGeneration() {
           </section>
           {/* 아동부 섹션 */}
           <section>
-            <h2 className="text-2xl text-[#578FCC]">아동부</h2>
-            <div className="flex flex-col  gap-4 pt-[30px]  pb-10 border-b border-[#D9D9D9] border-solid  lg:flex-row-reverse md:flex-row-reverse">
-              <div className="basis-1/2">
-                <img
+            <h2 className="text-xl ss:text-2xl text-[#578FCC]">아동부</h2>
+            <div className="flex flex-col gap-[30px] pt-[30px]  pb-10 border-b border-[#D9D9D9] border-solid  lg:flex-row-reverse md:flex-row-reverse">
+              <div className="relative basis-1/2 aspect-square">
+                <Image
                   src={next.next_generation_child_img.image_files}
-                  alt=""
-                  className="w-full rounded-[10px]"
-                />
-                {/*  <Image
-                  src={next.next_generation_child_img.image_files}
-                  alt="아동부 사진"
-                  width={318}
-                  height={220}
+                  alt="아동부 소개"
+                  fill
                   className="object-cover rounded-[10px]"
-                /> */}
+                />
               </div>
               <div className="basis-1/2">
-                <h3 className="pb-5">소개글</h3>
-                <p className="text-[#202020] text-lg leading-7 ">
+                <p className="text-[#202020] text-base leading-3 ss:text-lg ss:leading-5 break-words">
                   {next.child_content}
                 </p>
               </div>
@@ -73,25 +58,18 @@ export default function NextGeneration() {
           </section>
           {/* 청소년부 섹션 */}
           <section>
-            <h2 className="text-2xl text-[#578FCC]">청소년부</h2>
-            <div className="flex flex-col lg:flex-row md:flex-row gap-4 pt-[30px] pb-10 border-b border-[#D9D9D9] border-solid ">
-              <div className="basis-1/2">
-                <img
+            <h2 className="text-xl ss:text-2xl text-[#578FCC]">청소년부</h2>
+            <div className="flex flex-col lg:flex-row md:flex-row gap-[30px] pt-[30px] pb-10 border-b border-[#D9D9D9] border-solid ">
+              <div className="relative basis-1/2 aspect-square">
+                <Image
                   src={next.next_generation_youth_img.image_files}
-                  alt=""
-                  className="w-full rounded-[10px] "
+                  alt="청소년부 소개"
+                  fill
+                  className="object-cover rounded-[10px] "
                 />
-                {/* <Image
-                  src={next.next_generation_youth_img.image_files}
-                  alt="청소년부 사진"
-                  width={318}
-                  height={220}
-                  className="object-cover rounded-[10px]"
-                /> */}
               </div>
               <div className="basis-1/2">
-                <h3 className="pb-5">소개글</h3>
-                <p className="text-[#202020] text-lg leading-7">
+                <p className="text-[#202020] text-base leading-3 ss:text-lg ss:leading-5 break-words">
                   {next.youth_content}
                 </p>
               </div>
@@ -99,25 +77,20 @@ export default function NextGeneration() {
           </section>
           {/* 청년부 섹션 */}
           <section>
-            <h2 className="text-xl font-bold text-[#578FCC]">청년부</h2>
-            <div className="flex flex-col  gap-4 pt-[30px]  pb-10  lg:flex-row-reverse md:flex-row-reverse">
-              <div className="basis-1/2">
-                <img
+            <h2 className="text-xl ss:text-2xl font-bold text-[#578FCC]">
+              청년부
+            </h2>
+            <div className="flex flex-col gap-[30px] pt-[30px]  pb-10  lg:flex-row-reverse md:flex-row-reverse">
+              <div className="relative basis-1/2 aspect-square">
+                <Image
                   src={next.next_generation_adult_img.image_files}
-                  alt=""
-                  className="rounded-[10px] w-full"
+                  alt="청년부 소개"
+                  fill
+                  className="object-cover rounded-[10px] "
                 />
-                {/*   <Image
-                  src={next.next_generation_adult_img.image_files}
-                  alt="청년부 사진"
-                  width={318}
-                  height={220}
-                  className="object-cover rounded-[10px]"
-                /> */}
               </div>
               <div className="basis-1/2">
-                <h3 className="pb-5">소개글</h3>
-                <p className="text-[#202020] text-lg leading-7">
+                <p className="text-[#202020] text-base leading-3 ss:text-lg ss:leading-5 break-words">
                   {next.adult_content}
                 </p>
               </div>

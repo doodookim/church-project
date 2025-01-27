@@ -7,6 +7,7 @@ import LoadingSpinner from "../common/LoadingSpinner";
 import Pagination from "../common/Pagination";
 import { useSearchParams } from "next/navigation";
 import useNavigatePage from "../../hooks/useNavigate";
+import Image from "next/image";
 
 export default function ChurchMissionGallery() {
   const searchParams = useSearchParams();
@@ -61,15 +62,16 @@ export default function ChurchMissionGallery() {
                       href={`/mission/gallery/${id}
                       `}
                     >
-                      <div className="pb-[30px] w-full h-[206px]">
-                        <img
-                          className="object-cover rounded-[10px] w-full h-full"
+                      <div className="relative pb-[30px] w-full h-[206px]">
+                        <Image
                           src={image_files}
                           alt="갤러리상세이미지"
+                          fill
+                          className="object-cover rounded-[10px]"
                         />
                       </div>
                       <div className="pb-4">
-                        <strong className="text-lg ">{title}</strong>
+                        <h2 className="text-lg font-bold mt-[20px]">{title}</h2>
                       </div>
                       <div>
                         <span className="text-[#ABABAB] text-base">{date}</span>

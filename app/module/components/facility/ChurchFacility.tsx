@@ -3,6 +3,7 @@
 import useFetchFacility from "@/app/apis/useFacilityData";
 import React from "react";
 import LoadingSpinner from "../common/LoadingSpinner";
+import Image from "next/image";
 
 export default function ChurchFacility() {
   const { data, isLoading } = useFetchFacility();
@@ -18,11 +19,12 @@ export default function ChurchFacility() {
       {data?.map((facility) => (
         <div key={facility.id}>
           <h2 className="text-[#578FCC] text-2xl">시설 안내</h2>
-          <div>
-            <img
-              className="text-center mt-10 w-full h-auto"
+          <div className="relative mt-[30px] ss:mt-[60px] w-full aspect-[4/3]">
+            <Image
               src={facility.image_files}
+              fill
               alt="시설안내"
+              className="object-cover rounded-[10px]"
             />
           </div>
         </div>

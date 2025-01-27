@@ -35,15 +35,13 @@ export default function NewsWeeklyDetail({ id }: { id: string }) {
         {data?.weekly_img_set?.map((img) => (
           <div
             key={img.id}
-            className="w-full ss:w-[500px] h-auto flex justify-center items-center mb-4 "
+            className="relative w-full flex justify-center items-center mb-4 aspect-[4/3] mt-[30px] ss:mt-[60px]"
           >
             <Image
               src={img.image_files}
               alt="최신 뉴스이미지"
-              layout="responsive"
-              width={500}
-              height={500}
-              className="object-cover rounded-[10px] w-full"
+              fill
+              className="object-cover rounded-[10px]"
             />
           </div>
         ))}
