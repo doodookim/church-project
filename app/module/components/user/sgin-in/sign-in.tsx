@@ -32,17 +32,18 @@ export default function SignIn() {
 
   return (
     <BoxLayout width={484}>
-      <div className="w-full max-w-[318px] mx-auto mt-[65px] mb-[104px]">
-        <TitleLayout title="로그인" />
+      <div className="w-full max-w-[318px] mx-auto pt-[35px] pb-[60px] ss:pt-[55px] ss:pb-[90px] text-sm ss:text-base">
+        <TitleLayout title="로그인" classNamePlus="text-sm ss:text-lg" />
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-[10px] mt-[20px]"
+          className="flex flex-col gap-[6px] ss:gap-[10px] mt-[20px]"
         >
           <Input
             type="email"
             id="email"
             placeholder="이메일 입력"
             {...register("email")}
+            classNamePlus="text-sm ss:text-base"
           />
           <Message>{errors.email?.message}</Message>
           <Input
@@ -50,16 +51,17 @@ export default function SignIn() {
             id="password"
             placeholder="비밀번호 입력"
             {...register("password")}
+            classNamePlus="text-sm ss:text-base"
           />
           <Message>{errors.password?.message}</Message>
           <button
             type="submit"
-            className="bg-[#578FCC] rounded-[5px] h-[50px] text-white font-bold text-base mt-[10px]"
+            className="bg-[#578FCC] rounded-[5px] h-[50px] text-white font-bold text-sm ss:text-base mt-[10px]"
           >
             로그인
           </button>
         </form>
-        <div className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-base mt-[12px]">
+        <div className="w-full bg-[#FFE135] rounded-[5px] h-[50px] font-bold text-sm ss:text-base mt-[12px]">
           <Link
             href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_KAKAO_API_KEY}&redirect_uri=${process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI}`}
             className="w-full h-full flex justify-center items-center"

@@ -34,6 +34,8 @@ export default function NewsGalleryList({ data, isLoading }: IGalleryProps) {
                   alt="교회소식사진"
                   className="object-cover rounded-[10px]"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                 />
               </div>
               <h2 className="text-lg font-bold mt-[30px] min-w-0 truncate">

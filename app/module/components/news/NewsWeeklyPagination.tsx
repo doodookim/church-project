@@ -6,12 +6,11 @@ import useFetchNewsWeekly from "@/app/apis/useNewsWeekly";
 import WeeklyNewsList from "./list/WeeklyNewsList";
 import WeeklyRecentNews from "./list/WeeklyRecentNews";
 import useFetchNewsWeeklyRecent from "@/app/apis/useNewsWeeklyRecent";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import LoadingSpinner from "../common/LoadingSpinner";
 import useNavigatePage from "../../hooks/useNavigate";
 
 export default function NewsWeeklyPagination() {
-  const router = useRouter();
   const searchParams = useSearchParams();
   const defaultPage = 1;
   const itemPerPage = 10;

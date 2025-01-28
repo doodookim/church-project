@@ -43,6 +43,8 @@ export default function NewsDetail({ id }: { id: string }) {
               src={img.image_files}
               alt="뉴스이미지"
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, 80vw"
               className="object-cover rounded-[10px] "
             />
           </div>

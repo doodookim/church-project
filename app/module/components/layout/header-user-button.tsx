@@ -5,7 +5,13 @@ import React, { useState } from "react";
 import HeaderMenu from "./header-menu";
 import { useSession } from "next-auth/react";
 
-export default function HeaderUserButton({ email }: { email?: string }) {
+export default function HeaderUserButton({
+  email,
+  clickMenuCloseHandler,
+}: {
+  email?: string;
+  clickMenuCloseHandler?: () => void;
+}) {
   const serverEmail = email?.includes("@")
     ? email?.substring(0, email?.indexOf("@"))
     : email;
@@ -26,10 +32,15 @@ export default function HeaderUserButton({ email }: { email?: string }) {
   return (
     <ul
       className={clsx(
-        "relative flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]",
-        resultEmail && "cursor-pointer"
+        "relative flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full ",
+        clickMenuCloseHandler
+          ? "text-sm px-[14px] py-[6px]"
+          : "px-[20px] py-[5px]",
+        resultEmail && !clickMenuCloseHandler && "cursor-pointer"
       )}
-      onClick={resultEmail ? clickMenuHandler : undefined}
+      onClick={
+        resultEmail && !clickMenuCloseHandler ? clickMenuHandler : undefined
+      }
     >
       {resultEmail ? (
         <>
@@ -39,11 +50,15 @@ export default function HeaderUserButton({ email }: { email?: string }) {
       ) : (
         <>
           <li>
-            <Link href={"/sign-in"}>로그인</Link>
+            <Link href={"/sign-in"} onClick={clickMenuCloseHandler}>
+              로그인
+            </Link>
           </li>
           <p className="w-[2px] h-[18px] bg-white rounded-full" />
           <li>
-            <Link href={"/sign-up"}>회원가입</Link>
+            <Link href={"/sign-up"} onClick={clickMenuCloseHandler}>
+              회원가입
+            </Link>
           </li>
         </>
       )}

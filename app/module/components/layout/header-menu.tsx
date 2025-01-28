@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import useModalStore from "../../store/useModalStore";
 
 export default function HeaderMenu({

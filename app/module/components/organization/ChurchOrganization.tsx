@@ -32,6 +32,8 @@ export default function ChurchOrganization() {
               src={organization.image_files}
               alt="교회 조직"
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, 80vw"
               className="object-cover rounded-[10px]"
             />
           </div>

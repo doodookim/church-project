@@ -1,7 +1,4 @@
-import BoxLayout from "@/app/module/components/user/box-layout";
-import UserButton from "@/app/module/components/user/button";
 import FindPassword from "@/app/module/components/user/find-password/find-password";
-import Input from "@/app/module/components/user/input";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

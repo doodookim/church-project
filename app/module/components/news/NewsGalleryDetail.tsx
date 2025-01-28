@@ -42,6 +42,8 @@ export default function NewsGalleryDetail({ id }: { id: string }) {
                 src={img.image_files}
                 alt={`갤러리 이미지 ${img.id}`}
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, 80vw"
                 className="object-cover rounded-[10px]"
               />
             </div>

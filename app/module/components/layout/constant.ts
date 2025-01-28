@@ -7,12 +7,12 @@ const HEADER_MENU_LIST = [
   {
     id: 1,
     name: "교회 소식",
-    url: "/news",
+    url: "/news?page=1",
   },
   {
     id: 2,
     name: "예배 및 집회",
-    url: "/worship",
+    url: "/worship?category=sundaySermon&page=1",
   },
   {
     id: 3,
@@ -32,31 +32,31 @@ const NOTICE_SIDEBAR_LIST = [
       {
         id: 0,
         name: "교회 소개",
-        url: "",
+        url: "#church_info",
         isClick: false,
       },
       {
         id: 1,
         name: "담임목사 소개",
-        url: "",
+        url: "#pastor_info",
         isClick: false,
       },
       {
         id: 2,
         name: "표어",
-        url: "",
+        url: "#slogan",
         isClick: false,
       },
       {
         id: 3,
         name: "예배 안내",
-        url: "",
+        url: "#worship_time",
         isClick: false,
       },
       {
         id: 4,
         name: "오시는 길",
-        url: "",
+        url: "#location",
         isClick: false,
       },
     ],
@@ -70,25 +70,25 @@ const NOTICE_SIDEBAR_LIST = [
       {
         id: 0,
         name: "유치부",
-        url: "",
+        url: "#kinder",
         isClick: false,
       },
       {
         id: 1,
         name: "아동부",
-        url: "",
+        url: "#child",
         isClick: false,
       },
       {
         id: 2,
         name: "청소년부",
-        url: "",
+        url: "#youth",
         isClick: false,
       },
       {
         id: 3,
         name: "청년부",
-        url: "",
+        url: "#adult",
         isClick: false,
       },
     ],
@@ -112,20 +112,19 @@ const NEWS_SIDEBAR_LIST = [
   {
     id: 0,
     name: "교회 소식",
-    url: "/news",
+    url: "/news?page=1",
     isClick: false,
   },
-
   {
     id: 1,
     name: "주보",
-    url: "/news/weekly",
+    url: "/news/weekly?page=1",
     isClick: false,
   },
   {
     id: 2,
     name: "갤러리",
-    url: "/news/gallery",
+    url: "/news/gallery?page=1",
     isClick: false,
   },
 ];
@@ -135,25 +134,25 @@ const WORSHIP_SIDEBAR_LIST = [
   {
     id: 0,
     name: "예배 및 집회",
-    url: "/worship",
+    url: "#",
     isClick: false,
     subMenuList: [
       {
         id: 0,
         name: "주일 예배",
-        url: "/worship/?category=sundaySermon",
+        url: "/worship/?category=sundaySermon&page=1",
         isClick: false,
       },
       {
         id: 1,
         name: "주일 찬양 예배",
-        url: "/worship/?category=sundayWorshipSermon",
+        url: "/worship/?category=sundayWorshipSermon&page=1",
         isClick: false,
       },
       {
         id: 2,
         name: "특별 예배",
-        url: "/worship/?category=sundayEventSermon",
+        url: "/worship/?category=sundayEventSermon&page=1",
         isClick: false,
       },
     ],
@@ -176,7 +175,7 @@ const MISSION_SIDEBAR_LIST = [
       {
         id: 1,
         name: "선교 갤러리",
-        url: "/mission/gallery",
+        url: "/mission/gallery?page=1",
         isClick: false,
       },
     ],
@@ -224,19 +223,19 @@ const MOBILE_SIDE_MENU = [
       {
         id: 0,
         name: "교회 소식",
-        url: "/news",
+        url: "/news?page=1",
         isClick: false,
       },
       {
         id: 1,
         name: "주보",
-        url: "/news/weekly",
+        url: "/news/weekly?page=1",
         isClick: false,
       },
       {
         id: 2,
         name: "갤러리",
-        url: "/news/gallery",
+        url: "/news/gallery?page=1",
         isClick: false,
       },
     ],
@@ -249,19 +248,19 @@ const MOBILE_SIDE_MENU = [
       {
         id: 0,
         name: "주일 예배",
-        url: "/worship/?category=sundaySermon",
+        url: "/worship/?category=sundaySermon&page=1",
         isClick: false,
       },
       {
         id: 1,
         name: "주일 찬양 예배",
-        url: "/worship/?category=sundayWorshipSermon",
+        url: "/worship/?category=sundayWorshipSermon&page=1",
         isClick: false,
       },
       {
         id: 2,
         name: "특별 예배",
-        url: "/worship/?category=sundayEventSermon",
+        url: "/worship/?category=sundayEventSermon&page=1",
         isClick: false,
       },
     ],
@@ -280,10 +279,38 @@ const MOBILE_SIDE_MENU = [
       {
         id: 1,
         name: "선교 갤러리",
-        url: "/mission/gallery",
+        url: "/mission/gallery?page=1",
         isClick: false,
       },
     ],
+  },
+];
+
+const FOOTER_INFO_LIST = [
+  {
+    id: 0,
+    title: "상호",
+    description: "생명의 빛 교회",
+  },
+  {
+    id: 1,
+    title: "담임목사",
+    description: "김영식",
+  },
+  {
+    id: 2,
+    title: "사업자 등록번호",
+    description: "10-1234-5678",
+  },
+  {
+    id: 3,
+    title: "주소",
+    description: "경기도 고양시 일산동구 중산동 13-2번지 1층 생명의빛교회",
+  },
+  {
+    id: 4,
+    title: "이메일",
+    description: "thelightoflife1968@gmail.com",
   },
 ];
 
@@ -294,4 +321,5 @@ export {
   WORSHIP_SIDEBAR_LIST,
   MISSION_SIDEBAR_LIST,
   MOBILE_SIDE_MENU,
+  FOOTER_INFO_LIST,
 };

@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: "생명의 빛 갤러리 상세 페이지 입니다.",
 };
 
-export default function GalleryDetailPage({
+export default async function GalleryDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
   return (
     <div>
       <NewsGalleryDetail id={id} />

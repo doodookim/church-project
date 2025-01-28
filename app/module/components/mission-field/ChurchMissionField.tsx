@@ -23,6 +23,8 @@ export default function ChurchFacility() {
               src={mission_field.image_files}
               alt="선교지안내"
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, 80vw"
               className="object-cover text-center rounded-[10px]"
             />
           </div>

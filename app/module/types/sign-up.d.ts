@@ -1,4 +1,3 @@
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 import { signUpSchema } from "../utils/validation/sign-up-register";
 
 type TSignUp = Zod.infer<typeof signUpSchema>;

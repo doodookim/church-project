@@ -1,7 +1,4 @@
-import React from "react";
-
 const layoutTitle = (pathName: string): string => {
-  let title = "";
   // 교회 안내
   if (pathName === "/notice") return "교회 안내";
   if (pathName === "/notice/organization") return "교회 조직";

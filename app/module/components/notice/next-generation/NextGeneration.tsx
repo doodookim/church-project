@@ -15,11 +15,11 @@ export default function NextGeneration() {
     );
 
   return (
-    <div>
+    <div className="-translate-y-10">
       {data?.map((next, idx) => (
-        <div key={idx} className="space-y-10">
+        <div key={idx}>
           {/* 유치부 섹션 */}
-          <section>
+          <section id="kinder" className="pt-10">
             <h2 className="text-xl ss:text-2xl text-[#578FCC]">유치부</h2>
             <div className="flex flex-col lg:flex-row md:flex-row gap-[30px] pt-[30px] pb-10 border-b border-[#D9D9D9] border-solid ">
               <div className="relative basis-1/2 aspect-square">
@@ -27,6 +27,8 @@ export default function NextGeneration() {
                   src={next.next_generation_kinder_img.image_files}
                   alt="유치부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px]"
                 />
               </div>
@@ -38,7 +40,7 @@ export default function NextGeneration() {
             </div>
           </section>
           {/* 아동부 섹션 */}
-          <section>
+          <section id="child" className="pt-10">
             <h2 className="text-xl ss:text-2xl text-[#578FCC]">아동부</h2>
             <div className="flex flex-col gap-[30px] pt-[30px]  pb-10 border-b border-[#D9D9D9] border-solid  lg:flex-row-reverse md:flex-row-reverse">
               <div className="relative basis-1/2 aspect-square">
@@ -46,6 +48,8 @@ export default function NextGeneration() {
                   src={next.next_generation_child_img.image_files}
                   alt="아동부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px]"
                 />
               </div>
@@ -57,7 +61,7 @@ export default function NextGeneration() {
             </div>
           </section>
           {/* 청소년부 섹션 */}
-          <section>
+          <section id="youth" className="pt-10">
             <h2 className="text-xl ss:text-2xl text-[#578FCC]">청소년부</h2>
             <div className="flex flex-col lg:flex-row md:flex-row gap-[30px] pt-[30px] pb-10 border-b border-[#D9D9D9] border-solid ">
               <div className="relative basis-1/2 aspect-square">
@@ -65,6 +69,8 @@ export default function NextGeneration() {
                   src={next.next_generation_youth_img.image_files}
                   alt="청소년부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px] "
                 />
               </div>
@@ -76,7 +82,7 @@ export default function NextGeneration() {
             </div>
           </section>
           {/* 청년부 섹션 */}
-          <section>
+          <section id="adult" className="pt-10">
             <h2 className="text-xl ss:text-2xl font-bold text-[#578FCC]">
               청년부
             </h2>
@@ -86,6 +92,8 @@ export default function NextGeneration() {
                   src={next.next_generation_adult_img.image_files}
                   alt="청년부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px] "
                 />
               </div>

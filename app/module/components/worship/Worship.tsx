@@ -36,6 +36,7 @@ export default function Worship() {
   useEffect(() => {
     setCurrentCategory(getCategory());
     setCurrentPage(getParsedPage());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   const selectedCategories = {

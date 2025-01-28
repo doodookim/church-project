@@ -1,7 +1,6 @@
 import useModalStore from "@/app/module/store/useModalStore";
 import { IToken } from "@/app/module/types/token";
 import { useQuery } from "@tanstack/react-query";
-import { constants } from "buffer";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -49,13 +48,14 @@ const useMyPage = () => {
   useEffect(() => {
     if (isError) {
       if (
-        error instanceof Error &&
-        error.message === "찾을 수 없는 사용자입니다"
+        (error instanceof Error &&
+          error.message === "찾을 수 없는 사용자입니다") ||
+        error.message.includes("토큰")
       ) {
         showModal({
           title: "다시 로그인을 해주세요",
           onClickFunction: () => {
-            signOut();
+            signOut({ redirect: true });
             push("/");
           },
         });

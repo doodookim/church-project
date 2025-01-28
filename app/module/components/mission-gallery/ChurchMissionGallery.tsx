@@ -67,6 +67,8 @@ export default function ChurchMissionGallery() {
                           src={image_files}
                           alt="갤러리상세이미지"
                           fill
+                          priority
+                          sizes="(max-width: 768px) 100vw, 80vw"
                           className="object-cover rounded-[10px]"
                         />
                       </div>

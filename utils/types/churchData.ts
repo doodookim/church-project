@@ -1,20 +1,20 @@
-export interface IimageData {
+export interface IImageData {
   id: number;
   image_files: string;
 }
 
-export interface IvideoData {
+export interface IVideoData {
   id: number;
   video_files: string;
 }
 
-export interface IchurchNotice {
+export interface IChurchNotice {
   church_info_content: string;
-  church_info_img: IimageData;
+  church_info_img: IImageData;
   pastor_info_content: string;
-  pastor_img: IimageData;
-  slogan_img: IimageData;
-  worship_time_img: IimageData;
+  pastor_img: IImageData;
+  slogan_img: IImageData;
+  worship_time_img: IImageData;
   location: string;
 }
 
@@ -22,7 +22,7 @@ interface IGalleyAll {
   id: number;
   title: string;
   date: string;
-  mission_gallery_thumb_img: IimageData;
+  mission_gallery_thumb_img: IImageData;
 }
 export interface IMissionGalleryAll {
   count: number;
@@ -35,7 +35,7 @@ export interface IMissionGalleryData {
   id: number;
   title: string;
   date: string;
-  mission_gallery_img_set: IimageData[];
-  mission_gallery_thumb_img: IimageData;
-  mission_gallery_video_set: IvideoData[];
+  mission_gallery_img_set: IImageData[];
+  mission_gallery_thumb_img: IImageData;
+  mission_gallery_video_set: IVideoData[];
 }

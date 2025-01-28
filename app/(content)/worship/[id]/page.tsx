@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   description: "예배 및 집회 상세 페이지 입니다.",
 };
 
-export default function WorshipDetailPage({
+export default async function WorshipDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params;
   return (
     <div>
       {/* <div>예배 및 집회 상세 {id}</div> */}
