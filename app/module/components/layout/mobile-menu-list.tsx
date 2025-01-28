@@ -102,7 +102,10 @@ export default function MobileMenuLIst({ email }: { email?: string }) {
           </div>
           <ul className="w-full flex flex-col justify-center items-center font-semibold text-[20px]">
             <li className="flex justify-end items-center w-full p-[16px]">
-              <HeaderUserButton email={email} mobile={true} />
+              <HeaderUserButton
+                email={email}
+                clickMenuCloseHandler={clickMenuCloseHandler}
+              />
             </li>
             {menuList.map(({ id, name, isClick, subMenuList }) => {
               return (
