@@ -10,19 +10,31 @@ import useFindPasswordStore from "@/app/module/store/useFindPasswordStore";
 export default function FindPassword() {
   const [isModal] = useState(false);
   const { isEmailVerify } = useFindPasswordStore();
+
   return (
     <>
       <BoxLayout
         width={650}
-        classNamePlus="pt-[60px] pb-[72px] overflow-hidden"
+        classNamePlus="relative h-[280px] ss:h-[350px] overflow-hidden"
       >
         <div
           className={clsx(
-            "w-[1300px] flex justify-start items-center flex-shrink-0 gap-[166px] px-[83px] transition-all duration-500",
-            isEmailVerify && "translate-x-[calc(-50%)]"
+            "absolute top-[50%] translate-y-[-50%] w-[80%] transition-all duration-300",
+            isEmailVerify
+              ? "left-[-100%] translate-x-0"
+              : "left-[50%] translate-x-[-50%]"
           )}
         >
           <VerifyEmail />
+        </div>
+        <div
+          className={clsx(
+            "absolute top-[50%] translate-y-[-50%] w-[80%] transition-all duration-300",
+            isEmailVerify
+              ? "left-[50%] translate-x-[-50%]"
+              : "left-[100%] translate-x-0"
+          )}
+        >
           <NewPassword />
         </div>
       </BoxLayout>

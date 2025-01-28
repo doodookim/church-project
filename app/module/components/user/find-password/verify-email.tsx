@@ -54,19 +54,20 @@ export default function VerifyEmail() {
 
   return (
     <div className="w-full flex-auto">
-      <div className="w-full flex justify-between items-center">
+      <div className="w-full flex flex-col md:flex-row justify-between items-end gap-[20px] md:gap-0">
         <input
           type="email"
           name="email"
           id="email"
           placeholder="이메일 입력"
           onChange={changeEmailHandler}
-          className="w-[calc(100%-167px)] text-base font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
+          className="w-full md:w-[calc(100%-167px)] text-sm ss:text-base font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
         />
         <UserButton
           type="button"
           isDisabled={isPending || isSendEmailDone}
           onClick={clickSendEmailHandler}
+          className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center"
         >
           {isPending ? (
             <LoadingSpinner boxSize={1.2} ballSize={0.2} />
@@ -76,7 +77,7 @@ export default function VerifyEmail() {
           )}
         </UserButton>
       </div>
-      <div className="w-full flex justify-between items-end">
+      <div className="w-full flex flex-col md:flex-row justify-between items-end gap-[20px] md:gap-0 mt-[20px]">
         <input
           type="text"
           name="verify"
@@ -84,11 +85,12 @@ export default function VerifyEmail() {
           placeholder="인증번호 입력"
           onChange={changeVerifyCodeHandler}
           onKeyUp={handleHeyUp}
-          className="w-[calc(100%-167px)] text-base font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
+          className="w-full md:w-[calc(100%-167px)] text-sm ss:text-base font-medium py-[13px] border-b border-solid border-[#ABABAB] focus:outline-none"
         />
         <UserButton
           isDisabled={isLoading || isEmailVerify}
           style={isLoading || isEmailVerify ? "confirm" : "ready"}
+          className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center"
           onClick={handleHeyUp}
         >
           {isLoading ? <LoadingSpinner boxSize={1.2} ballSize={0.2} /> : "확인"}

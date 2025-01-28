@@ -40,25 +40,27 @@ export default function NewPassword() {
     <div className="w-full flex-auto">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-[20px]"
+        className="flex flex-col gap-[10px] ss:gap-[20px]"
       >
         <Input
           type="password"
           id="newPassword"
           placeholder="새 비밀번호"
           {...register("newPassword")}
+          classNamePlus="text-sm ss:text-base"
         />
         <Input
           type="password"
           id="newPasswordConfirm"
           placeholder="새 비밀번호 확인"
           {...register("newPasswordConfirm")}
+          classNamePlus="text-sm ss:text-base"
         />
         <div className="flex justify-end">
           <UserButton
             isDisabled={isPending}
             style={isPending ? "confirm" : "ready"}
-            classNamePuls="mt-[20px]"
+            classNamePuls="mt-[10px] ss:mt-[20px] text-sm ss:text-base"
           >
             {isPending ? (
               <LoadingSpinner boxSize={1.2} ballSize={0.2} />

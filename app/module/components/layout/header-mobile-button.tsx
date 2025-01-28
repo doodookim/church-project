@@ -26,7 +26,7 @@ export default function HeaderMobileButton({ email }: { email?: string }) {
       className="flex justify-end items-center md:hidden gap-[20px]"
       onClick={handleClick}
     >
-      <div>{resultEmail} 님</div>
+      {resultEmail && <div>{resultEmail} 님</div>}
       <div className="flex flex-col justify-center items-center gap-[5px] w-[33px] cursor-pointer group">
         <p className="w-full h-[4px] bg-secondary rounded-full group-hover:bg-gray-03 transition-all duration-300" />
         <p className="w-full h-[4px] bg-secondary rounded-full group-hover:bg-gray-03 transition-all duration-300" />
