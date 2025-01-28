@@ -49,13 +49,14 @@ const useMyPage = () => {
   useEffect(() => {
     if (isError) {
       if (
-        error instanceof Error &&
-        error.message === "찾을 수 없는 사용자입니다"
+        (error instanceof Error &&
+          error.message === "찾을 수 없는 사용자입니다") ||
+        error.message.includes("토큰")
       ) {
         showModal({
           title: "다시 로그인을 해주세요",
           onClickFunction: () => {
-            signOut({ redirect: false });
+            signOut({ redirect: true });
             push("/");
           },
         });
