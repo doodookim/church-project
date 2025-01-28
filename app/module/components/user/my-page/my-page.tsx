@@ -28,34 +28,40 @@ export default function MyPage() {
   return (
     <>
       <BoxLayout width={650}>
-        <div className="mt-[108px] mb-[113px] flex flex-col justify-center items-center gap-[40px]">
+        <div className="pt-[108px] pb-[113px] flex flex-col justify-center items-center gap-[40px]">
           {myPageData ? (
-            <div className="flex flex-col justify-center items-start gap-[20px]">
+            <div className="flex flex-col justify-center items-start gap-[20px] ">
               <TitleLayout
                 title={
                   <>
-                    <span className="w-[100px]">이름</span>
-                    <span className="mr-6">:</span>
+                    <span className="w-[100px] hidden sss:inline-block">
+                      이름
+                    </span>
+                    <span className="mr-6 hidden sss:inline-block">:</span>
                     <span>{myPageData.name}</span>
                   </>
                 }
-                classNamePlus="flex justify-start text-[#578FCC]"
+                classNamePlus="flex justify-start text-secondary text-sm ss:text-base"
               />
               <TitleLayout
                 title={
                   <>
-                    <span className="w-[100px]">이메일</span>
-                    <span className="mr-6">:</span>
+                    <span className="w-[100px] hidden sss:inline-block">
+                      이메일
+                    </span>
+                    <span className="mr-6 hidden sss:inline-block">:</span>
                     <span>{myPageData.email}</span>
                   </>
                 }
-                classNamePlus="flex justify-start text-[#578FCC]"
+                classNamePlus="flex justify-start text-secondary text-sm ss:text-base"
               />
               <TitleLayout
                 title={
                   <>
-                    <span className="w-[100px]">휴대폰 번호</span>
-                    <span className="mr-6">:</span>
+                    <span className="w-[100px] hidden sss:inline-block">
+                      휴대폰 번호
+                    </span>
+                    <span className="mr-6 hidden sss:inline-block">:</span>
                     <span>
                       {myPageData.phone_number
                         .replace("+82", "0")
@@ -64,18 +70,18 @@ export default function MyPage() {
                     </span>
                   </>
                 }
-                classNamePlus="flex justify-start text-[#578FCC]"
+                classNamePlus="flex justify-start text-secondary text-sm ss:text-base"
               />
             </div>
           ) : (
             <TitleLayout
               title="로그인을 해주세요"
-              classNamePlus="flex justify-center text-[#578FCC]"
+              classNamePlus="flex justify-center text-secondary text-sm ss:text-base"
             />
           )}
-          <div className="w-full max-w-[330px] flex justify-end items-center gap-[10px] leading-none">
+          <div className="w-full max-w-[160px] sss:max-w-[300px] flex justify-start sss:justify-end items-center gap-[10px] leading-none">
             <button
-              className="text-gray-01 leading-none p-0 m-0"
+              className="text-gray-01 leading-none p-0 m-0 text-sm ss:text-base"
               onClick={handleClick}
             >
               회원 탈퇴
