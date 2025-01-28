@@ -21,7 +21,7 @@ export default function ChurchNotice() {
           {/* 교회소개 */}
           <div
             id="church_info"
-            className="flex flex-col border-b-2 border-[#D9D9D9] pb-[50px] ss:pb-[100px] gap-[30px] ss:gap-[40px]"
+            className="flex flex-col border-b-2 border-[#D9D9D9] pb-[50px] ss:pb-[100px] gap-[30px] ss:gap-[40px] pt-[50px]"
           >
             <h2 className="text-[#578FCC] text-xl ss:text-2xl">교회소개</h2>
             <p className="text-sm ss:text-lg leading-5 ss:leading-7">

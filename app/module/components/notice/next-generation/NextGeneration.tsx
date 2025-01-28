@@ -17,7 +17,7 @@ export default function NextGeneration() {
   return (
     <div className="-translate-y-10">
       {data?.map((next, idx) => (
-        <div key={idx} className="space-y-10">
+        <div key={idx}>
           {/* 유치부 섹션 */}
           <section id="kinder" className="pt-10">
             <h2 className="text-xl ss:text-2xl text-[#578FCC]">유치부</h2>
