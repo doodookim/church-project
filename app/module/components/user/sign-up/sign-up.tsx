@@ -24,7 +24,7 @@ export default function SignUp() {
 
   return (
     <BoxLayout width={650}>
-      <div className="w-full max-w-[484px] mx-auto mt-[65px] mb-[104px] font-medium text-base">
+      <div className="w-full max-w-[484px] mx-auto pt-[50px] pb-[60px] sm:pt-[65px] sm:pb-[104px] font-medium text-base">
         <WarningList />
         <hr className="mt-[30px] mb-[50px]" />
         <SignUpForm form={form} />

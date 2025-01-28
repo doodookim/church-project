@@ -51,16 +51,19 @@ export default function SignUpForm({ form }: ISignUpForm) {
   const { onSubmit } = useClickSignUpHandler();
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="text-sm ss:text-base">
       <div>
-        <TitleLayout title="개인정보 동의" classNamePlus="mb-[30px]" />
+        <TitleLayout
+          title="개인정보 동의"
+          classNamePlus="mb-[30px] text-base ss:text-lg"
+        />
         <div className="w-full h-[150px] border border-solid border-[#ABABAB] rounded-[5px] mb-[20px]"></div>
         <div className="flex flex-col items-end gap-[8px]">
           <div className="flex justify-end items-center gap-[8px]">
             <input
               type="checkbox"
               id="isPersonalConfirm"
-              className="cursor-pointer w-[20px] h-[20px]"
+              className="cursor-pointer w-[12px] h-[12px] ss:w-[15px] ss:h-[15px]"
               {...register("isPersonalConfirm")}
             />
             <label htmlFor="isPersonalConfirm" className="cursor-pointer">
@@ -75,7 +78,7 @@ export default function SignUpForm({ form }: ISignUpForm) {
             <input
               type="checkbox"
               id="isAgeConfirmed"
-              className="cursor-pointer w-[20px] h-[20px]"
+              className="cursor-pointer w-[12px] h-[12px] ss:w-[15px] ss:h-[15px]"
               {...register("isAgeConfirmed")}
             />
             <label htmlFor="isAgeConfirmed" className="cursor-pointer">
@@ -88,44 +91,171 @@ export default function SignUpForm({ form }: ISignUpForm) {
         </div>
       </div>
 
-      <TitleLayout title="개인정보 입력" classNamePlus="mb-[30px]" />
+      <TitleLayout
+        title="개인정보 입력"
+        classNamePlus="mb-[30px] text-base ss:text-lg"
+      />
       <div className="flex flex-col gap-[12px]">
-        <InputBox>
-          <label htmlFor="name">이름</label>
-          <Input type="text" id="name" {...register("name")} />
-        </InputBox>
-        <Message isLabel={true}>{errors.name?.message}</Message>
-        <InputBox>
-          <label htmlFor="email">이메일(아이디)</label>
-          <Input type="email" id="email" {...register("email")} />
-        </InputBox>
-        {(isSendEmailDone || sendEmailMessage) && (
-          <Message isLabel={true} isConfirm={true}>
-            ✔ {sendEmailMessage}
-          </Message>
-        )}
-        <Message isLabel={true}>{errors.email?.message}</Message>
-        <div className="flex justify-end mt-[2px] mb-[8px]">
+        {/* 640px이상 */}
+        <div className="hidden sm:flex flex-col gap-[12px]">
+          <InputBox>
+            <label htmlFor="name">이름</label>
+            <Input type="text" id="name" {...register("name")} />
+          </InputBox>
+          <Message isLabel={true}>{errors.name?.message}</Message>
+          <InputBox>
+            <label htmlFor="email">이메일(아이디)</label>
+            <Input type="email" id="email" {...register("email")} />
+          </InputBox>
+          {(isSendEmailDone || sendEmailMessage) && (
+            <Message isLabel={true} isConfirm={true}>
+              ✔ {sendEmailMessage}
+            </Message>
+          )}
+          <Message isLabel={true}>{errors.email?.message}</Message>
+          <div className="flex justify-end mt-[2px] mb-[8px]">
+            <UserButton
+              type="button"
+              isDisabled={isSendEmailPending || isSendEmailDone}
+              onClick={clickSendEmailHandler}
+            >
+              {isSendEmailPending ? (
+                <LoadingSpinner boxSize={1.2} ballSize={0.2} />
+              ) : (
+                (isSendEmailDone && "발송 완료") ||
+                (!isSendEmailDone && "이메일 인증")
+              )}
+            </UserButton>
+          </div>
+          <InputBox>
+            <label htmlFor="verifyCode">인증번호</label>
+            <Input type="text" id="verifyCode" {...register("verifyCode")} />
+          </InputBox>
+
+          {/* /// */}
+
+          <InputBox>
+            <label htmlFor="password">비밀번호</label>
+            <Input type="password" id="password" {...register("password")} />
+          </InputBox>
+          <Message isLabel={true}>{errors.password?.message}</Message>
+          <InputBox>
+            <label htmlFor="passwordConfirm">비밀번호 확인</label>
+            <Input
+              type="password"
+              id="passwordConfirm"
+              {...register("passwordConfirm")}
+            />
+          </InputBox>
+          <Message isLabel={true}>{errors.passwordConfirm?.message}</Message>
+          <InputBox>
+            <label htmlFor="phone">휴대전화</label>
+            <Input type="tel" id="phone" {...register("phone")} />
+          </InputBox>
+          <Message isLabel={true}>{errors.phone?.message}</Message>
+        </div>
+
+        {/* 640px이하 */}
+        <div className="flex sm:hidden flex-col gap-[6px]">
+          <InputBox>
+            <Input
+              type="text"
+              id="name"
+              placeholder="이름"
+              {...register("name")}
+            />
+          </InputBox>
+          <Message>{errors.name?.message}</Message>
+          <InputBox>
+            <Input
+              type="email"
+              id="email"
+              placeholder="이메일 (아이디)"
+              {...register("email")}
+            />
+          </InputBox>
+          {(isSendEmailDone || sendEmailMessage) && (
+            <Message isConfirm={true}>✔ {sendEmailMessage}</Message>
+          )}
+          <Message>{errors.email?.message}</Message>
+          <div className="flex justify-end mt-[2px] mb-[8px]">
+            <UserButton
+              type="button"
+              className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center"
+              isDisabled={isSendEmailPending || isSendEmailDone}
+              onClick={clickSendEmailHandler}
+            >
+              {isSendEmailPending ? (
+                <LoadingSpinner boxSize={1.2} ballSize={0.2} />
+              ) : (
+                (isSendEmailDone && "발송 완료") ||
+                (!isSendEmailDone && "이메일 인증")
+              )}
+            </UserButton>
+          </div>
+          <InputBox>
+            <Input
+              type="text"
+              id="verifyCode"
+              placeholder="인증번호"
+              {...register("verifyCode")}
+            />
+          </InputBox>
+
+          {/* /// */}
+
+          <InputBox>
+            <Input
+              type="password"
+              id="password"
+              placeholder="비밀번호"
+              {...register("password")}
+            />
+          </InputBox>
+          <Message>{errors.password?.message}</Message>
+          <InputBox>
+            <Input
+              type="password"
+              id="passwordConfirm"
+              placeholder="비밀번호 확인"
+              {...register("passwordConfirm")}
+            />
+          </InputBox>
+          <Message>{errors.passwordConfirm?.message}</Message>
+          <InputBox>
+            <Input
+              type="tel"
+              id="phone"
+              placeholder="휴대전화"
+              {...register("phone")}
+            />
+          </InputBox>
+          <Message>{errors.phone?.message}</Message>
+        </div>
+
+        <div className="flex justify-end mt-[22px]">
           <UserButton
-            type="button"
-            isDisabled={isSendEmailPending || isSendEmailDone}
-            onClick={clickSendEmailHandler}
+            isDisabled={isSignUpPending}
+            style="confirm"
+            className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center"
           >
-            {isSendEmailPending ? (
+            {isSignUpPending ? (
               <LoadingSpinner boxSize={1.2} ballSize={0.2} />
             ) : (
-              (isSendEmailDone && "발송 완료") ||
-              (!isSendEmailDone && "이메일 인증")
+              "회원 가입"
             )}
           </UserButton>
         </div>
-        <InputBox>
-          <label htmlFor="verifyCode">인증번호</label>
-          <Input type="text" id="verifyCode" {...register("verifyCode")} />
-        </InputBox>
+      </div>
+    </form>
+  );
+}
 
-        {/*  백앤드 로직에 따른 주석 추후 기획변경을 위해 주석처리 */}
-        {/* {(isVerifyCodeDone || verifyCodeMessage) && (
+{
+  /*  백앤드 로직에 따른 주석 추후 기획변경을 위해 주석처리 */
+}
+{
+  /* {(isVerifyCodeDone || verifyCodeMessage) && (
           <Message isLabel={true} isConfirm={true}>
             ✔ {verifyCodeMessage}
           </Message>
@@ -143,37 +273,5 @@ export default function SignUpForm({ form }: ISignUpForm) {
               (isVerifyCodeDone && "인증 완료") || (!isVerifyCodeDone && "확인")
             )}
           </UserButton>
-        </div> */}
-
-        <InputBox>
-          <label htmlFor="password">비밀번호</label>
-          <Input type="password" id="password" {...register("password")} />
-        </InputBox>
-        <Message isLabel={true}>{errors.password?.message}</Message>
-        <InputBox>
-          <label htmlFor="passwordConfirm">비밀번호 확인</label>
-          <Input
-            type="password"
-            id="passwordConfirm"
-            {...register("passwordConfirm")}
-          />
-        </InputBox>
-        <Message isLabel={true}>{errors.passwordConfirm?.message}</Message>
-        <InputBox>
-          <label htmlFor="phone">휴대전화</label>
-          <Input type="tel" id="phone" {...register("phone")} />
-        </InputBox>
-        <Message isLabel={true}>{errors.phone?.message}</Message>
-        <div className="flex justify-end mt-[22px]">
-          <UserButton isDisabled={isSignUpPending} style="confirm">
-            {isSignUpPending ? (
-              <LoadingSpinner boxSize={1.2} ballSize={0.2} />
-            ) : (
-              "회원 가입"
-            )}
-          </UserButton>
-        </div>
-      </div>
-    </form>
-  );
+        </div> */
 }

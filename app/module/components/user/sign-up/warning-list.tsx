@@ -8,7 +8,7 @@ export default function WarningList() {
         return (
           <li
             key={item}
-            className="list-disc marker:text-[#ABABAB] marker:w-[6px] marker:h-[6px]"
+            className="list-disc marker:text-[#ABABAB] marker:w-[6px] marker:h-[6px] text-sm ss:text-base"
           >
             {item}
           </li>
