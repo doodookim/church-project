@@ -21,9 +21,9 @@ export default function ChurchFacility() {
           <h2 className="text-[#578FCC] text-2xl">시설 안내</h2>
           <div className="relative mt-[30px] ss:mt-[60px] w-full aspect-[4/3]">
             <Image
+              priority
               src={facility.image_files}
               fill
-              priority
               sizes="(max-width: 768px) 100vw, 80vw"
               alt="시설안내"
               className="object-cover rounded-[10px]"

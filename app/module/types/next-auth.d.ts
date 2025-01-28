@@ -5,8 +5,8 @@ declare module "next-auth" {
     access: string;
     refresh: string;
     email: string;
-    is_church_member: string;
-    is_admin: string;
+    is_church_member: boolean;
+    is_admin: boolean;
   }
 
   interface Session {
@@ -14,6 +14,8 @@ declare module "next-auth" {
       access: string;
       refresh: string;
       email: string;
+      is_church_member: boolean;
+      is_admin: boolean;
     };
   }
 }
@@ -23,7 +25,7 @@ declare module "next-auth/jwt" {
     access: string;
     refresh: string;
     email: string;
-    is_church_member: string;
-    is_admin: string;
+    is_church_member: boolean;
+    is_admin: boolean;
   }
 }

@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import useMainData from "./apis/useMainData";
+import mainData from "./apis/mainData";
 
 const MainCarousel = dynamic(
   () => import("./module/components/main/MainCarousel")
@@ -17,7 +17,7 @@ const MainSermonTime = dynamic(
 export const dynamics = "force-dynamic";
 
 export default async function Home() {
-  const { carousel, news, weekly, recentWorship } = await useMainData();
+  const { carousel, news, weekly, recentWorship } = await mainData();
 
   return (
     <div className="min-h-screen flex flex-col">

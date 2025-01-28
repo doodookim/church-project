@@ -58,7 +58,7 @@ export default function HeaderMain({ email }: { email?: string }) {
         <div className="md:px-[60px] px-[30px] w-full max-w-[1144px] mx-auto h-[60px] flex justify-between items-center">
           <p className="w-[100px]">
             <Link href={"/"}>
-              <Image src={Logo} alt="로고 이미지" />
+              <Image src={Logo} alt="로고 이미지" priority />
             </Link>
           </p>
           <ul className="hidden md:flex justify-center items-center gap-[20px] font-medium text-lg">

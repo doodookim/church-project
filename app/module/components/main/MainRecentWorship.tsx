@@ -17,8 +17,6 @@ export default function MainRecentWorship({
     return `https://www.youtube.com/embed/${videoId}`;
   };
 
-  if (!recentWorship?.results.length) return null;
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -26,6 +24,8 @@ export default function MainRecentWorship({
       setIsLoading(false);
     }
   }, [recentWorship]);
+
+  if (!recentWorship?.results.length) return null;
 
   if (isLoading) {
     return (

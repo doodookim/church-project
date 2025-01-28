@@ -36,11 +36,11 @@ export default function Pagination({
         className="w-[22px] h-[22px] border border-[#D9D9D9] border-solid
           flex justify-center items-center "
       >
-        <Image src={arrow_left} alt="화살표 왼쪽" />
+        <Image src={arrow_left} alt="화살표 왼쪽" priority />
       </button>
 
       {/* 페이지 숫자 1,2 나타내는곳 */}
-      {movePage.map((page: any) => (
+      {movePage.map((page: number) => (
         <button
           key={page}
           onClick={() => onPageChange(page)}
@@ -62,7 +62,7 @@ export default function Pagination({
         className="w-[22px] h-[22px] border border-[#D9D9D9] border-solid
           flex justify-center items-center "
       >
-        <Image src={arrow_right} alt="화살표 오른쪽" />
+        <Image src={arrow_right} alt="화살표 오른쪽" priority />
       </button>
     </div>
   );

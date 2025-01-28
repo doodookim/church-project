@@ -1,8 +1,7 @@
-import { TSignIn } from "@/app/module/types/sign-in";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-export const authOptions: NextAuthOptions = {
+const options: NextAuthOptions = {
   providers: [
     Credentials({
       id: "CredentialId",
@@ -12,7 +11,14 @@ export const authOptions: NextAuthOptions = {
         password: { type: "password" },
       },
       async authorize(credentials) {
-        const { email, password } = credentials as TSignIn;
+        if (!credentials) {
+          throw new Error("자격 증명이 제공되지 않았습니다.");
+        }
+
+        const { email, password } = credentials as {
+          email: string;
+          password: string;
+        };
 
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BASE_URL}/user/login/`,
@@ -65,6 +71,7 @@ export const authOptions: NextAuthOptions = {
             }
           );
         }
+
         return data;
       },
     }),
@@ -95,6 +102,6 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 };
 
-const handler = NextAuth(authOptions);
+const handler = NextAuth(options);
 
 export { handler as GET, handler as POST };

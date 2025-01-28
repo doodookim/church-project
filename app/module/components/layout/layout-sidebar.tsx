@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IMainMenuList } from "../../types/layout";
 
 import SubMenuList from "./sidebar-sub-menu";

@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import BoxLayout from "../box-layout";
 import TitleLayout from "../title-layout";
-import Link from "next/link";
 import DeleteMemberModal from "./delete-member-modal";
 import useMyPage from "@/app/apis/user/useMyPage";
 import LoadingSpinner from "../../common/LoadingSpinner";

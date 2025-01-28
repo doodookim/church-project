@@ -1,10 +1,8 @@
 import { useSignUp } from "@/app/apis/user/useSignUp";
 import { TSignUp } from "../types/sign-up";
-import { useRouter } from "next/navigation";
 
 const useClickSignUpHandler = () => {
   const { mutate } = useSignUp();
-  const router = useRouter();
 
   const onSubmit = (data: TSignUp) => {
     const {

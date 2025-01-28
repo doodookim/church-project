@@ -1,4 +1,4 @@
-import { INewsImg, INewsList } from "@/utils/types/newsData";
+import { INewsImg } from "@/utils/types/newsData";
 import Image from "next/image";
 import Link from "next/link";
 import LoadingSpinner from "@/app/module/components/common/LoadingSpinner";
@@ -30,6 +30,7 @@ export default function WeeklyRecentNews({
                 alt={`최신뉴스파일 ${recent.id + 1}`}
                 width={234}
                 height={234}
+                priority
                 className="object-cover rounded-lg w-full"
               />
             </Link>

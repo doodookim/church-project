@@ -1,4 +1,4 @@
-import { IChurchNotice, IMissionGalleryAll } from "@/utils/types/churchData";
+import { IMissionGalleryAll } from "@/utils/types/churchData";
 import { useQuery } from "@tanstack/react-query";
 
 const getMissionGallery = async () => {

@@ -91,7 +91,7 @@ export default function MobileMenuLIst({ email }: { email?: string }) {
       >
         <div className="w-full flex flex-col justify-between items-start">
           <div className="w-full h-[60px] bg-secondary flex justify-between items-center px-[16px]">
-            <Image src={MobileLogo} alt="모바일 로고 이미지" />
+            <Image src={MobileLogo} alt="모바일 로고 이미지" priority />
             <div
               className="relative bg-red-300 cursor-pointer"
               onClick={clickMenuCloseHandler}

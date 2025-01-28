@@ -14,6 +14,7 @@ export default function Footer() {
 
   useEffect(() => {
     setInView(inView);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inView]);
 
   return (
@@ -38,7 +39,7 @@ export default function Footer() {
             })}
           </ul>
           <Link href={"/"}>
-            <Image src={FooterLogo} alt="푸터 로고 이미지" />
+            <Image src={FooterLogo} alt="푸터 로고 이미지" priority />
           </Link>
         </div>
         <p className="md:hidden w-full h-[2px] bg-gray-04 rounded-full my-[30px]" />

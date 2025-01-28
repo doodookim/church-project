@@ -15,8 +15,6 @@ interface IMainCarouselProps {
 export default function MainCarousel({ carousel }: IMainCarouselProps) {
   const { currentIndex, setCurrentIndex } = useCarouselStore();
 
-  if (!carousel || carousel.length === 0) return null;
-
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -24,6 +22,8 @@ export default function MainCarousel({ carousel }: IMainCarouselProps) {
       setIsLoading(false);
     }
   }, [carousel]);
+
+  if (!carousel || carousel.length === 0) return null;
 
   if (isLoading) {
     return (

@@ -27,7 +27,7 @@ export default function WorshipDetail({ id }: { id: string }) {
     return `https://www.youtube.com/embed/${videoId}`;
   };
 
-  const [currentCategory, setCurrentCategory] = useState(getCategory);
+  const [currentCategory] = useState(getCategory);
 
   if (isLoading)
     return (
