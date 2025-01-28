@@ -55,7 +55,7 @@ const useMyPage = () => {
         showModal({
           title: "다시 로그인을 해주세요",
           onClickFunction: () => {
-            signOut();
+            signOut({ redirect: false });
             push("/");
           },
         });
