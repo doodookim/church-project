@@ -14,7 +14,7 @@ interface INoticeSidebar {
 
 export default function Sidebar({ menuList, pathName }: INoticeSidebar) {
   const [fixedMenu, setFixedMenu] = useState(false);
-  console.log(fixedMenu);
+
   const clickShowButtonHandler = throttle(() => {
     setFixedMenu(window.scrollY > 300);
   }, 100);

@@ -9,6 +9,7 @@ import Footer from "./module/components/layout/footer";
 import AuthProvider from "./AuthProvider";
 import Modal from "./module/components/common/modal";
 import MobileMenu from "./module/components/layout/mobile-menu";
+import ToTop from "@/app/module/components/layout/toTop";
 
 export const metadata: Metadata = {
   title: "생명의 빛 교회",
@@ -34,6 +35,7 @@ export default function RootLayout({
               <MobileMenu />
               <main className="min-h-[calc(100vh-190px)]">{children}</main>
               <Footer />
+              <ToTop />
               <Modal />
             </AuthProvider>
           </HydrationBoundary>
