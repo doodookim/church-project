@@ -6,8 +6,8 @@ import useFooterRefStore from "../../store/useFooterRef";
 
 export default function ToTop() {
   const [fixedTop, setFixedTop] = useState(false);
-  const { inView } = useFooterRefStore();
   const [animateTop, setAnimateTop] = useState(false);
+  const { inView } = useFooterRefStore();
 
   const clickScrollTopHandler = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
