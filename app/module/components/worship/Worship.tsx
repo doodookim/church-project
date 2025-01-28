@@ -1,14 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import Pagination from "../common/Pagination";
 import WorshipList from "./list/WorshipList";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import useSermonData, { sermonCategory } from "@/app/apis/useSermonData";
+import useNavigatePage from "../../hooks/useNavigate";
 
 export default function Worship() {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const defaultPage = 1;
@@ -48,10 +47,11 @@ export default function Worship() {
   const { data, isLoading } = useSermonData(currentCategory, currentPage);
   const totalPages = Math.ceil((data?.count || 0) / itemsPerPage);
 
-  //다른 페이지 번호, 다른 카테고리 누를 때 누른 페이지나 카테고리로 라우팅
-  useEffect(() => {
-    router.push(`/worship/?category=${currentCategory}&page=${currentPage}`);
-  }, [currentPage, currentCategory, router]);
+  // 페이지 네비게이션 커스텀 훅
+  useNavigatePage({
+    baseUrl: "/worship",
+    queryParams: { category: currentCategory, page: currentPage.toString() },
+  });
 
   return (
     <div>

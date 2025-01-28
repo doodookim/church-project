@@ -27,23 +27,25 @@ export default function NewsList({ data, isLoading }: INewsListProps) {
           <div key={news.id}>
             <Link
               href={`/news/${news.id}`}
-              className="flex justify-between items-center border-b p-[22px] cursor-pointer hover:bg-gray-50"
+              className="flex justify-between items-center border-b p-[18px] cursor-pointer hover:bg-gray-50 ss:p-[26px]"
             >
-              <div className="flex gap-[50px] items-center">
+              <div className="flex flex-wrap gap-[15px] ss:gap-[25px] items-center w-full">
                 <div className="w-[60px] flex items-center justify-center">
                   {news.notification ? (
-                    <span className="text-[#578FCC] text-sm border-[#578FCC] border-solid border-2 rounded-[5px] py-[3px] px-2 font-bold">
+                    <span className="text-[#578FCC] text-xs border-[#578FCC] border-solid border-[1px] rounded-[5px] py-[2px] px-1 font-bold ss:text-lg ss:py-[3px] ss:px-2">
                       공지
                     </span>
                   ) : (
-                    <span className="font-medium text-base">{news.id}</span>
+                    <span className="font-medium text-xs ss:text-lg">
+                      {news.id}
+                    </span>
                   )}
                 </div>
-                <h2 className="text-base font-semibold text-[#202020] flex-1">
+                <h2 className="text-xs font-semibold text-[#202020] flex-1 min-w-0 truncate ss:text-lg ss:font-medium">
                   {news.title}
                 </h2>
               </div>
-              <p className="text-[#ABABAB] text-base font-medium w-[100px] text-center">
+              <p className="text-[#ABABAB] text-xs font-medium max-w-full text-center min-w-0 flex-shrink-0 ss:text-lg">
                 {news.date}
               </p>
             </Link>

@@ -14,18 +14,25 @@ export default function ChurchOrganization() {
       </div>
     );
 
+  if (!data) {
+    return (
+      <div className="min-h-lvh text-center align-center text-[30px]">
+        데이터를 찾을 수 없습니다.
+      </div>
+    );
+  }
+
   return (
     <div>
       {data?.map((organization) => (
         <div key={organization.id}>
           <h2 className="text-[#578FCC] text-2xl">교회 조직</h2>
-          <div>
+          <div className="relative mt-[30px] ss:mt-[60px] w-full aspect-[4/3]">
             <Image
-              className="text-center mt-10 w-full h-auto"
               src={organization.image_files}
               alt="교회 조직"
-              width={500}
-              height={500}
+              fill
+              className="object-cover rounded-[10px]"
             />
           </div>
         </div>

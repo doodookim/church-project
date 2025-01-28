@@ -1,12 +1,14 @@
 "use client";
 
 import Pagination from "../common/Pagination";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import useFetchNewsWeekly from "@/app/apis/useNewsWeekly";
 import WeeklyNewsList from "./list/WeeklyNewsList";
 import WeeklyRecentNews from "./list/WeeklyRecentNews";
 import useFetchNewsWeeklyRecent from "@/app/apis/useNewsWeeklyRecent";
 import { useRouter, useSearchParams } from "next/navigation";
+import LoadingSpinner from "../common/LoadingSpinner";
+import useNavigatePage from "../../hooks/useNavigate";
 
 export default function NewsWeeklyPagination() {
   const router = useRouter();
@@ -30,18 +32,24 @@ export default function NewsWeeklyPagination() {
   const { data: weeklyData, isLoading: isWeeklyLoading } =
     useFetchNewsWeekly(currentPage);
 
-  useEffect(() => {
-    router.push(`/news/weekly?page=${currentPage}`);
-  }, [currentPage, router]);
+  // 페이지 네비게이션 커스텀 훅
+  useNavigatePage({
+    baseUrl: "/news/weekly",
+    queryParams: { page: currentPage.toString() },
+  });
 
   const totalPages = Math.ceil((weeklyData?.count || 0) / itemPerPage);
   if (isWeeklyLoading || isWeeklyRecentDataLoading)
-    return <div>로딩 중입니다!</div>;
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
+      </div>
+    );
 
   return (
     <div className="w-full relative">
       <h2 className="text-[#578FCC] text-2xl mb-10">이주의 주보</h2>
-      <div className="flex gap-4">
+      <div className="flex flex-col ss:flex-row gap-4">
         <WeeklyRecentNews
           data={weeklyRecentData}
           isLoading={isWeeklyRecentDataLoading}

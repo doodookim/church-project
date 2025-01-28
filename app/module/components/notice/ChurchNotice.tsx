@@ -1,15 +1,12 @@
 "use client";
 
 import useFetchNotice from "@/app/apis/useNoticeData";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import LoadingSpinner from "../common/LoadingSpinner";
 import Image from "next/image";
-import clsx from "clsx";
-import { usePathname } from "next/navigation";
 
 export default function ChurchNotice() {
   const { data, isLoading } = useFetchNotice();
-
   if (isLoading)
     return (
       <div className="min-h-lvh text-center align-center text-[30px]">
@@ -24,20 +21,19 @@ export default function ChurchNotice() {
           {/* 교회소개 */}
           <div
             id="church_info"
-            className="border-b-2 border-[#D9D9D9] pb-[150px] pt-[50px]"
+            className="flex flex-col border-b-2 border-[#D9D9D9] pb-[50px] ss:pb-[100px] gap-[30px] ss:gap-[40px]"
           >
-            <h2 className="text-[#578FCC] text-2xl">교회소개</h2>
-            <p className="mt-10 text-lg leading-7 ">
+            <h2 className="text-[#578FCC] text-xl ss:text-2xl">교회소개</h2>
+            <p className="text-sm ss:text-lg leading-5 ss:leading-7">
               {info.church_info_content}
             </p>
 
-            <div className="w-full">
+            <div className="relative w-full aspect-[4/3]">
               <Image
-                className="text-center mt-[30px] w-full h-auto"
                 src={info.church_info_img.image_files}
+                fill
                 alt="교회 전경"
-                width={500}
-                height={500}
+                className="object-cover rounded-[10px]"
               />
             </div>
           </div>
@@ -45,62 +41,65 @@ export default function ChurchNotice() {
           {/* 목사소개 */}
           <div
             id="pastor_info"
-            className="border-b-2 border-[#D9D9D9] py-[150px]"
+            className="flex flex-col border-b-2 border-[#D9D9D9] py-[50px] ss:py-[100px] gap-[30px] ss:gap-[40px]"
           >
-            <h2 className="text-[#578FCC] text-2xl">담임 목사 소개</h2>
-            <p className="mt-10 text-lg leading-7">
+            <h2 className="text-[#578FCC] text-xl ss:text-2xl">
+              담임 목사 소개
+            </h2>
+            <p className="text-sm ss:text-lg leading-5 ss:leading-7">
               {info.pastor_info_content}
             </p>
-            <div className="w-full">
+            <div className="relative w-full aspect-[4/3]">
               <Image
-                className="text-center mt-[30px] w-full h-auto"
                 src={info.pastor_img.image_files}
+                fill
                 alt="담임목사"
-                width={500}
-                height={500}
+                className="object-cover rounded-[10px]"
               />
             </div>
           </div>
           {/* 표어 */}
-          <div id="slogan" className="border-b-2 border-[#D9D9D9] py-[150px]">
-            <h2 className="text-[#578FCC] text-2xl">표어</h2>
-            <div className="h-[900px] w-full">
+          <div
+            id="slogan"
+            className="flex flex-col border-b-2 border-[#D9D9D9] py-[50px] ss:py-[100px] gap-[30px] ss:gap-[40px]"
+          >
+            <h2 className="text-[#578FCC] text-xl ss:text-2xl">표어</h2>
+            <div className="relative w-full aspect-[4/3]">
               <Image
-                className="text-center mt-10 w-full h-full object-cover"
                 src={info.slogan_img.image_files}
                 alt="교회 슬로건"
-                width={500}
-                height={500}
+                fill
+                className="text-center object-cover rounded-[10px]"
               />
             </div>
           </div>
           {/* 예배안내 */}
           <div
             id="worship_time"
-            className="border-b-2 border-[#D9D9D9] py-[150px]"
+            className="flex flex-col border-b-2 border-[#D9D9D9] py-[50px] ss:py-[100px] gap-[30px] ss:gap-[40px]"
           >
-            <h2 className="text-[#578FCC] text-2xl">예배 안내</h2>
-            <div className="w-full">
+            <h2 className="text-[#578FCC] text-xl ss:text-2xl">예배 안내</h2>
+            <div className="relative w-full aspect-[4/3]">
               <Image
-                className="h-auto text-center mt-10"
                 src={info.worship_time_img.image_files}
                 alt="예배 시간"
-                width={500}
-                height={500}
-                style={{ width: "100%" }}
+                fill
+                className="text-center object-cover rounded-[10px]"
               />
             </div>
           </div>
           {/* 오시는길 */}
-          <div id="location" className="border-b-2 border-[#D9D9D9] py-[150px]">
-            <h2 className="text-[#578FCC] text-2xl">오시는 길</h2>
-            <div className="w-full h-auto mt-10 ">
+          <div
+            id="location"
+            className="flex flex-col border-b-2 border-[#D9D9D9] py-[50px] ss:py-[100px] gap-[30px] ss:gap-[40px]"
+          >
+            <h2 className="text-[#578FCC] text-xl ss:text-2xl">오시는 길</h2>
+            <div className="relative w-full aspect-[4/3]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d789.3925423799727!2d126.79177015526601!3d37.682806574020354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzfCsDQwJzU3LjgiTiAxMjbCsDQ3JzMwLjEiRQ!5e0!3m2!1sko!2skr!4v1735990696947!5m2!1sko!2skr"
-                width="100%"
-                height="400"
+                className='absolute inset-0 w-full h-full rounded-[10px]"'
                 loading="lazy"
-              ></iframe>
+              />
             </div>
           </div>
         </div>
