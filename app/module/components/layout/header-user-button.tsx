@@ -5,7 +5,13 @@ import React, { useState } from "react";
 import HeaderMenu from "./header-menu";
 import { useSession } from "next-auth/react";
 
-export default function HeaderUserButton({ email }: { email?: string }) {
+export default function HeaderUserButton({
+  email,
+  mobile,
+}: {
+  email?: string;
+  mobile?: boolean;
+}) {
   const serverEmail = email?.includes("@")
     ? email?.substring(0, email?.indexOf("@"))
     : email;
@@ -26,10 +32,11 @@ export default function HeaderUserButton({ email }: { email?: string }) {
   return (
     <ul
       className={clsx(
-        "relative flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full px-[20px] py-[5px]",
-        resultEmail && "cursor-pointer"
+        "relative flex justify-center items-center gap-[10px] bg-[#578FCC] text-white rounded-full ",
+        mobile ? "text-sm px-[14px] py-[6px]" : "px-[20px] py-[5px]",
+        resultEmail && !mobile && "cursor-pointer"
       )}
-      onClick={resultEmail ? clickMenuHandler : undefined}
+      onClick={resultEmail && !mobile ? clickMenuHandler : undefined}
     >
       {resultEmail ? (
         <>

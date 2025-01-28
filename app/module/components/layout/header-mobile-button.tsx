@@ -1,12 +1,13 @@
 "use client";
 import { useSession } from "next-auth/react";
-import React, { useState } from "react";
+import React from "react";
+import useMobileMenuStore from "../../store/useMobileMenuStore";
 
 export default function HeaderMobileButton({ email }: { email?: string }) {
+  const { setMobileMenu } = useMobileMenuStore();
   const userEmail = email?.includes("@")
     ? email?.substring(0, email?.indexOf("@"))
     : email;
-  const [isMenu, setIsMenu] = useState(false);
   const session = useSession();
   const clientEmail = session.data?.user.email.includes("@")
     ? session.data?.user.email?.substring(
@@ -16,13 +17,20 @@ export default function HeaderMobileButton({ email }: { email?: string }) {
     : session.data?.user.email;
   const resultEmail = userEmail || clientEmail;
 
+  const handleClick = () => {
+    setMobileMenu();
+  };
+
   return (
-    <div className="flex justify-end items-center ">
-      <div>{resultEmail}</div>
-      <div className="flex flex-col justify-center items-center gap-[7px] w-[33px] cursor-pointer group">
-        <p className="w-full h-[3px] bg-gray-03 rounded-full group-hover:bg-secondary transition-all duration-300" />
-        <p className="w-full h-[3px] bg-gray-03 rounded-full group-hover:bg-secondary transition-all duration-300" />
-        <p className="w-full h-[3px] bg-gray-03 rounded-full group-hover:bg-secondary transition-all duration-300" />
+    <div
+      className="flex justify-end items-center md:hidden gap-[20px]"
+      onClick={handleClick}
+    >
+      <div>{resultEmail} 님</div>
+      <div className="flex flex-col justify-center items-center gap-[5px] w-[33px] cursor-pointer group">
+        <p className="w-full h-[4px] bg-secondary rounded-full group-hover:bg-gray-03 transition-all duration-300" />
+        <p className="w-full h-[4px] bg-secondary rounded-full group-hover:bg-gray-03 transition-all duration-300" />
+        <p className="w-full h-[4px] bg-secondary rounded-full group-hover:bg-gray-03 transition-all duration-300" />
       </div>
     </div>
   );
