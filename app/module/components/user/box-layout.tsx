@@ -13,13 +13,19 @@ export default function BoxLayout({
   return (
     <div
       className={clsx(
-        `w-full bg-white mb-[150px] rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.05)]`,
-        classNamePlus,
-        width === 484 && "max-w-[484px]",
-        width === 650 && "max-w-[650px]"
+        "px-[40px] w-full h-auto mb-[150px] ",
+        width === 484 && "max-w-[564px]",
+        width === 650 && "max-w-[730px]"
       )}
     >
-      {children}
+      <div
+        className={clsx(
+          `w-full bg-white rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.05)] px-[30px]`,
+          classNamePlus
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
 }
