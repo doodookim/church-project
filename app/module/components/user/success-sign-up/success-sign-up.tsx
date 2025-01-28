@@ -20,13 +20,13 @@ export default function SuccessSignUp() {
   };
   return (
     <BoxLayout width={650}>
-      <div className="mt-[108px] mb-[113px] flex flex-col justify-center items-center gap-[40px]">
+      <div className="pt-[108px] pb-[113px] flex flex-col justify-center items-center gap-[40px]">
         <TitleLayout
           title="회원가입이 완료되었습니다. "
-          classNamePlus="flex justify-center"
+          classNamePlus="flex justify-center text-sm ss:text-base"
         />
-        <div className="flex gap-[18px]">
-          <UserButton>
+        <div className="flex gap-[9px] ss:gap-[18px]">
+          <UserButton className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center">
             <Link
               href={"/"}
               className="flex justify-center items-center w-full h-full"
@@ -34,7 +34,12 @@ export default function SuccessSignUp() {
               메인으로
             </Link>
           </UserButton>
-          <UserButton onClick={handleClick}>로그아웃</UserButton>
+          <UserButton
+            onClick={handleClick}
+            className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center"
+          >
+            로그아웃
+          </UserButton>
         </div>
       </div>
     </BoxLayout>
