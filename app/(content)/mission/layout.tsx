@@ -1,5 +1,6 @@
 "use client";
 import { MISSION_SIDEBAR_LIST } from "@/app/module/components/layout/constant";
+import Content from "@/app/module/components/layout/content";
 import Sidebar from "@/app/module/components/layout/layout-sidebar";
 import { usePathname } from "next/navigation";
 
@@ -13,9 +14,7 @@ export default function MissionLayout({
   return (
     <>
       <Sidebar menuList={MISSION_SIDEBAR_LIST} pathName={pathName} />
-      <section className="w-full md:w-[65%] lg:w-[calc(100%-334px)]">
-        {children}
-      </section>
+      <Content>{children}</Content>
     </>
   );
 }

@@ -5,7 +5,7 @@ import { IMainMenuList } from "../../types/layout";
 
 import SubMenuList from "./sidebar-sub-menu";
 import clsx from "clsx";
-import { debounce, throttle } from "lodash";
+import { throttle } from "lodash";
 
 interface INoticeSidebar {
   menuList: IMainMenuList[];
@@ -14,7 +14,7 @@ interface INoticeSidebar {
 
 export default function Sidebar({ menuList, pathName }: INoticeSidebar) {
   const [fixedMenu, setFixedMenu] = useState(false);
-
+  console.log(fixedMenu);
   const clickShowButtonHandler = throttle(() => {
     setFixedMenu(window.scrollY > 300);
   }, 100);
@@ -31,14 +31,14 @@ export default function Sidebar({ menuList, pathName }: INoticeSidebar) {
     <>
       <nav
         className={clsx(
-          "hidden md:block w-[30%] max-w-[234px] h-auto transition-all duration-500",
-          fixedMenu && "fixed top-[70px] left-[30px]"
+          "hidden md:block w-[30%] lg:w-[234px] h-auto transition-all duration-500",
+          fixedMenu && "sticky top-[70px] left-[30px]"
         )}
       >
-        <ul className="flex flex-col justify-start items-start gap-[9px] font-semibold text-[20px] text-[#578FCC]">
+        <ul className="w-full flex flex-col justify-start items-start gap-[9px] font-semibold text-[20px] text-[#578FCC]">
           {menuList.map(({ id, name, url, isClick, subMenuList }) => {
             return (
-              <li key={id} className={clsx("w-full ")}>
+              <li key={id} className="w-full">
                 <p
                   className={clsx(
                     "w-full h-[40px] border border-solid border-[#A2C3E7] transition-all duration-300",
@@ -64,12 +64,6 @@ export default function Sidebar({ menuList, pathName }: INoticeSidebar) {
           })}
         </ul>
       </nav>
-      <div
-        className={clsx(
-          "w-[30%] max-w-[234px] h-auto",
-          fixedMenu ? "block" : "hidden"
-        )}
-      />
     </>
   );
 }

@@ -6,7 +6,6 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import getQueryClient from "./getQueryClient";
 import Header from "./module/components/layout/header";
 import Footer from "./module/components/layout/footer";
-import { SessionProvider } from "next-auth/react";
 import AuthProvider from "./AuthProvider";
 import Modal from "./module/components/common/modal";
 import MobileMenu from "./module/components/layout/mobile-menu";
@@ -32,7 +31,7 @@ export default function RootLayout({
           <HydrationBoundary state={dehydratedState}>
             <AuthProvider>
               <Header />
-              {/* <MobileMenu /> */}
+              <MobileMenu />
               <main className="min-h-[calc(100vh-190px)]">{children}</main>
               <Footer />
               <Modal />
