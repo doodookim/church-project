@@ -2,9 +2,11 @@
 import clsx from "clsx";
 import { throttle } from "lodash";
 import React, { useEffect, useState } from "react";
+import useFooterRefStore from "../../store/useFooterRef";
 
 export default function ToTop() {
   const [fixedTop, setFixedTop] = useState(false);
+  const { inView } = useFooterRefStore();
   const [animateTop, setAnimateTop] = useState(false);
 
   const clickScrollTopHandler = () => {
@@ -12,14 +14,12 @@ export default function ToTop() {
   };
 
   const clickShowButtonHandler = throttle(() => {
-    const isScrollHeight = window.scrollY > 300;
-    const isScrollHeightNot = window.scrollY < 300;
-
+    const isScrollHeight = window.scrollY > 200;
+    const isScrollHeightNot = window.scrollY < 200;
     if (isScrollHeight) {
       setFixedTop(true);
     } else if (isScrollHeightNot) {
       setAnimateTop(false);
-
       const timer = setTimeout(() => {
         setFixedTop(false);
         clearTimeout(timer);
@@ -28,13 +28,27 @@ export default function ToTop() {
   }, 300);
 
   useEffect(() => {
-    window.addEventListener("scroll", clickShowButtonHandler);
+    const isScrollHeight = window.scrollY > 200;
+    if (!inView) {
+      window.addEventListener("scroll", clickShowButtonHandler);
+      if (isScrollHeight && !inView) {
+        setFixedTop(!inView);
+      }
+    } else if (inView) {
+      window.removeEventListener("scroll", clickShowButtonHandler);
+      clickShowButtonHandler.cancel();
+      setAnimateTop(false);
+      const timer = setTimeout(() => {
+        setFixedTop(false);
+        clearTimeout(timer);
+      }, 300);
+    }
 
     return () => {
       window.removeEventListener("scroll", clickShowButtonHandler);
       clickShowButtonHandler.cancel();
     };
-  }, [clickShowButtonHandler]);
+  }, [clickShowButtonHandler, inView]);
 
   useEffect(() => {
     if (fixedTop) {

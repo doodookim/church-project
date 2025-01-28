@@ -286,6 +286,34 @@ const MOBILE_SIDE_MENU = [
   },
 ];
 
+const FOOTER_INFO_LIST = [
+  {
+    id: 0,
+    title: "상호",
+    description: "생명의 빛 교회",
+  },
+  {
+    id: 1,
+    title: "담임목사",
+    description: "김영식",
+  },
+  {
+    id: 2,
+    title: "사업자 등록번호",
+    description: "10-1234-5678",
+  },
+  {
+    id: 3,
+    title: "주소",
+    description: "경기도 고양시 일산동구 중산동 13-2번지 1층 생명의빛교회",
+  },
+  {
+    id: 4,
+    title: "이메일",
+    description: "thelightoflife1968@gmail.com",
+  },
+];
+
 export {
   HEADER_MENU_LIST,
   NOTICE_SIDEBAR_LIST,
@@ -293,4 +321,5 @@ export {
   WORSHIP_SIDEBAR_LIST,
   MISSION_SIDEBAR_LIST,
   MOBILE_SIDE_MENU,
+  FOOTER_INFO_LIST,
 };
