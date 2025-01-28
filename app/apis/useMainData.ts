@@ -1,9 +1,9 @@
-import { IimageData } from "@/utils/types/churchData";
+import { IImageData } from "@/utils/types/churchData";
 import { INewsListItem } from "@/utils/types/newsData";
 import { ISermonList } from "@/utils/types/sermonData";
 
 export default async function useMainData(): Promise<{
-  carousel: IimageData[];
+  carousel: IImageData[];
   news: INewsListItem[];
   weekly: INewsListItem[];
   recentWorship: ISermonList;
@@ -35,7 +35,6 @@ export default async function useMainData(): Promise<{
       recentWorship: result[3],
     };
   } catch (error) {
-    console.error("데이터 로딩 중 에러 발생", error);
     return {
       carousel: [],
       news: [],

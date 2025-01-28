@@ -4,12 +4,12 @@ import { useCarouselStore } from "@/store/useCarouselStore";
 import Image from "next/image";
 import clsx from "clsx";
 import CarouselPagination from "./pagination/CarouselPagination";
-import { IimageData } from "@/utils/types/churchData";
+import { IImageData } from "@/utils/types/churchData";
 import { useEffect, useState } from "react";
 import LoadingSpinner from "../common/LoadingSpinner";
 
 interface IMainCarouselProps {
-  carousel: IimageData[];
+  carousel: IImageData[];
 }
 
 export default function MainCarousel({ carousel }: IMainCarouselProps) {
@@ -52,6 +52,8 @@ export default function MainCarousel({ carousel }: IMainCarouselProps) {
               src={image_files}
               alt="메인캐러셀"
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, 80vw"
               style={{ objectFit: "cover" }}
             />
           </li>

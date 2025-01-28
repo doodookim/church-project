@@ -15,7 +15,7 @@ export default function MainSermonTime() {
     );
   }
   if (!data?.length) return null;
-  console.log(data);
+
   return (
     <div className="w-full h-full ">
       {data?.map((WorshipTime) => (
@@ -28,6 +28,7 @@ export default function MainSermonTime() {
             src={WorshipTime.worship_time_img.image_files}
             alt="예배 시간"
             fill
+            priority
             className="object-cover rounded-[15px] shadow-[0_4px_4px_rgba(0,0,0,0.2)]"
             sizes="(max-width: 768px) 100vw, 33vw"
           />

@@ -19,7 +19,6 @@ export const getSermonData = async (
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error("예배 및 집회 데이터 불러오기 실패", error);
     throw error;
   }
 };

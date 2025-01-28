@@ -1,4 +1,4 @@
-import { IchurchNotice } from "@/utils/types/churchData";
+import { IChurchNotice } from "@/utils/types/churchData";
 import { useQuery } from "@tanstack/react-query";
 
 const getNoticeData = async () => {
@@ -13,7 +13,7 @@ const getNoticeData = async () => {
 };
 
 const useFetchNotice = () => {
-  const { data, isLoading, isError, error } = useQuery<IchurchNotice[]>({
+  const { data, isLoading, isError, error } = useQuery<IChurchNotice[]>({
     queryKey: ["churchinfo"],
     queryFn: getNoticeData,
   });

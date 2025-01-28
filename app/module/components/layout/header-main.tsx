@@ -46,7 +46,6 @@ export default function HeaderMain({ email }: { email?: string }) {
     }
   }, [fixedHeader]);
 
-  console.log(animateHeader);
   return (
     <>
       <header

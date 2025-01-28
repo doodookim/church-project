@@ -19,6 +19,8 @@ export default function ContentBanner() {
         src={Banner}
         alt="배너 이미지"
         fill
+        priority
+        sizes="(max-width: 768px) 100vw, 80vw"
         style={{ objectFit: "cover", objectPosition: "50% 15%" }}
         className="z-0"
       />

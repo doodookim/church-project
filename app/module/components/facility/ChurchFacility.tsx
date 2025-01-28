@@ -23,6 +23,8 @@ export default function ChurchFacility() {
             <Image
               src={facility.image_files}
               fill
+              priority
+              sizes="(max-width: 768px) 100vw, 80vw"
               alt="시설안내"
               className="object-cover rounded-[10px]"
             />

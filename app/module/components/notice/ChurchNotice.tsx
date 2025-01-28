@@ -32,6 +32,8 @@ export default function ChurchNotice() {
               <Image
                 src={info.church_info_img.image_files}
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, 80vw"
                 alt="교회 전경"
                 className="object-cover rounded-[10px]"
               />
@@ -53,6 +55,8 @@ export default function ChurchNotice() {
               <Image
                 src={info.pastor_img.image_files}
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, 80vw"
                 alt="담임목사"
                 className="object-cover rounded-[10px]"
               />
@@ -69,6 +73,8 @@ export default function ChurchNotice() {
                 src={info.slogan_img.image_files}
                 alt="교회 슬로건"
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, 80vw"
                 className="text-center object-cover rounded-[10px]"
               />
             </div>
@@ -84,6 +90,8 @@ export default function ChurchNotice() {
                 src={info.worship_time_img.image_files}
                 alt="예배 시간"
                 fill
+                priority
+                sizes="(max-width: 768px) 100vw, 80vw"
                 className="text-center object-cover rounded-[10px]"
               />
             </div>

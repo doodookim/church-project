@@ -1,4 +1,4 @@
-import { IchurchNotice, IimageData } from "@/utils/types/churchData";
+import { IChurchNotice, IImageData } from "@/utils/types/churchData";
 import { useQuery } from "@tanstack/react-query";
 
 const getNoticeData = async () => {
@@ -13,7 +13,7 @@ const getNoticeData = async () => {
 };
 
 const useFetchOrganiZation = () => {
-  const { data, isLoading } = useQuery<IimageData[]>({
+  const { data, isLoading } = useQuery<IImageData[]>({
     queryKey: ["churchorganization"],
     queryFn: getNoticeData,
   });

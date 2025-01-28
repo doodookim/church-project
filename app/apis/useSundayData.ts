@@ -9,7 +9,6 @@ const getSundayData = async (page: number) => {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.error(error);
     throw error;
   }
 };

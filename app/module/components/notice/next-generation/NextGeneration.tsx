@@ -27,6 +27,8 @@ export default function NextGeneration() {
                   src={next.next_generation_kinder_img.image_files}
                   alt="유치부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px]"
                 />
               </div>
@@ -46,6 +48,8 @@ export default function NextGeneration() {
                   src={next.next_generation_child_img.image_files}
                   alt="아동부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px]"
                 />
               </div>
@@ -65,6 +69,8 @@ export default function NextGeneration() {
                   src={next.next_generation_youth_img.image_files}
                   alt="청소년부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px] "
                 />
               </div>
@@ -86,6 +92,8 @@ export default function NextGeneration() {
                   src={next.next_generation_adult_img.image_files}
                   alt="청년부 소개"
                   fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 80vw"
                   className="object-cover rounded-[10px] "
                 />
               </div>

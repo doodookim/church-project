@@ -6,8 +6,12 @@ export const metadata: Metadata = {
   description: "교회 소식 상세 페이지 입니다.",
 };
 
-export default function NewsDetailPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default async function NewsDetailPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
   return (
     <div>
       <NewsDetail id={id} />
