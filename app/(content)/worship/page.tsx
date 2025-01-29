@@ -1,5 +1,6 @@
 import Worship from "@/app/module/components/worship/Worship";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "예배 및 집회 | 생명의 빛 교회",
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
 
 export default async function WorshipPage() {
   return (
-    <div>
+    <Suspense>
       <Worship />
-    </div>
+    </Suspense>
   );
 }

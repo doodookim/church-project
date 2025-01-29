@@ -23,29 +23,37 @@ export default function Modal() {
         )}
         onClick={type === "alert" && onClickFunction ? undefined : deleteModal}
       />
-      <BoxLayout
-        width={650}
-        classNamePlus="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]"
-      >
-        <div className="mt-[108px] mb-[113px] flex flex-col justify-center items-center gap-[40px]">
-          <TitleLayout title={title} classNamePlus="flex justify-center" />
-          <div className="flex gap-[18px]">
-            <UserButton
-              onClick={() => {
-                if (onClickFunction) {
-                  onClickFunction();
-                }
-                deleteModal();
-              }}
-            >
-              확인
-            </UserButton>
-            {type === "confirm" && (
-              <UserButton onClick={deleteModal}>취소</UserButton>
-            )}
+      <div className="px-[40px] fixed w-full max-w-[564px] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+        <div className="w-full bg-white rounded-[10px] shadow-[0_0_10px_0_rgba(0,0,0,0.05)]">
+          <div className="py-[80px] ss:py-[110px] flex flex-col justify-center items-center gap-[40px]">
+            <TitleLayout
+              title={title}
+              classNamePlus="text-sm ss:text-base flex justify-center"
+            />
+            <div className="flex gap-[9px] ss:gap-[18px]">
+              <UserButton
+                className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center"
+                onClick={() => {
+                  if (onClickFunction) {
+                    onClickFunction();
+                  }
+                  deleteModal();
+                }}
+              >
+                확인
+              </UserButton>
+              {type === "confirm" && (
+                <UserButton
+                  className="text-sm ss:text-base w-[120px] h-[38px] ss:w-[150px] ss:h-[42px] rounded-full transition-all duration-300 flex justify-center items-center"
+                  onClick={deleteModal}
+                >
+                  취소
+                </UserButton>
+              )}
+            </div>
           </div>
         </div>
-      </BoxLayout>
+      </div>
     </div>
   );
 }

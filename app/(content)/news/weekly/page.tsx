@@ -1,5 +1,6 @@
 import NewsWeeklyPagination from "@/app/module/components/news/NewsWeeklyPagination";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "주보 | 생명의 빛 교회",
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function WeeklyPage() {
   return (
-    <div>
+    <Suspense>
       <NewsWeeklyPagination />
-    </div>
+    </Suspense>
   );
 }

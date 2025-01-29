@@ -1,20 +1,9 @@
-import dynamic from "next/dynamic";
 import mainData from "./apis/mainData";
-
-const MainCarousel = dynamic(
-  () => import("./module/components/main/MainCarousel")
-);
-const MainNewsList = dynamic(
-  () => import("./module/components/main/MainNewsList")
-);
-const MainWeekly = dynamic(() => import("./module/components/main/MainWeekly"));
-const MainRecentWorship = dynamic(
-  () => import("./module/components/main/MainRecentWorship")
-);
-const MainSermonTime = dynamic(
-  () => import("./module/components/main/MainSermonTime")
-);
-export const dynamics = "force-dynamic";
+import MainCarousel from "./module/components/main/MainCarousel";
+import MainNewsList from "./module/components/main/MainNewsList";
+import MainWeekly from "./module/components/main/MainWeekly";
+import MainSermonTime from "./module/components/main/MainSermonTime";
+import MainRecentWorship from "./module/components/main/MainRecentWorship";
 
 export default async function Home() {
   const { carousel, news, weekly, recentWorship } = await mainData();

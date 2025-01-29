@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import ChurchMissionGallery from "@/app/module/components/mission-gallery/ChurchMissionGallery"
-
+import ChurchMissionGallery from "@/app/module/components/mission-gallery/ChurchMissionGallery";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "선교 갤러리 | 생명의 빛 교회",
@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function MissionGalleryPage() {
   return (
-  <div>
-    <ChurchMissionGallery/>
-  </div>
+    <Suspense>
+      <ChurchMissionGallery />
+    </Suspense>
   );
 }

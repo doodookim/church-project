@@ -75,7 +75,7 @@ export default function MobileMenuLIst({ email }: { email?: string }) {
   return (
     <div
       className={clsx(
-        "fixed top-0 right-0 z-50 overflow-hidden",
+        "fixed top-0 right-0 z-40 overflow-hidden",
         isMobileMenu ? "block" : "hidden"
       )}
     >

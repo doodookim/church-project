@@ -14,8 +14,8 @@ export default function HeaderMain({ email }: { email?: string }) {
   const [animateHeader, setAnimateHeader] = useState(false);
 
   const clickShowButtonHandler = throttle(() => {
-    const isScrollHeight = window.scrollY > 100;
-    const isScrollHeightNot = window.scrollY < 100;
+    const isScrollHeight = window.scrollY > 50;
+    const isScrollHeightNot = window.scrollY < 50;
     if (isScrollHeight) {
       setFixedHeader(true);
     } else if (isScrollHeightNot) {
@@ -25,7 +25,7 @@ export default function HeaderMain({ email }: { email?: string }) {
         clearTimeout(timer);
       }, 300);
     }
-  }, 300);
+  }, 100);
 
   useEffect(() => {
     window.addEventListener("scroll", clickShowButtonHandler);

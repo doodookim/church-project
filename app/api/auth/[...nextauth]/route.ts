@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 
-const options: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
       id: "CredentialId",
@@ -102,6 +102,6 @@ const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 };
 
-const handler = NextAuth(options);
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
