@@ -1,5 +1,6 @@
 import NewsGalleryPagination from "@/app/module/components/news/NewsGalleryPagination";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "생명의 빛 갤러리 | 생명의 빛 교회",
@@ -8,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function GalleryPage() {
   return (
-    <div>
+    <Suspense>
       <NewsGalleryPagination />
-    </div>
+    </Suspense>
   );
 }

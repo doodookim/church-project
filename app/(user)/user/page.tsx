@@ -1,5 +1,10 @@
 import Kakao from "@/app/module/components/user/kakao/kakao";
+import { Suspense } from "react";
 
 export default function KakaoPage() {
-  return <Kakao />;
+  return (
+    <Suspense>
+      <Kakao />
+    </Suspense>
+  );
 }
