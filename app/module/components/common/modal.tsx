@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import BoxLayout from "../user/box-layout";
 import TitleLayout from "../user/title-layout";
 import UserButton from "../user/button";
 import useModalStore from "../../store/useModalStore";
