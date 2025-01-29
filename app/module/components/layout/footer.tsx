@@ -22,7 +22,7 @@ export default function Footer() {
       ref={ref}
       className="w-full h-[308px] md:h-[200px] bg-gray-03 text-gray-04 text-[10px]"
     >
-      <div className="w-full max-w-[1024px] px-[16px] md:px-[104px] mx-auto h-full flex flex-col justify-center items-center gap-0 md:gap-[15px]">
+      <div className="w-full max-w-[1024px] px-[16px] md:px-0 mx-auto h-full flex flex-col justify-center items-center gap-0 md:gap-[15px]">
         <div className="w-full flex flex-col-reverse md:flex-row justify-between items-start md:items-center gap-[25px] md:gap-0">
           <ul className="flex flex-col gap-[2px]">
             {FOOTER_INFO_LIST.map(({ id, title, description }) => {
