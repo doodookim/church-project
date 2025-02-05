@@ -17,7 +17,7 @@ export default function MyPage() {
   if (isLoading || !myPageData) {
     return (
       <BoxLayout width={650}>
-        <div className="mt-[108px] mb-[113px] flex flex-col justify-center items-center gap-[40px]">
+        <div className="pt-[108px] pb-[113px] flex flex-col justify-center items-center gap-[40px]">
           <LoadingSpinner boxSize={3.5} ballSize={0.4} color="#578fcc" />
         </div>
       </BoxLayout>

@@ -12,6 +12,8 @@ import { useSendEmail } from "@/app/apis/user/useSendEmail";
 import LoadingSpinner from "../../common/LoadingSpinner";
 import { useEmailVerify } from "@/app/module/hooks/useEmailVerify";
 import { useSignUp } from "@/app/apis/user/useSignUp";
+import { SIGN_UP_PRIVACY_CONSENT_LIST } from "../constant";
+import clsx from "clsx";
 
 interface ISignUpForm {
   form: UseFormReturn<TSignUp, unknown, undefined>;
@@ -57,7 +59,38 @@ export default function SignUpForm({ form }: ISignUpForm) {
           title="개인정보 동의"
           classNamePlus="mb-[30px] text-base ss:text-lg"
         />
-        <div className="w-full h-[150px] border border-solid border-[#ABABAB] rounded-[5px] mb-[20px]"></div>
+        <div className="py-[20px] px-[15px] w-full h-[150px] border border-solid border-[#ABABAB] rounded-[5px] mb-[20px] overflow-y-scroll">
+          <ul className="flex flex-col gap-[16px] text-sm font-normal">
+            {SIGN_UP_PRIVACY_CONSENT_LIST.map(({ id, title, description }) => {
+              return (
+                <li
+                  key={id}
+                  className={clsx(
+                    "flex flex-col",
+                    id === 0 ? "gap-[12px]" : "gap-[6px]"
+                  )}
+                >
+                  <p
+                    className={clsx(
+                      "font-bold text-base",
+                      id === 0 ? "text-xl" : ""
+                    )}
+                  >
+                    {title}
+                  </p>
+                  <p className="flex items-center gap-[12px] list-disc marker:text-[#ABABAB] marker:w-[6px] marker:h-[6px]">
+                    {id !== 0 && (
+                      <p className="w-[6px] h-[6px] bg-gray-01 rounded-full"></p>
+                    )}
+                    <p className={clsx(id !== 0 && "w-[calc(100%-18px)]")}>
+                      {description}
+                    </p>
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
         <div className="flex flex-col items-end gap-[8px]">
           <div className="flex justify-end items-center gap-[8px]">
             <input

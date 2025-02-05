@@ -297,11 +297,11 @@ const FOOTER_INFO_LIST = [
     title: "담임목사",
     description: "김영식",
   },
-  {
-    id: 2,
-    title: "사업자 등록번호",
-    description: "10-1234-5678",
-  },
+  // {
+  //   id: 2,
+  //   title: "사업자 등록번호",
+  //   description: "10-1234-5678",
+  // },
   {
     id: 3,
     title: "주소",
