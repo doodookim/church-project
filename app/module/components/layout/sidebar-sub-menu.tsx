@@ -11,7 +11,6 @@ export default function SubMenuList({
   subMenuList?: ISubMenuList[];
   isClick: boolean;
 }) {
-  const [height, setHeight] = useState("");
   const [isToggle, setIsToggle] = useState(false);
   const subMenuRef = useRef<HTMLUListElement>(null);
 
@@ -20,7 +19,6 @@ export default function SubMenuList({
       const ulHeight = subMenuRef.current?.scrollHeight;
 
       if (subMenuList && isClick && ulHeight > 0) {
-        setHeight(`my-[10px] h-[${ulHeight}px]`);
         setIsToggle(true);
       } else {
         setIsToggle(false);
@@ -32,8 +30,8 @@ export default function SubMenuList({
   return (
     <ul
       className={clsx(
-        "text-[#636363] text-lg transition-all duration-[0.5s] ",
-        isToggle ? height : "translate-y-[-50%] scale-y-0 h-0 my-0"
+        "text-[#636363] text-lg transition-all duration-[1s] overflow-hidden",
+        isToggle ? "my-[10px] max-h-[500px]" : "my-0 max-h-[0px]"
       )}
       ref={subMenuRef}
     >

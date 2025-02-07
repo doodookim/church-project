@@ -104,10 +104,10 @@ export default function ChurchNotice() {
             <h2 className="text-[#578FCC] text-xl ss:text-2xl">오시는 길</h2>
             <div className="relative w-full aspect-[4/3]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.5748117723024!2d126.78907757643434!3d37.68269751745788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9023213b4261%3A0x3fbb0e2e0882b2c8!2z7IOd66qF7J2Y67mb6rWQ7ZqM!5e0!3m2!1sko!2skr!4v1738071693053!5m2!1sko!2skr"
-                className="absolute inset-0 w-full h-full rounded-[10px]"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3157.5748117723024!2d126.78907757643434!3d37.68269751745788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9023213b4261%3A0x3fbb0e2e0882b2c8!2z7IOd66qF7J2Y67mb6rWQ7ZqM!5e0!3m2!1sko!2skr!4v1738936181140!5m2!1sko!2skr"
                 loading="lazy"
-              />
+                className="absolute inset-0 w-full h-full rounded-[10px]"
+              ></iframe>
             </div>
           </div>
         </div>
