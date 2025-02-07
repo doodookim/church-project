@@ -310,7 +310,7 @@ const FOOTER_INFO_LIST = [
   {
     id: 4,
     title: "이메일",
-    description: "thelightoflife1968@gmail.com",
+    description: " dukeun23@hanmail.net",
   },
 ];
 
