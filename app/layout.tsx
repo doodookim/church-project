@@ -14,6 +14,9 @@ import ToTop from "@/app/module/components/layout/toTop";
 export const metadata: Metadata = {
   title: "생명의 빛 교회",
   description: "생명의 빛 교회 페이지 입니다.",
+  icons: {
+    icon: "../public/image/favicon.ico",
+  },
 };
 
 export default function RootLayout({

@@ -305,7 +305,7 @@ const FOOTER_INFO_LIST = [
   {
     id: 3,
     title: "주소",
-    description: "경기도 고양시 일산동구 중산동 13-2번지 1층 생명의빛교회",
+    description: "경기도 고양시 일산동구 약산길 49, 생명의 빛 교회",
   },
   {
     id: 4,

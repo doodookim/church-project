@@ -15,12 +15,6 @@ export default function MobileMenuLIst({ email }: { email?: string }) {
   const { isMobileMenu, setMobileMenu } = useMobileMenuStore();
   const [isAnimateMenu, setIsAnimateMenu] = useState(false);
   const { showModal } = useModalStore();
-  const [subMenuHeight, setSubMenuHeight] = useState([
-    { id: 0, height: "h-0" },
-    { id: 1, height: "h-0" },
-    { id: 2, height: "h-0" },
-    { id: 3, height: "h-0" },
-  ]);
 
   const handleClick = (id: number) => {
     const copyList = [...menuList];
@@ -30,27 +24,6 @@ export default function MobileMenuLIst({ email }: { email?: string }) {
         ? { ...item, isClick: !item.isClick }
         : { ...item, isClick: false };
     });
-    const clickItem = clickList.filter((item) => item.id === id);
-    const copyHeight = [...subMenuHeight];
-
-    if (clickItem[0].isClick && clickItem[0].id === id) {
-      const clickHeight = copyHeight.map((item) => {
-        return item.id === id
-          ? { ...item, height: "h-auto" }
-          : { ...item, height: "h-0" };
-      });
-      setSubMenuHeight([...clickHeight]);
-    } else if (!clickItem[0].isClick) {
-      let timer = null;
-      if (timer) clearTimeout(timer);
-      timer = setTimeout(() => {
-        const clickHeight = copyHeight.map((item) => {
-          return { ...item, height: "h-0" };
-        });
-        setSubMenuHeight([...clickHeight]);
-      }, 300);
-    }
-
     setMenuList([...clickList]);
   };
   const clickMenuCloseHandler = () => {
@@ -143,10 +116,7 @@ export default function MobileMenuLIst({ email }: { email?: string }) {
                   <ul
                     className={clsx(
                       "text-sm transition-all duration-500 text-gray-02 overflow-hidden",
-                      isClick
-                        ? "mb-[12px] h-auto"
-                        : "scale-y-0 translate-y-[-100%] opacity-0 mb-0",
-                      subMenuHeight[id].height
+                      isClick ? "mb-[12px] max-h-[500px]" : "mb-[0] max-h-[0px]"
                     )}
                   >
                     {subMenuList?.map(({ id, name, url }) => {
