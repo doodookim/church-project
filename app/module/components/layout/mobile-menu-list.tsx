@@ -3,7 +3,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { MOBILE_SIDE_MENU } from "./constant";
-import MobileLogo from "@/public/assets/Mobile-logo.png";
+import MobileLogo from "@/public/assets/mobile-logo.png";
 import Image from "next/image";
 import HeaderUserButton from "./header-user-button";
 import useMobileMenuStore from "../../store/useMobileMenuStore";
